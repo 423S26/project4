@@ -1,182 +1,265 @@
-/*Clears default css and sets prefernces*/
-body{
+/* BASE STYLES */
+
+* {
   margin: 0;
-  background-color: #F3F3F3;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1,h2,h3, a{
-  text-align: center;
-
+body {
   font-family: 'Inter', sans-serif;
+  background-color: #F4F1ED;
+  color: #222;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
   font-weight: 500;
+  text-align: center;
 }
 
-p{
-  text-align: left;
-  font-family: 'Inter', sans-serif;
+p {
   font-weight: 300;
 }
 
-/*Nav Bar CSS*/
-#headerLogo{
-  height: 65px;
-  padding: 10px;
-}
-
-header{
-  position: fixed;
-  width: 100%;
-  height: 100px;
-  background-color: #5B3A29;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-}
-
-header ul{
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-  text-align: right;
-  display:flex;
-}
-
-header ul li{
-  display: inline-block;
-}
-
-header ul li a{
+a {
   text-decoration: none;
-  text-transform: uppercase;
-  color: white;
-  padding: 40px 10px;
-  display:  inline-block;
-  transition: all .3s linear;
-  border-right: 1px solid white;
+  color: inherit;
 }
 
-header ul li a:hover{
-  background-color: #8f9779;
-  color: white;
-}
+/* HEADER & NAVIGATION */
 
-.final/*removes border in last nav*/{
-  border-right: 0px solid white;
-}
-
-/*Sets details of footer on all pages*/
-footer{
-  position: relative;
-  height: 50px;
+header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  background-color: #5B3A29;
+  height: 90px;
+  background-color: #5B3A29; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  padding: 0 40px;
+  z-index: 1000;
 }
 
-footer p{
-  width: 100%;
-  justify-content: center;
-  padding: 0px;
-  margin: 0px;
+#headerLogo {
+  height: 55px;
+}
+
+#Nav-Links {
   list-style: none;
-  color: white;
-  text-align: right;
-  display:flex;
+  display: flex;
 }
 
-/*Sets main Image container information on Splash Screen*/
-.titlecontainer{
+#Nav-Links li a {
+  color: white;
+  padding: 35px 18px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+#Nav-Links li:last-child a {
+  border-right: none;
+}
+
+#Nav-Links li a:hover {
+  background-color: #8C5E3C;
+}
+
+/* TITLES */
+
+.titlecontainer {
   width: 100%;
   height: 100vh;
   position: relative;
+  margin-top: 90px; /* offset fixed header */
+}
+
+.titleimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(75%);
 }
 
 .title {
-  text-align: center;
   position: absolute;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
   color: white;
-  font-size: 40px;
-  font-weight: bold;
-  margin:0;
-  z-index: 1;
-
-  line-height: 100vh;
-  top: 0%;
-  font-size: 4.75em
-}
-
-.titleimage{
-  width:100%;
-  height:100%;
-  position: relative;
-  left: 0;
-  top: 0;
-  z-index: -10;
-  width: 100%;
-
-  object-fit: cover;
-}
-
-/*Sets introduction to information on said page below main image*/
-.firstInfo{
-  padding: 3% 0px 3% 0px;
-  flex-direction: column;
-  width: 100%;
-  display: flex;
-  align-items:center;
-}
-
-.firstInfo h1{
-  margin: 0;
-  padding: 0px;
-  padding-bottom: 5px;
-}
-
-.firstInfo p{
-  font-weight:300;
-  width: 20%;
+  font-weight: 600;
+  letter-spacing: 2px;
   text-align: center;
-  margin: 0;
 }
 
-/*Sets Container Attributes for Image Text sections in Index and Winter*/
-.img-div {
-  flex: 50%;
-  width: 50%;
-  padding: 0px 0px 0px 0px;
-  margin: 0px;
+/* INTRO */
+
+.firstInfo {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
 }
 
-.img-div img{
+.firstInfo h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.firstInfo p {
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+/* IMAGE & TEXT */
+
+.row {
+  display: flex;
+  height: 450px;
+  width: 100%;
+}
+
+.img-div,
+.text {
+  flex: 1;
+}
+
+.img-div img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.row{
-  height: 450px;
-  width: 100%;
+.text {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  background-color: #E8E2DA;
+  transition: background 0.3s ease;
 }
 
-.text{
-  flex: 50%;
+.text:hover {
+  background-color: #D8CFC5;
+}
+
+.text h1 {
+  margin-bottom: 15px;
+}
+
+.text p {
+  max-width: 400px;
+  margin: 0 auto;
   text-align: center;
-  padding: 10% 0px 10% 0px;
 }
 
-.text p{
-  padding: 0px 28% 0px 28%;
-  font-weight:300;
-  margin: 0;
-  font-size: 12pt;
+/* LANGUAGE */
+
+#information {
+  padding: 60px 20px;
 }
 
-.text h1{
-  margin: 0;
+#question-boxes {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
 }
+
+.question {
+  width: 45%;
+  background-color: #FFFFFF;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.question h1 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.question p {
+  font-size: 0.95rem;
+}
+
+/* CONTACT */
+
+#contactboxes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+#phone, #location, #email {
+  width: 300px;
+  height: 220px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#phone-img, #location-img, #email-img {
+  width: 45px;
+  height: 45px;
+}
+
+#phone-img img,
+#location-img img,
+#email-img img {
+  width: 100%;
+  height: 100%;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: #5B3A29;
+  color: white;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+/* RESPONSE */
+
+@media (max-width: 900px) {
+
+  .row {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .question {
+    width: 90%;
+  }
+
+  header {
+    padding: 0 20px;
+  }
+
+  #Nav-Links li a {
+    padding: 30px 10px;
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
