@@ -1,0 +1,38 @@
+/*Sets details for winter title images*/
+#winterMountains {
+  filter: brightness(80%);
+}
+
+#winter-nav{
+  background-color: #8f9779;
+}
+
+.firstInfo p{
+  text-align: justify;
+}
+
+.text p{
+  padding: 0px 28% 0px 28%;
+  font-weight:300;
+  margin: 0;
+}
+
+#snowmobile img{
+  filter: brightness(1.1);
+}
+
+#skiing img{
+  filter: brightness(1.15) saturate(1.1);
+}
+
+#snowboard img{
+  filter: brightness(1.2);
+}
+
+#rental img{
+  filter: saturate(1.2);
+}
+
+#guiding img{
+  filter: saturate(1.5);
+}
