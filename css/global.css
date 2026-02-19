@@ -49,6 +49,7 @@ header {
   list-style: none;
   display: flex;
   margin-left: auto;
+}
 
 #Nav-Links li a {
   color: white;
