@@ -5,8 +5,8 @@
 /* Layout */
 .firstInfo {
   max-width: 900px;
-  margin: auto;
-  padding: 100px 20px 60px 20px;
+  margin: 60px auto;
+  padding: 60px 20px;
 }
 
 .firstInfo h1 {
