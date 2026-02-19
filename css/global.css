@@ -86,7 +86,7 @@ header {
 
 .title {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3.5rem;
