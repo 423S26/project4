@@ -1,27 +1,43 @@
-/*Sets details for index title images*/
-#indexcontainer{
-  padding-top:90px;
+#indexcontainer .titleimage {
+  filter: brightness(70%);
 }
 
-#indexTemp {
-  filter: brightness(90%);
+/* Spacing Tweak */
+.firstInfo {
+  padding-top: 100px;
 }
 
-#summer:hover, #winter:hover{
-  transition: all .5s linear;
-  background-color: #dedede;
+/* Alternating Backgrounds */
+.row:nth-child(even) .text {
+  background-color: #EFE7DE;
 }
 
-#summer, #winter{
-  background-color: #F3F3F3;
-  transition: all .5s linear;
+.row:nth-child(odd) .text {
+  background-color: #E3D8CC;
 }
 
-a{
-  text-decoration: none;
-  color: black;
+/* Hover */
+.text {
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
- .firstInfo p{
-   text-align: justify;
- }
+.text:hover {
+  transform: translateY(-5px);
+}
+
+/* Response Improvement */
+@media (max-width: 900px) {
+
+  .row {
+    flex-direction: column;
+  }
+
+  .img-div {
+    height: 250px;
+  }
+
+  .text {
+    padding: 40px 20px;
+  }
+}
