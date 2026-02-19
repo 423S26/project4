@@ -1,120 +1,77 @@
-/*Sets details for summer title images*/
-#summerMountains{
-  filter: brightness(70%);
-}
-#summertitle {
-  /*top: 35%;*/
+.titlecontainer .titleimage {
+  filter: brightness(75%);
 }
 
-#summer-nav{
-  background-color: #8f9779;
+#information {
+  padding-top: 100px;
 }
 
-
-/* Rest of attributes effect the q and a portion*/
-p{
-  padding: 0;
-  margin: 0;
-}
-
-#summerul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  display: inline-block;
+#question-boxes {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
   justify-content: center;
 }
 
-/*sets text styling and div constraints for Q and A*/
-#information p{
-  width: 70%;
+.question {
+  width: 45%;
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
 }
 
-#question-boxes{
-  padding: 30px 0px 20px 0px;
-  width: 80%;
-  display:inline-flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  margin: 0px 10% 0px 10%;
+.question:hover {
+  transform: translateY(-6px);
 }
 
-.question{
-  display: flex;
-  flex-direction: column;
-  width:40%;
-  align-items: center;
-  padding: 10px 0px 5px 0px;
+.question h1 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
 }
 
-.question h1{
-    padding-bottom: 5px;
-    margin: 0;
-}
-
-.question p{
-  font-weight: 300;
-  width: 70%;
-}
-
-/*Sets box dimensions and order for logos and everything at bottom*/
-#contactboxes{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  width:100%;
-}
-
-#contactboxes p, #contactboxes h3{
+.question p {
+  font-size: 0.95rem;
   text-align: center;
-  text-indent: 0px;
-  width: 100%;
 }
 
-#phone, #location, #email{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Translation Style (plan) */
+.translation-box {
+  margin: 60px auto;
+  max-width: 600px;
+  text-align: center;
 }
 
-#contactboxes #location, #contactboxes #email{
-  width: 33%;
-  height: 250px;
-  border: 1px solid black;
+.translation-box input {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-#contactboxes #phone{
-  width: 34%;
-  height: 250px;
-  border: 1px solid black;
+.translation-box button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #5B3A29;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
-#phone-img img, #location-img img, #email-img img{
-  width:100%;
+.translation-box button:hover {
+  background-color: #8C5E3C;
 }
 
-#phone-img, #location-img, #email-img{
-  height: 50px;
-  width: 50px;
-}
+/* Responsive */
+@media (max-width: 900px) {
 
-/*Concluding Text CSS*/
-#Socials img{
-  width: 50px;
-  height:50px;
-}
+  .question {
+    width: 90%;
+  }
 
-#Socials h2{
-  height:100%;
-  margin-top: 12.5px;
-}
-
-#facebook, #instagram{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
