@@ -4,3 +4,6 @@ User Guide: https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkr
 
 Dev Log: 02/19/26
 Added files I'd worked on seperatly, cleaned up files, altered more of the site to fit our purposes. Got separate hosting set up.
+
+02/26
+Research and Treaty pdf's uploaded
