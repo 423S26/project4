@@ -7,3 +7,6 @@ Added files I'd worked on seperatly, cleaned up files, altered more of the site 
 
 02/26
 Research and Treaty pdf's uploaded
+
+Dev Log: 02/27
+2 hours of frontend development, styled pages and added features to treaties.
