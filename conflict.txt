@@ -1,1 +1,1 @@
-Branch A's line
+Resolved: combined branch-a and branch-b.
