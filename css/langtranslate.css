@@ -26,6 +26,26 @@
   filter: brightness(75%);
 }
 
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.titleimage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+}
+
 #information {
   padding-top: 100px;
 }
