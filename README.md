@@ -1,4 +1,4 @@
-https://project4-umber-one.vercel.app/html/culture.html
+https://project4backup.vercel.app/index.html
 
 User Guide: https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing
 
@@ -10,3 +10,10 @@ Research and Treaty pdf's uploaded
 
 Dev Log: 02/27
 2 hours of frontend development, styled pages and added features to treaties.
+
+Dev Log: 03/05
+Updated github to vercel domain. new project domain
+https://project4backup.vercel.app
+
+03/05
+Added file upload function, added copyable code snippet to user guide
