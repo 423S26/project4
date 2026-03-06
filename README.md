@@ -14,3 +14,6 @@ Dev Log: 02/27
 Dev Log: 03/05
 Updated github to vercel domain. new project domain
 https://project4backup.vercel.app
+
+03/05
+Added file upload function, added copyable code snippet to user guide
