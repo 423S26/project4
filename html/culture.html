@@ -8,81 +8,141 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+      .treaty-box.collapsed p,
+      .treaty-box.collapsed ul {
+        display: none;
+      }
+      .treaty-box {
+        cursor: pointer;
+        position: relative;
+      }
+      .treaty-box .expand-indicator {
+        position: absolute;
+        top: 18px;
+        right: 24px;
+        font-size: 1.2em;
+        color: #8C5E3C;
+        user-select: none;
+      }
+    </style>
   </head>
   <body>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.treaty-box').forEach(function(box) {
+          box.classList.add('collapsed');
+          const indicator = document.createElement('span');
+          indicator.className = 'expand-indicator';
+          indicator.textContent = '[+]';
+          box.insertBefore(indicator, box.firstChild);
+          box.addEventListener('click', function(e) {
+            // Prevent toggling if clicking a link inside
+            if (e.target.tagName === 'A') return;
+            box.classList.toggle('collapsed');
+            indicator.textContent = box.classList.contains('collapsed') ? '[+]' : '[-]';
+          });
+        });
+      });
+    </script>
     <header>
-                <a href="../index.html">
-                    <img src="../images/hummingbird_logo.jpg" id="headerLogo" alt="Hummingbird Logo">
-                </a>
-  <ul id="Nav-Links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="learn.html" id="learn-nav">Learn</a></li>
-    <li><a href="culture.html" id="history-nav">History</a></li>
-      <li><a href="stories.html">Stories</a></li>
-  </ul>
+      <a href="../index.html">
+        <img src="../images/hummingbird_logo.jpg" id="headerLogo" alt="Hummingbird Logo" style="height:55px; width:auto; object-fit:contain;">
+      </a>
+      <ul id="Nav-Links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="learn.html">Learn</a></li>
+        <li><a href="culture.html">History</a></li>
+        <li><a href="stories.html">Stories</a></li>
+      </ul>
     </header>
 
-        <div class = "titlecontainer" id="indexcontainer">
-            <img class="titleimage" id="indexTemp" src="../images/tribal-teepee.jpg" alt="Tribal teepee"/>
-            <p class="title" id="indextitle">Treaties and their Consequences</p>
-        </div>
-
-        <div class="firstInfo">
-            <div class="img-div">
-            <img src="../images/FriendshipTreaty_p1.png" alt="FTreaty">
-            </div>
-            <a class="text"  id="FTreaty" href= "../TreatyFiles/FriendshipTreaty.pdf">
-            <h1>The "Friendship Treaty" of 1825</h1>
-            </a>
-            <p>Meant to ensure longlasting relations between the Crow tribe and the United States government,
-                the "Friendship Treaty” of 1825 seems mostly benign on the surface,
-                but upon a closer look it becomes clear that this treaty would create a groundwork for the more restrictive treaties in years to come.
-                More specifically, it establishes that the tribe resides within the United States,
-                and puts them under its protection, effectively beginning the process of removing their status as an independent group with the ability to govern themselves.
-                While the treaty did not explicitly remove any rights or make any moves on their territory,
-                it ensured that when the United States wanted to, they had a basis to begin encroaching upon the tribe’s territory.
-            </p>
-        </div>
-
-    <div class="row">
-            <div class="img-div">
-                <img src="../TreatyFiles/1851Treaty.pdf" alt="FTreaty">
-            </div>
-            <a class="text"  id="1851Treaty" href= "../TreatyFiles/1851Treaty.pdf">
-                <h1>The 1851 Treaty of Fort Laramie</h1>
-            </a>
-                <p>The 1851 Treaty of Fort Laramie was notable in that it allowed the U.S. government to build on Native land,
-                    once again creating an erosion of the tribe's independence from the U.S. and allowing for encroachment upon their homes.
-                    It also established that the U.S.was responsible for protecting the tribes from “all depredations by the people”,
-                    but that the tribes should make reparations for any “depredations” made by their own.
-                    Most critically, it was the first major attempt to map out the lands claimed by each attending tribe,
-                    though it should be noted much of this was done by Americans familiar with the tribes.
-                    This would be a step in the direction of the reservation system,
-                    including the one defined by the 1868 treaty of the same name.
-                </p>
+    <div class="titlecontainer" id="historycontainer">
+  <img class="titleimage" id="historyMountains" src="../images/tribal-teepee.jpg" alt="Tribal Teepee"/>
+  <p class="title overlay-title" id="historytitle">CROW HISTORY & TREATIES</p>
     </div>
 
-<div class="row">
-            <div class="img-div">
-                <img src="../images/LaramieTreaty1.jpg" alt="FTreaty">
-            </div>
-            <a class="text"  id="1868Treaty" href= "../TreatyFiles/LaramieTreaty1868.pdf">
-                <h1>The 1868 Treaty of Fort Laramie</h1>
-            </a>
-                <p>
-                    The 1868 Treaty of Fort Laramie set aside land for the Great Sioux reservation, including the Black Hills,
-                    a location considered sacred by the Sioux.
-                     When settlers intruded upon this land later in 1876 after finding gold in the hills,
-                     the Sioux fought back in a conflict that would culminate into the battle of Little Bighorn.
-                     Despite the American army’s loss, the government continued to claim control of the Black Hills,
-                     and confiscated the land in 1877, going back on their word. This continues to be a point of conflict between the Sioux Nation and the U.S. government.
-                </p>
-</div>
 
+    <div class="firstInfo">
+      <h1>History of the Crow Nation</h1>
+      <p>The Crow Nation has a rich history shaped by its leaders, traditions, and treaty agreements. Explore the timeline below to learn more about the events and people who influenced the Crow Nation.</p>
+    </div>
 
- <footer class="sticky-footer">
-            <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing"> Site Guide</a> |  | </p>
-        </footer>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Important Leaders</h3>
+        <p>Leaders such as Chief Plenty Coups and Chief Medicine Crow played pivotal roles in guiding the Crow Nation through times of change.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Treaty Agreements</h3>
+        <p>The Crow Nation signed several treaties with the United States, including the Fort Laramie Treaty of 1851 and 1868, which shaped the boundaries and rights of the Crow people.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Modern Era</h3>
+        <p>Today, the Crow Nation continues to preserve its language, culture, and traditions while adapting to modern challenges.</p>
+      </div>
+    </div>
+
+    <section class="treaties-section">
+      <h2>Treaties</h2>
+      <div class="treaty-box">
+        <h4>Fort Laramie Treaty of 1851</h4>
+        <p>Articles of a treaty made and concluded at Fort Laramie, in the Indian territory, between D.D Mitchell, superintendent of Indian Affairs, and Thomas Fitzpatrick, Indian Agent, commissioners specially appointed and authorized by The President of the United States, of the first part and the chiefs, headmen, and braves of the following Indian nations, residing south of the Missouri River, east of the Rocky Mountains, and north of the lines of Texas and New Mexico: the Sioux and Dahcotahs, Cheyennes, Arrapahos, Crows, Assinaboines, Gros-Ventre, Mandans, and Arrickaras, parties of the second part, on the seventeenth day of September, A.D. 1851.</p>
+        <p><strong>Article 1.</strong> The aforesaid nations, parties to this treaty, having assembled for the purpose of establishing and confirming peaceful relations amongst themselves, do hereby covenant and agree to abstain in future from all hostilities whatever against each other, to maintain good faith and friendship in all their mutual intercourse, and to make an effective and lasting peace.</p>
+        <p><strong>Article 2.</strong> The aforesaid nations do hereby recognize the right of the United States government to establish roads, military, and other posts within their respective territories.</p>
+        <p><strong>Article 3.</strong> In consideration of the rights and privileges acknowledged in the preceding article, the United States bind themselves to protect the aforesaid Indian nations against the commission of all the depredations by the people of the said United States, after the ratification of the treaty.</p>
+        <p><strong>Article 4.</strong> The aforesaid Indian nations do hereby agree and bind themselves to make restitution or satisfaction for any wrongs committed, after the ratification of this treaty, by any band or individual of their people, on the people of the United States, whilst lawfully residing in or passing through their respective territories.</p>
+        <p><strong>Article 5.</strong> The aforesaid Indian nations do hereby recognize and acknowledge the following tracts of country, included within the metes and boundaries hereinafter designated, as their respective territories:</p>
+        <ul>
+          <li><strong>Sioux or Dakota nation:</strong> Commencing at the mouth of the White Earth River, on the Missouri River; thence in a southwesterly direction to the forks of the Platte River; thence up the North Fork of the Platte River to a point known as Red Butte, or where the road leaves the river; thence along the river range of the mountains known as the Black Hills, to the headwaters of Heart River; thence down Heart River to its mouth; and then down to the Missouri River to the place of beginning.</li>
+          <li><strong>Assiniboine nation:</strong> Commencing at the mouth of the Yellowstone River; thence up the Missouri River to the mouth of the Muscle Shell River; thence from the mouth of the Muscle Shell River in a southeasterly direction until it strikes the headwaters of Big Dry Creek; thence down that creek to where it empties into the Yellowstone River, nearly opposite the mouth of Powder River, and thence down the Yellowstone River to the place of beginning.</li>
+          <li><strong>Blackfeet nation:</strong> Commencing at the mouth of Muscle Shell River; thence up the Missouri River to its source; thence along the main range of the Rocky Mountains, in a southerly direction, to the headwaters of the northern source of the Yellowstone River; thence down Yellowstone River to the mouth of Twenty Five Yard Creek; thence across to the headwaters of the Muscle Shell, and thence down the Muscle Shell River to the place of beginning.</li>
+          <li><strong>Crow Nation:</strong> Commencing at the mouth of Powder River on the Yellowstone; thence up Powder River to its source; thence along the main range of the Black Hills and Wind River Mountains to the headwaters of the Yellowstone River; thence down the Yellowstone River to the mouth of Twenty-five Yard Creek; thence to the headwaters of the Muscle-shell River; thence down the Muscle-shell River to its mouth; thence to the headwaters of Big Dry Creek, and thence to its mouth.</li>
+          <li><strong>Cheyennes and Arrapahoes:</strong> Commencing at the Red Bute, or the place where the road leaves the North Fork of the Platte River; thence up the North Fork of the Platte River to its source; thence along the main range of the Rocky Mountains to the headwaters of the Arkansas River; thence down the Arkansas River to the crossing of the Santa Fe road; thence in a northwesterly direction to the forks of the Platte River, and thence up the Platte River to the place of beginning.</li>
+        </ul>
+        <p>It is, however, understood that, in making this recognition and acknowledgement, the aforesaid Indian nations do not hereby abandon or prejudice any rights or claims they may have to other lands; and further, that they do not surrender the privilege of hunting, fishing, or passing over any of the tracts of country heretofore described.</p>
+        <p><strong>Article 6.</strong> The parties to the second part of this treaty having selected principals or head-chiefs for their respective nations, through whom all national business will hereafter be conducted, do hereby bind themselves to sustain said chiefs and their successors during good behavior.</p>
+        <p><strong>Article 7.</strong> In consideration of the treaty stipulations, and for the damages which have or may occur by reason thereof to the Indian nations, parties hereto, and for their maintenance and the improvement of their moral and social customs, the United States bind themselves to deliver to the said Indian nations the sum of fifty thousand dollars per annum for the term of ten years, with the right to continue the same at the discretion of the President of the United States for a period not exceeding five years thereafter, in provisions, merchandise, domestic animals, and agricultural implements in such proportions as may be deemed best adapted to their condition by the President of the United States, to be distributed in proportion to the population of the aforesaid Indian nations.</p>
+        <p><strong>Article 8.</strong> It is understood and agreed that should any of the Indian nations, parties to this treaty, violate any of the provisions thereof, the United States may withhold the whole or a portion of the annuities mentioned in the preceding article from the nation so offending, until, in the opinion of the President of the United States, proper satisfaction shall have been made.</p>
+        <p><em>In testimony whereof the said D. D. Mitchell and Thomas Fitzpatrick commissioners as aforesaid, and the chiefs, headmen, and braves, parties hereto, have set their hands and affixed their marks, on the day and at the place first above written.</em></p>
+      </div>
+      <div class="treaty-box">
+  <h4>Fort Laramie Treaty of 1868</h4>
+  <p>Andrew Johnson, President of the United States of America, To all and singular to whom these presents shall come, greeting: Whereas a Treaty was made and concluded at Fort Laramie, in the Territory of Dakota, on the seventh day of May, in the year of our Lord one thousand eight hundred and sixty-eight, by and between Lieutenant General W. T. Sherman, Brevet Major General William S. Harney, Brevet Major General Alfred H. Terry, Brevet Major General C. C. Augur, John B. Sanborn, and S. F. Tappan, Commissioners, on the part of the United States and Che-Ra-Pee-Ish-Ka-Te, Chat-Sta-He, and other Chiefs and Headmen of the Crow tribe of Indians, on the part of said Indians, and duly authorized thereto by them, which Treaty is in the words and figures following to wit.</p>
+  <p><strong>Draft of a Treaty with the "Crow Indians" of Montana, made the Seventh day of May 1868, at Fort Laramie.</strong></p>
+  <p>Articles of a treaty made and concluded at Fort Laramie, Dakota Territory, on the seventh day of May in the year of our Lord One thousand Eight hundred and sixty eight, by and between the undersigned Commissioners on the part of the United States, and the undersigned chiefs and headmen of, and representing, the Crow Indians; they being duly authorized to act in the premises.</p>
+  <p><strong>Article 1.</strong> From this day forward Peace between the parties to this treaty shall forever continue. The Government of the United States desires peace and its honor is hereby pledged to keep it. The Indians desire peace and they hereby pledge their honor to maintain it. If bad men among the whites or among other people subject to the authority of the United States shall commit any wrong upon the person or property of the Indians, the United States will upon proof, made to the Agent and forwarded to the Commissioner of Indian Affairs at Washington City, proceed at once to cause the offender to be arrested and punished according to the laws of the United States and also reimburse the injured person for the loss sustained; If bad men among the Indians shall commit a wrong or depredation upon the person or property of any one, white, black or Indian, subject to the authority of the United States and at peace therewith, the Indians herein named solemnly agree that they will on proof made to their Agent and notice by him, deliver up the wrong doer to the United States, to be tried and punished according to its laws, and in case they refuse wilfully so to do the person injured shall be reimbursed for his loss from the annuities or other moneys due or to become due to them under this or other treaties made with the United States. And the President, on advising with the Commissioner of Indian Affairs, shall prescribe such rules and regulations for ascertaining damages under the provisions of this article, as in his judgement may be proper. But no such damages shall be adjusted and paid until thoroughly examined and passed upon by the Commissioner of Indian Affairs, and no one sustaining loss while violating, or because of his violating, the provisions of this treaty or the laws of the United States shall be reimbursed therefor.</p>
+  <p><strong>Article 2.</strong> The United States agrees that the following district of country to wit: Commencing where the 107° degree of Longitude west of Greenwich crosses the south boundary of Montana Territory, thence north along said 107th meridian to the mid channel of the Yellow Stone river. Thence up said mid channel of the Yellow Stone to the point where it crossed the said southern boundary of Montana being the 45° degree of North Latitude and thence east along said parallel of Latitude to the place of beginning, shall be and the same is set apart for the absolute and undisturbed use and occupation of the Indians herein named, and for such other friendly tribes or individual Indians, as from time to time they may be willing - with the consent of the United States - to admit amongst them, and the United States now solemnly agrees that no persons, except those herein designated and authorized so to do, and except such officers, agents and employees of the government as may be authorized to enter upon Indian reservations in discharge of duties enjoined by law shall ever be permitted to pass over, settle upon or reside in the territory described in this article for the use of said Indians, and henceforth, they will and do hereby relinquish all title, claims or rights in and to any portion of the territory of the United States, except such as is embraced within the limits aforesaid.</p>
+  <p><strong>Article 3.</strong> The United States agrees at its own proper expense to construct on the South side of the Yellow Stone near Otter Creek, a warehouse or store room for the use of the Agent in storing goods belonging to the Indians, to cost not exceeding twenty five hundred dollars; An Agency building for the residence of the Agent, to cost not exceeding three thousand dollars; a residence for the physician to cost not more than three thousand dollars; and five other buildings, for a Carpenter, Farmer, Blacksmith, Miller and Engineer, Each to cost not exceeding two thousand dollars; Also a school house or Mission building, so soon as a sufficient number of children can be induced by the Agent to attend school which shall not cost exceeding twenty five hundred dollars. The United States agrees further to cause to be erected on said reservation, near the other buildings herein authorized, a good steam Circular Saw Mill, with a Grist Mill and shingle Machine attached, the same to cost not exceeding Eight thousand dollars.</p>
+  <p><strong>Article 4.</strong> The Indians herein named agree, when the Agency house and other buildings, shall be constructed on the reservation named, they will make said reservation their permanent home, and they will make no permanent settlement elsewhere, but they shall have the right to hunt on the unoccupied lands of the United States, so long as game may be found thereon and as long as peace subsists among the Whites and Indians on the borders of the hunting districts.</p>
+  <p><strong>Article 5.</strong> The United States agrees that the Agent for said Indians, shall in the future, make his home at the Agency building; that he shall reside among them, and keep an office open at all times, for the purpose of prompt and diligent enquiry into such matters of complaint by and against the Indians, as may be presented for investigation under the provisions of their treaty stipulations, as also for the faithful discharge of other duties enjoined on him by law. In all cases of depredation on person or property, he shall cause the evidence to be taken in writing and forwarded, together with his findings, to the Commissioner of Indian Affairs, whose decision, shall be binding on the parties to this treaty.</p>
+  <p><strong>Article 6.</strong> If any individual belonging to said tribes of Indians, or legally incorporated with them, being the head of a family, shall desire to commence farming, he shall have the privilege to select, in the presence and with the assistance of the Agent then in charge, a tract of land within said reservation, not exceeding three hundred and twenty acres in extent, which tract, when so selected, certified and recorded in the "Land Book" as herein directed, shall cease to be held in common, but the same may be occupied and held in the exclusive possession of the person selecting it, and of his family, so long as he or they may continue to cultivate it. Any person over eighteen years of age, not being the head of a family, may in like manner, select and cause to be certified to him or her, for purposes of cultivation, a quantity of land not exceeding eighty acres in extent, and thereupon, be entitled to the exclusive possession of the same as above directed. For each tract of land so selected, a certificate, containing a description thereof and the name of the person selecting it, with a certificate endorsed thereon, that the same has been recorded shall be delivered to the party entitled to it by the Agent, after the same shall have been recorded by him, in a book to be kept in his office, subject to inspection, which said book shall be known as the "Crown Land Book." The President may, at any time, order a survey of the reservation, and, when so surveyed, Congress shall provide for protecting the rights of settlers in their improvements, and may fix the character of the title held by each. The United States may pass such laws on the subject of alienation and descent of property, as between Indians and on all subject, connected with the government of the Indians on said reservations, and the internal police thereof, as may be thought proper.</p>
+  <p><strong>Article 7.</strong> In order to insure the civilization of the tribe entering into this treaty, the necessity of education is admitted, especially by such of them as are, or may be, settled on said agricultural reservation, and they, therefore, pledge themselves to compel their children, male and female, between the ages of six and sixteen years, to attend school, and it is hereby made the duty of the Agent for said Indians, to see that this stipulation is strictly complied with; and the United States agrees that for every thirty children, between said ages, who can be induced or compelled to attend school, a house shall be provided, and a teacher, competent to teach the elementary branches of an English education, shall be furnished who will reside among said Indians, and faithfully discharge his or her duties as a teacher. The provisions of this article to continue for twenty years.</p>
+  <p><strong>Article 8.</strong> When the head of a family or lodge, shall have selected lands, and received his certificate as above directed and the agent shall be satisfied that he intends in good faith to commence cultivating the soil and agricultural implements for the first year in value one hundred dollars, and for each succeeding year he shall continue to farm for a period of three years more, he shall be entitled to receive seeds and implements as aforesaid in value, twenty five dollars per annum. And it is further stipulated, that such persons as commence farming, shall receive instructions from the farmer, herein provided for, and whenever more than one hundred persons shall enter upon the cultivation of the soil, a second blacksmith shall be provided, with such iron steel, and other material as may be required.</p>
+  <p><strong>Article 9.</strong> In lieu of all sums of money or other annuities provided to be paid to the Indians herein name, under any and all treaties heretofore made with them, the United States agrees to deliver at the Agency House, on the reservation herein provided for, on the first day of September of each year for thirty years, the following articles, to wit: For each male person, over fourteen years of age, a suit of good substantial woolen clothing, consisting of coat, hat, pantaloons, flannel shirt and a pair of woolen socks. For each female, over twelve years of age, a flannel skirt, or the goods necessary to make it; a pair of woolen hose, twelve yards of calico and twelve yards of cotton domestics. For the boys and girls under the ages named, such flannel and cotton goods as may be needed to make each, a suit as aforesaid, together with a pair of woolen hose for each. And, in order that the Commissioner of Indian Affairs may be able to estimate properly for the articles herein named, it shall be the duty of the Agent, each year, to forward to him a full and exact census of the Indians, on which the estimate from year to year can be based. And, in addition to the clothing herein named, the sum of ten dollars shall be annually appropriated for each Indian roaming and twenty dollars for each Indian engaged in agriculture for a period of ten years to be used by the Secretary of the Interior, in the purchase of such articles as, from time to time, the condition and necessities of the Indians may indicate to be proper. And if, at any time, within the ten years, it shall appear that the amount of money needed for clothing, under this article, can be appropriated to better uses for the tribe herein named, Congress may by law, change the appropriation to other purposes, but, in no event, shall the amount of this appropriation be withdrawn or discontinued for the period named: and the President shall, annually, detail an officer of the Army to be present and attest the delivery of all the goods, herein named, to the Indians, and he shall inspect and report on the quantity and quality of the goods and the manner of their delivery, and it is expressly stipulated that each Indian over the age of four years, who shall have removed to and settled permanently upon said reservation and complied with the stipulations of this treaty shall be entitled to receive from the United States for the period of four years after he shall have settled upon said reservations, one pound of meat and one pound of flour per day, provided the Indians cannot furnish their own subsistence at an earlier date. And it is further stipulated that the United States will furnish and deliver to each lodge of Indians or family of persons legally incorporated with them, who shall remove to the reservation, herein described and commence farming, one good American Cow and one good well broken pair of American Oxen within sixty days after such lodge or family shall have so settled upon said reservation.</p>
+  <p><strong>Article 10.</strong> The United States hereby agrees to furnish annually to the Indians, the physician, Teachers, Carpenter, Miller, Engineer, Farmer and Blacksmiths as herein contemplated, and that such appropriations shall be made from time to time, on the estimates of the Secretary of the Interior, as will be sufficient to employ such persons.</p>
+  <p><strong>Article 11.</strong> No treaty for the cession of any portion of the reservations herein described, which may be held in common, shall be of any force or validity as against the said Indians unless executed and signed by, at least, a majority of all the adult male Indians occupying or interested in the same, and no cession, by the tribe shall be understood or construed in such a manner as to deprive - without his consent - any individual member of the tribe of his right to any tract of land selected by him as provided in Article VI of this treaty.</p>
+  <p><strong>Article 12.</strong> It is agreed that the sum of Five hundred dollars annually, for three years from the date when they commence to cultivate a farm, shall be expended in presents to the ten persons of said tribe who, in the judgment of the Agent, may grow the most valuable crops for the respective year.</p>
+      </div>
+      <div class="treaty-box">
+  <h4>1825 Treaty with the Crow Tribe</h4>
+  <p>John Quincy Adams, President of the United States of America. To all and singular to whom these presents shall come, Greetings: Whereas a Treaty between the United States of America and the Crow Tribe of Indians was made and concluded, on the fourth day of August, one thousand eight hundred and twenty five, at the Mandan Village, within the United States, by Commissioners on the part of the United States, and certain chiefs and warriors of said Tribe, on the part and in behalf of said Tribe, which Treaty is in the words following, to wit:</p>
+  <p>For the purpose of perpetuating the friendship which had heretofore existed as also to remove all future cause of discussion or dissension as it respects Trade and Friendship between the United States and their citizens, and the Crow Tribe of Indians, the President of the United States of America by Brigadier General Henry Atkinson of the United States Army and Major Benjamin O Fallon Indian Agent with full powers and authority specially appointed and commissioned for that purpose of the one part; And the undersigned Chiefs, Headmen and Warriors of the said Crow Tribe of Indians on behalf of their Tribe of the other part; have made and entered into the following Articles and conditions, which, when ratified by the President of the United States, by and with the advice and consent of the Senate shall be binding on both parties; to wit,</p>
+  <p><strong>Article 1st.</strong> It is admitted by the Crow Tribe of Indians that they reside within the Territorial limits of the United States, acknowledge their supremacy, and claim their protection: The said Tribe also admit the right of the United States to regulate all trade and intercourse with them.</p>
+  <p><strong>Article 2d.</strong> The United States agree to receive the Crow Tribe of Indians into their friendship and under their protection, and to extend to them from time to time such benefits and acts of kindness as may be convenient and seem just and proper to the President of the United States.</p>
+  <p><strong>Article 3d.</strong> All trade and intercourse with the Crow Tribe shall be transacted at such place or places as may be designated and pointed out by the President of the United States through his Agents; and none but American Citizens duly authorized by the United States shall be admitted to trade or hold intercourse with said Tribe of Indians.</p>
+  <p><strong>Article 4th.</strong> That the Crow Tribe may be accommodated with such articles of merchandise as their necessities may demand the United States agree to admit and license Traders to hold intercourse with said Tribe under mild and equitable regulations; In consideration of which the Crow Tribe bind themselves to extend protection to the persons, and the property of the Traders, and the persons legally employed under them whilst they remain within the limits of their district of country. And the said Crow Tribe further agree that if any Foreigner or other person not legally authorized by the United States shall come into their district of country for the purposes of Trade or other views, they will apprehend such person or persons and deliver him or them to some United States Superintendent or Agent of Indian Affairs or to the commandant of the nearest military post to be dealt with according to law: And they further agree to give safe conduct to all persons who may be legally authorized by the United States to pass through their country, and to protect in their persons and property all Agents or other persons sent by the United States to reside temporarily among them; And that they will not whilst on their distant excursions, molest or interrupt any American Citizen or Citizens who may be passing from the United States to New Mexico, or returning from thence to the United States.</p>
+  <p><strong>Article 5th.</strong> That the Friendship which is now established between the United States and the Crow Tribe should not be interrupted by the misconduct of individuals it is hereby agreed that for the injuries done by individuals, no private revenge or retaliation shall take place, but instead thereof complaints shall be made by the party injured to the Superintendent, or Agent of Indian affairs or other person appointed by the President; and it shall be the duty of said Chiefs upon complaint being made as aforesaid to deliver up the person or persons against whom the complaint is made to the end that he or they may be punished agreeably to the laws of the United States; And in like manner, if any robbery, violence or murder shall be committed on any Indian or Indians belonging to the said Tribe, the person or persons so offending shall be tried, and if found guilty shall be punished in like manner as if the injury had been done to a white man. And it is agreed that the Chiefs of said Crow Tribe shall to the utmost of their power exert themselves to recover horses or other property which may be stolen or taken from any citizen or citizens of the United States by any individual or individuals of said Tribe; And the property so recovered shall be forthwith delivered to the Agent or other person authorized to receive it, that it may be restored to the proper owner. And the United States hereby guarantee to any Indian or Indians of said Tribe a full indemnification for any horses or other property which may be stolen from them by any of their Citizens, provided that the property stolen cannot be recovered and that sufficient proof is produced, that it was actually stolen by a Citizen of the United States. And the said Tribe engage on the requisition or demand of the President of the United States, or of the Agents to deliver up any white man resident among them.</p>
+  <p><strong>Article 6th.</strong> And the Chiefs and Warriors as aforesaid promise and engage that their Tribe will never by sale exchange or as presents, supply any nation, tribe or band of Indians not in Amity with the United States with guns, ammunition or other implements of war.</p>
+  <p><em>Done at the Mandan Village this Fourth day of August, A.D. 1825. And of the Independence of the United States the fiftieth - by Testimony whereof the Commissioners Henry Atkinson and Benjamin O'Fallon and the Chiefs and warriors of the Crow Tribe of Indians have hereunto set their hands and offered their seals.</em></p>
+  <p><em>Now therefore, be it known that I, John Quincy Adams President of the United States of America, having seen and concluded considered the said Treaty, do, in pursuance of the advice and consent of the Senate, as expressed by their resolution of the second Instant, accept, ratify, and confirm the same and every clause and article thereof - In Testimony whereof I have caused the seal of the United States to be hereunto affixed having signed the same with my hand.</em></p>
+      </div>
+    </section>
+    </div>
+
+    <footer class="sticky-footer">
+      <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing"> Site Guide</a> |  | </p>
+    </footer>
   </body>
-  
 </html>
