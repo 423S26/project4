@@ -1,0 +1,43 @@
+#indexcontainer .titleimage {
+  filter: brightness(70%);
+}
+
+/* Spacing Tweak */
+.firstInfo {
+  padding-top: 100px;
+}
+
+/* Alternating Backgrounds */
+.row:nth-child(even) .text {
+  background-color: #EFE7DE;
+}
+
+.row:nth-child(odd) .text {
+  background-color: #E3D8CC;
+}
+
+/* Hover */
+.text {
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.text:hover {
+  transform: translateY(-5px);
+}
+
+/* Response Improvement */
+@media (max-width: 900px) {
+
+  .row {
+    flex-direction: column;
+  }
+
+  .img-div {
+    height: 250px;
+  }
+
+  .text {
+    padding: 40px 20px;
+  }
+}
