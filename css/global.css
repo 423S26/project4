@@ -163,14 +163,14 @@ header {
   color: white;
   font-size: 28px;
   cursor: pointer;
-  display: none; /* visible when JS enables or on small screens */
+  display: block; /* always show hamburger */
   margin-left: auto; /* push to right edge */
 }
 
-/* mobile-style dropdown nav */
+/* dropdown nav: hidden until hamburger clicked */
 #Nav-Links {
   list-style: none;
-  display: flex;
+  display: none;
   padding: 0;
 }
 #Nav-Links.open {
@@ -187,14 +187,10 @@ header {
   margin: 8px 0;
 }
 
+/* we no longer hide the menu or toggle button based on width; hamburger is always visible */
 @media (max-width: 900px) {
-  #menu-toggle {
-    display: block;
-  }
-  #Nav-Links {
-    display: none;
-    flex-direction: column;
-  }
+  /* preserve column layout at narrow widths */
+  #Nav-Links { flex-direction: column; }
 }
 
 /* TITLES */
