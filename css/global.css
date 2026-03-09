@@ -138,7 +138,6 @@ header {
   background-color: #8C5E3C;
   color: #FFD700;
 }
-}
 
 #Nav-Links li a {
   color: white;
@@ -520,3 +519,4 @@ footer {
   .title.overlay-title {
     top: 30% !important;
   }
+}
