@@ -9,7 +9,7 @@ a{text-decoration:none;color:inherit}
 header{position:fixed;top:0;width:100%;height:60px;background:rgba(0,0,0,.6);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:1000}
-#headerLogo{height:55px;width:auto;object-fit:contain;margin-left:-20px}
+#headerLogo{height:75px;width:auto;object-fit:contain;margin-left:-20px}
 #menu-toggle{background:none;border:none;color:#fff;font-size:32px;cursor:pointer;padding:8px;margin-left:auto}
 
 /* nav */
