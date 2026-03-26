@@ -3,16 +3,40 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Learn the Crow Language</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/langtranslate.css">
+    <title>Stories</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        .story {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .story h2 {
+            margin: 0 0 10px 0;
+        }
+    </style>
 </head>
 
 <body>
+
 <header>
     <a href="../index.html">
         <img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
@@ -23,22 +47,129 @@
         <li><a href="culture.html">History</a></li>
         <li><a href="stories.html">Stories</a></li>
     </ul>
-    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+    <button id="menu-toggle">&#9776;</button>
 </header>
+
 <script>
-  document.getElementById('menu-toggle').addEventListener('click', function() {
-    document.getElementById('Nav-Links').classList.toggle('open');
-  });
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('Nav-Links').classList.toggle('open');
+    });
 </script>
 
+<h1>Community Stories</h1>
 
-<div class="firstInfo outlined" style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">
-    <a class="text"  id="FTreaty" href= "https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=dialog">
-        <h1>Upload your story</h1>
-    </a>
-    <p>Have a piece of your tribes history you want to tell? Send it to us for review.</p>
+<div class="controls">
+    <label>Category:</label>
+    <select id="categoryFilter">
+        <option value="All">All</option>
+    </select>
+
+    <label>Tribe:</label>
+    <select id="tribeFilter">
+        <option value="All">All</option>
+    </select>
+
+    <label>Sort:</label>
+    <select id="sortOption">
+        <option value="az">A–Z</option>
+        <option value="za">Z–A</option>
+    </select>
 </div>
 
+<div id="stories-container"></div>
+
+<script>
+    const url = "https://script.google.com/macros/s/AKfycbyE_Em92C1zRps79GCbOlAAjyEhrPEfbAxQjI4OrEwrbuBuhX5poTgq7L60BDVdBOUfPA/exec";
+
+    let allStories = [];
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            allStories = data;
+            populateFilters(data);
+            renderStories(data);
+        });
+
+    function populateFilters(data) {
+        const categories = new Set();
+        const tribes = new Set();
+
+        data.forEach(story => {
+            if (story.Category) categories.add(story.Category);
+            if (story.Tribe) tribes.add(story.Tribe);
+        });
+
+        const categorySelect = document.getElementById("categoryFilter");
+        const tribeSelect = document.getElementById("tribeFilter");
+
+        categories.forEach(cat => {
+            let option = document.createElement("option");
+            option.value = cat;
+            option.textContent = cat;
+            categorySelect.appendChild(option);
+        });
+
+        tribes.forEach(tribe => {
+            let option = document.createElement("option");
+            option.value = tribe;
+            option.textContent = tribe;
+            tribeSelect.appendChild(option);
+        });
+    }
+
+    function renderStories(data) {
+        const container = document.getElementById("stories-container");
+        container.innerHTML = "";
+
+        data.forEach(story => {
+            const div = document.createElement("div");
+            div.classList.add("story");
+
+            div.innerHTML = `
+                <h2>${story.Title || "Untitled"}</h2>
+                <p>${story["Display Description"] || ""}</p>
+                <p><strong>Tribe:</strong> ${story.Tribe || "Unknown"}</p>
+                <p><strong>Category:</strong> ${story.Category || "General"}</p>
+                ${story.File ? `<a href="${story.File}" target="_blank">View Story</a>` : ""}
+            `;
+
+            container.appendChild(div);
+        });
+    }
+
+    function applyFilters() {
+        let filtered = [...allStories];
+
+        const category = document.getElementById("categoryFilter").value;
+        const tribe = document.getElementById("tribeFilter").value;
+        const sort = document.getElementById("sortOption").value;
+
+        if (category !== "All") {
+            filtered = filtered.filter(s => s.Category === category);
+        }
+
+        if (tribe !== "All") {
+            filtered = filtered.filter(s => s.Tribe === tribe);
+        }
+
+        if (sort === "az") {
+            filtered.sort((a, b) => (a.Title || "").localeCompare(b.Title || ""));
+        } else {
+            filtered.sort((a, b) => (b.Title || "").localeCompare(a.Title || ""));
+        }
+
+        renderStories(filtered);
+    }
+
+    document.getElementById("categoryFilter").addEventListener("change", applyFilters);
+    document.getElementById("tribeFilter").addEventListener("change", applyFilters);
+    document.getElementById("sortOption").addEventListener("change", applyFilters);
+</script>
+
 <footer class="sticky-footer">
-    <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing"> Site Guide</a> |  | </p>
+    <p>Language App</p>
 </footer>
+
+</body>
+</html>
