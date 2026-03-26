@@ -1,94 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crow History & Treaties</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/hist.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <style>
-      .treaty-box.collapsed p,
-      .treaty-box.collapsed ul {
-        display: none;
-      }
-      .treaty-box {
-        cursor: pointer;
-        position: relative;
-      }
-      .treaty-box .expand-indicator {
-        position: absolute;
-        top: 18px;
-        right: 24px;
-        font-size: 1.2em;
-        color: #8C5E3C;
-        user-select: none;
-      }
-    </style>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crow History & Treaties</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/hist.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    .treaty-box.collapsed p, .treaty-box.collapsed ul { display: none; }
+    .treaty-box { cursor: pointer; position: relative; }
+    .treaty-box .expand-indicator {
+      position: absolute; top: 18px; right: 24px; font-size: 1.2em;
+      color: #8C5E3C; user-select: none;
+    }
+  </style>
+</head>
+<body>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.treaty-box').forEach(function(box) {
-          box.classList.add('collapsed');
-          const indicator = document.createElement('span');
-          indicator.className = 'expand-indicator';
-          indicator.textContent = '[+]';
-          box.insertBefore(indicator, box.firstChild);
-          box.addEventListener('click', function(e) {
-            // Prevent toggling if clicking a link inside
-            if (e.target.tagName === 'A') return;
-            box.classList.toggle('collapsed');
-            indicator.textContent = box.classList.contains('collapsed') ? '[+]' : '[-]';
-          });
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.treaty-box').forEach(function(box) {
+        box.classList.add('collapsed');
+        const indicator = document.createElement('span');
+        indicator.className = 'expand-indicator';
+        indicator.textContent = '[+]';
+        box.insertBefore(indicator, box.firstChild);
+        box.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') return;
+          box.classList.toggle('collapsed');
+          indicator.textContent = box.classList.contains('collapsed') ? '[+]' : '[-]';
         });
       });
-    </script>
-    <header>
-      <a href="../index.html">
-        <img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
-      </a>
-      <ul id="Nav-Links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="learn.html">Learn</a></li>
-        <li><a href="culture.html">History</a></li>
-        <li><a href="stories.html">Stories</a></li>
-      </ul>
-      <button id="menu-toggle" aria-label="Menu">&#9776;</button>
-    </header>
-    <script>
-      document.getElementById('menu-toggle').addEventListener('click', function() {
-        document.getElementById('Nav-Links').classList.toggle('open');
-      });
-    </script>
+    });
+  </script>
 
-    <div class="titlecontainer" id="historycontainer">
-  <img class="titleimage" id="historyMountains" src="../images/tribal-teepee.jpg" alt="Tribal Teepee"/>
-  <p class="title overlay-title" id="historytitle">Crow History & Treaties</p>
+  <header>
+    <a href="../index.html"><img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo"></a>
+    <ul id="Nav-Links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="culture.html">History</a></li>
+      <li><a href="stories.html">Stories</a></li>
+    </ul>
+    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('Nav-Links').classList.toggle('open');
+    });
+  </script>
+
+  <div class="titlecontainer" id="historycontainer">
+    <img class="titleimage" id="historyMountains" src="../images/tribal-teepee.jpg" alt="Tribal Teepee"/>
+    <p class="title overlay-title" id="historytitle">Crow History & Treaties</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Important Leaders</h3>
+      <p>Leaders such as Chief Plenty Coups and Chief Medicine Crow played pivotal roles in guiding the Crow Nation through times of change.</p>
     </div>
-
-
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Important Leaders</h3>
-        <p>Leaders such as Chief Plenty Coups and Chief Medicine Crow played pivotal roles in guiding the Crow Nation through times of change.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Treaty Agreements</h3>
-        <p>The Crow Nation signed several treaties with the United States, including the Fort Laramie Treaty of 1851 and 1868, which shaped the boundaries and rights of the Crow people.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Modern Era</h3>
-        <p>Today, the Crow Nation continues to preserve its language, culture, and traditions while adapting to modern challenges.</p>
-      </div>
+    <div class="timeline-item">
+      <h3>Treaty Agreements</h3>
+      <p>The Crow Nation signed several treaties with the United States, including the Fort Laramie Treaty of 1851 and 1868.</p>
     </div>
+    <div class="timeline-item">
+      <h3>Modern Era</h3>
+      <p>Today, the Crow Nation continues to preserve its language, culture, and traditions while adapting to modern challenges.</p>
+    </div>
+  </div>
 
-    <section class="treaties-section">
-      <h2>Treaties</h2>
+  <section class="treaties-section">
+    <h2>Treaties</h2>
       <div class="treaty-box">
         <h4>Fort Laramie Treaty of 1851</h4>
         <p>Articles of a treaty made and concluded at Fort Laramie, in the Indian territory, between D.D Mitchell, superintendent of Indian Affairs, and Thomas Fitzpatrick, Indian Agent, commissioners specially appointed and authorized by The President of the United States, of the first part and the chiefs, headmen, and braves of the following Indian nations, residing south of the Missouri River, east of the Rocky Mountains, and north of the lines of Texas and New Mexico: the Sioux and Dahcotahs, Cheyennes, Arrapahos, Crows, Assinaboines, Gros-Ventre, Mandans, and Arrickaras, parties of the second part, on the seventeenth day of September, A.D. 1851.</p>
@@ -145,7 +132,7 @@
     </div>
 
     <footer class="sticky-footer">
-      <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing"> Site Guide</a> |  | </p>
-    </footer>
-  </body>
+    <p>Language App | <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+  </footer>
+</body>
 </html>

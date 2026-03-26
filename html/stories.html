@@ -4,37 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stories</title>
-
     <link rel="stylesheet" href="../css/global.css">
-
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            padding: 20px;
-        }
-
-        .controls {
-            margin-bottom: 20px;
-        }
-
-        select {
-            margin-right: 10px;
-            padding: 5px;
-        }
-
+        body { font-family: 'Inter', sans-serif; padding: 20px; }
+        .controls { margin-bottom: 20px; }
+        select { margin-right: 10px; padding: 5px; }
         .story {
             border: 1px solid #ccc;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 8px;
+            background: #fff;
         }
-
-        .story h2 {
-            margin: 0 0 10px 0;
-        }
+        .story h2 { margin: 0 0 10px 0; }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -89,7 +73,8 @@
             allStories = data;
             populateFilters(data);
             renderStories(data);
-        });
+        })
+        .catch(err => console.error("Error loading stories:", err));
 
     function populateFilters(data) {
         const categories = new Set();
@@ -125,7 +110,6 @@
         data.forEach(story => {
             const div = document.createElement("div");
             div.classList.add("story");
-
             div.innerHTML = `
                 <h2>${story.Title || "Untitled"}</h2>
                 <p>${story["Display Description"] || ""}</p>
@@ -133,25 +117,18 @@
                 <p><strong>Category:</strong> ${story.Category || "General"}</p>
                 ${story.File ? `<a href="${story.File}" target="_blank">View Story</a>` : ""}
             `;
-
             container.appendChild(div);
         });
     }
 
     function applyFilters() {
         let filtered = [...allStories];
-
         const category = document.getElementById("categoryFilter").value;
         const tribe = document.getElementById("tribeFilter").value;
         const sort = document.getElementById("sortOption").value;
 
-        if (category !== "All") {
-            filtered = filtered.filter(s => s.Category === category);
-        }
-
-        if (tribe !== "All") {
-            filtered = filtered.filter(s => s.Tribe === tribe);
-        }
+        if (category !== "All") filtered = filtered.filter(s => s.Category === category);
+        if (tribe !== "All") filtered = filtered.filter(s => s.Tribe === tribe);
 
         if (sort === "az") {
             filtered.sort((a, b) => (a.Title || "").localeCompare(b.Title || ""));
@@ -168,7 +145,7 @@
 </script>
 
 <footer class="sticky-footer">
-    <p>Language App</p>
+    <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
 </footer>
 
 </body>
