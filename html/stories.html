@@ -6,6 +6,33 @@
     <title>Stories</title>
 
     <link rel="stylesheet" href="../css/global.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        .story {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .story h2 {
+            margin: 0 0 10px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -139,6 +166,13 @@
     document.getElementById("tribeFilter").addEventListener("change", applyFilters);
     document.getElementById("sortOption").addEventListener("change", applyFilters);
 </script>
+
+<div class="firstInfo outlined" style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">
+    <a class="text"  id="FTreaty" href= "https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=dialog">
+        <h1>Upload your story</h1>
+    </a>
+    <p>Have a piece of your tribes history you want to tell? Send it to us for review.</p>
+</div>
 
 <footer class="sticky-footer">
     <p>Language App</p>
