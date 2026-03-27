@@ -4,37 +4,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stories</title>
-
     <link rel="stylesheet" href="../css/global.css">
-
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            padding: 20px;
-        }
-
+        body { font-family: 'Inter', sans-serif; }
         .controls {
-            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 20px 28px;
+            padding: 18px 24px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            border-left: 5px solid #8C5E3C;
         }
-
-        select {
-            margin-right: 10px;
-            padding: 5px;
+        .controls label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8C5E3C;
         }
-
+        .controls select {
+            padding: 8px 14px;
+            border: 1.5px solid #c8a882;
+            border-radius: 6px;
+            background: #fdf8f3;
+            color: #3B2416;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .controls select:focus, .controls select:hover {
+            border-color: #8C5E3C;
+        }
         .story {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            padding: 20px 24px;
+            margin: 0 20px 16px;
             border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #8C5E3C;
         }
-
-        .story h2 {
-            margin: 0 0 10px 0;
-        }
+        .story h2 { margin: 0 0 10px 0; color: #3B2416; }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -56,7 +74,7 @@
     });
 </script>
 
-<h1>Community Stories</h1>
+<h1 style="margin-top: 80px;">Community Stories</h1>
 
 <div class="controls">
     <label>Category:</label>
@@ -89,7 +107,8 @@
             allStories = data;
             populateFilters(data);
             renderStories(data);
-        });
+        })
+        .catch(err => console.error("Error loading stories:", err));
 
     function populateFilters(data) {
         const categories = new Set();
@@ -125,7 +144,6 @@
         data.forEach(story => {
             const div = document.createElement("div");
             div.classList.add("story");
-
             div.innerHTML = `
                 <h2>${story.Title || "Untitled"}</h2>
                 <p>${story.Description || ""}</p>
@@ -133,25 +151,18 @@
                 <p><strong>Category:</strong> ${story.Category || "General"}</p>
                 ${story.File ? `<a href="${story.File}" target="_blank">View Story</a>` : ""}
             `;
-
             container.appendChild(div);
         });
     }
 
     function applyFilters() {
         let filtered = [...allStories];
-
         const category = document.getElementById("categoryFilter").value;
         const tribe = document.getElementById("tribeFilter").value;
         const sort = document.getElementById("sortOption").value;
 
-        if (category !== "All") {
-            filtered = filtered.filter(s => s.Category === category);
-        }
-
-        if (tribe !== "All") {
-            filtered = filtered.filter(s => s.Tribe === tribe);
-        }
+        if (category !== "All") filtered = filtered.filter(s => s.Category === category);
+        if (tribe !== "All") filtered = filtered.filter(s => s.Tribe === tribe);
 
         if (sort === "az") {
             filtered.sort((a, b) => (a.Title || "").localeCompare(b.Title || ""));
@@ -167,15 +178,36 @@
     document.getElementById("sortOption").addEventListener("change", applyFilters);
 </script>
 
-<div class="firstInfo outlined" style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">
-    <a class="text"  id="FTreaty" href= "https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=dialog">
+<div class="firstInfo outlined" style="max-width:600px;margin:60px auto;text-align:center;">
+    <a class="text" id="FTreaty" href="https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=dialog">
         <h1>Upload your story</h1>
     </a>
     <p>Have a piece of your tribes history you want to tell? Send it to us for review.</p>
 </div>
 
+<section class="about-contact-section">
+  <div>
+    <div>
+      <h2>About Us</h2>
+      <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
+      Leon is a Computer Science major with a minor in Native Studies.
+      Luka is a Computer Science major with a minor in U.S. History.</p>
+    </div>
+    <div>
+      <h2>Our Mission</h2>
+        <p>This project was created to support Indigenous language preservation and cultural education across Montana's tribal nations. We hope this site serves as a respectful, community-driven space for learning, sharing stories, and honoring the histories and traditions that have shaped this land for generations.</p>
+      </div>
+    <div>
+      <h2>Contact Us</h2>
+      <p style="margin-bottom:12px;"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
+      <p style="margin-bottom:12px;"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
+      <p style="margin-top:25px;font-size:0.95rem;opacity:0.9;">Montana State University<br>Bozeman, Montana</p>
+    </div>
+  </div>
+</section>
+
 <footer class="sticky-footer">
-    <p>Language App</p>
+    <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
 </footer>
 
 </body>

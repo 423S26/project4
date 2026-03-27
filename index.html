@@ -1,61 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crow Language & History App</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Languages & History</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
+    </a>
+    <ul id="Nav-Links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html/learn.html">Learn</a></li>
+      <li><a href="html/culture.html">History</a></li>
+      <li><a href="html/stories.html">Stories</a></li>
+    </ul>
+    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-  </head>
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('Nav-Links').classList.toggle('open');
+    });
+  </script>
 
-  <body>
-<header>
-  <a href="index.html">
-    <img src="images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
-  </a>
-  <ul id="Nav-Links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="html/learn.html">Learn</a></li>
-    <li><a href="html/culture.html">Histories</a></li>
-    <li><a href="html/stories.html">Stories</a></li>
-  </ul>
-  <button id="menu-toggle" aria-label="Menu">&#9776;</button>
-</header>
-<script>
-  document.getElementById('menu-toggle').addEventListener('click', function() {
-    document.getElementById('Nav-Links').classList.toggle('open');
-  });
-</script>
+  <div class="titlecontainer" id="indexcontainer">
+    <img class="titleimage" id="indexTemp" src="images/vecteezy_serene-alpine-lake-reflecting-snow-capped-mountains-at_69765282.jpg" alt="Serene alpine lake">
+    <p class="title overlay-title" id="indextitle">Native Language & History</p>
+  </div>
 
-    <div class = "titlecontainer" id="indexcontainer">
-  <img class="titleimage" id="indexTemp" src="images/vecteezy_serene-alpine-lake-reflecting-snow-capped-mountains-at_69765282.jpg" alt="Serene alpine lake reflecting snow-capped mountains"/>
-  <p class="title overlay-title" id="indextitle">Montana Tribes language & History</p>
+  <div class="firstInfo">
+    <h1>What is our goal?</h1>
+    <p>A space dedicated to helping communities understand the rights, boundaries, and traditions that shape Indigenous practices across generations.</p>
+  </div>
+
+  <div class="row">
+    <a href="html/learn.html" class="text">
+      <h1>Learn & Translate</h1>
+      <p>A living resource built by and for Montana's tribal communities. Learn vocabulary, explore sentence structure, and translate phrases from the many Indigenous languages that call this land home.</p>
+    </a>
+  </div>
+
+  <div class="row">
+    <a href="html/culture.html" class="text">
+      <h1>History & Treaties</h1>
+      <p>Explore the histories, leaders, and treaty agreements that have shaped Montana's tribal nations — stories of resilience, sovereignty, and survival that deserve to be remembered.</p>
+    </a>
+  </div>
+
+  <section class="about-contact-section">
+    <div>
+      <div>
+        <h2>About Us</h2>
+        <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
+        Leon is a Computer Science major with a minor in Native Studies.
+        Luka is a Computer Science major with a minor in U.S. History.</p>
+      </div>
+      <div>
+        <h2>Our Mission</h2>
+        <p>This project was created to support Indigenous language preservation and cultural education across Montana's tribal nations. We hope this site serves as a respectful, community-driven space for learning, sharing stories, and honoring the histories and traditions that have shaped this land for generations.</p>
+      </div>
+      <div>
+        <h2>Contact Us</h2>
+        <p style="margin-bottom:12px;"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
+        <p style="margin-bottom:12px;"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
+        <p style="margin-top:25px;font-size:0.95rem;opacity:0.9;">Montana State University<br>Bozeman, Montana</p>
+      </div>
     </div>
+  </section>
 
-
-    <div class="firstInfo">
-      <h1>What is our goal?</h1>
-      <p>To create a webpage that can function as a place for Indigenous peoples to share stories and history.</p>
-    </div>
-    <div class="row" >
-      <a href = "html/learn.html" id  = "summer" class="text">
-        <h1>Learn & Translate</h1>
-        <p>Practice vocabulary, explore sentence structure, and translate basic Crow phrases.</p>
-      </a>
-    </div>
-    <div class="row">
-      <a class="text"  id="winter" href= "html/culture.html">
-        <h1>History & Treaties</h1>
-        <p>Learn about Crow history, important leaders, and treaty agreements that shaped the nation</p>
-      </a>
-    </div>
-
-    <footer class="sticky-footer">
-    <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing"> Site Guide</a> |  | </p>
-</footer>
-  </body>
+  <footer class="sticky-footer">
+    <p>Language App | <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+  </footer>
+</body>
 </html>

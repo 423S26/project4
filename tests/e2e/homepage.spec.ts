@@ -6,7 +6,7 @@ test.describe('Homepage', () => {
   });
 
   test('has correct page title', async ({ page }) => {
-    await expect(page).toHaveTitle(/Crow Language/i);
+    await expect(page).toHaveTitle(/Languages & History/i);
   });
 
   test('header logo is visible', async ({ page }) => {
@@ -20,7 +20,7 @@ test.describe('Homepage', () => {
     await expect(nav).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Home' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Learn' })).toBeVisible();
-    await expect(nav.getByRole('link', { name: 'Histories' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'History', exact: true })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Stories', exact: true })).toBeVisible();
   });
 

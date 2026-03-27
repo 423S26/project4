@@ -1,62 +1,206 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Learn the Crow Language</title>
-<link rel="stylesheet" href="../css/global.css">
-<link rel="stylesheet" href="../css/langtranslate.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn the Crow Language</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/langtranslate.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── PISL Section ── */
+    .pisl-section {
+      max-width: 900px;
+      margin: 64px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .pisl-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #050403;
+      background: #f2ece4;
+      border: 1px solid #c8a882;
+      border-radius: 30px;
+      padding: 5px 16px;
+      margin-bottom: 18px;
+    }
+    .pisl-heading {
+      font-size: 2rem;
+      color: #000000;
+      font-weight: 700;
+      margin: 0 0 16px;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .pisl-heading::after {
+      content: '';
+      display: block;
+      width: 52px;
+      height: 3px;
+      background: #c8a882;
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+    .pisl-intro {
+      color: #000000;
+      font-size: 1.04rem;
+      line-height: 1.85;
+      max-width: 640px;
+      margin: 0 auto 34px;
+      font-weight: 700;
+    }
+    .pisl-card {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      background: linear-gradient(135deg, #5B3A29 0%, #3B2416 100%);
+      border: 2px solid #c8a882;
+      border-radius: 14px;
+      padding: 36px 44px;
+      max-width: 540px;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 18px rgba(59,36,22,0.22);
+      outline: none;
+    }
+    .pisl-card:hover, .pisl-card:focus {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(59,36,22,0.34);
+    }
+    .pisl-play-icon {
+      font-size: 3rem;
+      color: #c8a882;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .pisl-card-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 7px;
+    }
+    .pisl-card-title {
+      color: #e8dfd6;
+      font-size: 1.18rem;
+      font-weight: 600;
+    }
+    .pisl-card-subtitle {
+      color: #c8a882;
+      font-size: 0.88rem;
+      opacity: 0.9;
+    }
+    /* ── Modal ── */
+    .pisl-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.84);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    .pisl-modal.open { display: flex; }
+    .pisl-modal-content {
+      position: relative;
+      width: 92%;
+      max-width: 820px;
+      background: #1a0f0a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.65);
+    }
+    .pisl-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 1.9rem;
+      color: #e8dfd6;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      line-height: 1;
+      padding: 2px 8px;
+      border-radius: 5px;
+      transition: background 0.15s;
+    }
+    .pisl-close:hover { background: rgba(255,255,255,0.13); }
+    .pisl-video-wrapper {
+      position: relative;
+      padding-top: 56.25%;
+    }
+    .pisl-video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    @media (max-width: 768px) {
+      #teaching-container {
+        height: 45vw;
+        min-height: 200px;
+        max-height: 340px;
+      }
+    }
+    @media (max-width: 600px) {
+      .pisl-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 14px;
+      }
+      .pisl-card-text { text-align: center; }
+    }
+  </style>
 </head>
 <body>
+
 <header>
-<a href="../index.html"><img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo"></a>
-<ul id="Nav-Links">
-<li><a href="../index.html">Home</a></li>
-<li><a href="learn.html">Learn</a></li>
-<li><a href="culture.html">History</a></li>
-<li><a href="stories.html">Stories</a></li>
-</ul>
-<button id="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a href="../index.html"><img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo"></a>
+  <ul id="Nav-Links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="culture.html">History</a></li>
+    <li><a href="stories.html">Stories</a></li>
+  </ul>
+  <button id="menu-toggle" aria-label="Menu">&#9776;</button>
 </header>
+
 <script>
   document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('Nav-Links').classList.toggle('open');
   });
 </script>
+
 <div class="titlecontainer" id="langcontainer">
-<div class="image-wrapper">
-<img class="titleimage" id="learnPowwow" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" loading="lazy" onerror="this.style.display='none'">
-<p class="title overlay-title" id="langtitle">Learn A Tribal Language</p>
-</div>
+  <div class="image-wrapper">
+    <img class="titleimage" id="learnPowwow" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" loading="lazy">
+    <p class="title overlay-title" id="langtitle">Learn A Tribal Language</p>
+  </div>
 </div>
 
-  <!--three mission windows for custom input; first displays image -->
-  <section class="mission-windows">
-<div class="mission-window image-window">
-<div class="quote-bubble">“Education is your greatest weapon. With education you are the white man's equal, without education you are his victim and so shall remain all of your lives. Study, learn, help one another always. Remember there is only poverty and misery in idleness and dreams but in work there is self-respect and independence.” ― Chief Plenty Coup</div>
-<img src="../images/1894-crow-updated.jpeg" alt="Historical Crow photo">
+<div class="titlecontainer" id="teaching-container">
+  <img class="titleimage" src="../images/teaching.jpeg" alt="Teaching" loading="lazy">
 </div>
-<div class="mission-window image-window">
-<div class="quote-bubble">“If we must die, we die defending our rights.”–Sitting Bull</div>
-<img src="../images/2-crow-girls.jpeg" alt="Two Crow girls">
-</div>
-<div class="mission-window image-window">
-<div class="quote-bubble">"Every picture tells a chapter."- Unknown</div>
-<img src="../images/1966-crow-fair.jpeg" alt="Crow Fair 1966">
-</div>
-</section>
+
+
+
 <section class="learn-boxes-section">
-        <div class="learn-box song-box">
-          <h3>Doorway Song / Serenading Song</h3>
-          <div class="song-lyrics">
-            <pre>Doorway song or Serenading song
+  <div class="learn-box song-box">
+    <h3>Doorway Song / Serenading Song</h3>
+    <div class="song-lyrics">
+      <pre>Doorway song or Serenading song
 Story and Doorway Song By: Corky Old Horn
 Crow Name: Ihchawaxxiash
 Translation: Throws Himself Away 
-
 
 Ash bilian malaxuua
 Doorway Song
@@ -309,90 +453,184 @@ It’s me, Throws Himself Away
 Basahkaale koon bii axbiichiweem Kookakaa sheewaak 
 I have just repeated what my grandmother told me. 
 </pre>
-          </div>
-        </div>
-        <div class="learn-box">
-          <h3>Basic Vocabulary</h3>
-          <p><strong>Iichiila</strong> -Horse</p>
-        </div>
-        <div class="learn-box">
-          <h3>Extended Vocabulary</h3>
-          <div class="vocab-list">
-            <table>
-              <thead>
-                <tr><th>Crow</th><th>Meaning</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>a'hoo</td><td>thank you</td></tr>
-                <tr><td>Akíssatdee Isbaapúua</td><td>Veterans Day</td></tr>
-                <tr><td>aléekaashe</td><td>the time of year when it is very hot</td></tr>
-                <tr><td>Ammaaéetchiichiwaau</td><td>The time of year when they tell the ancient stories</td></tr>
-                <tr><td>Ammaalaahuwishkaáshe</td><td>Integrity</td></tr>
-                <tr><td>annissúua</td><td>dance arena, powwow grounds</td></tr>
-                <tr><td>apée</td><td>Cold</td></tr>
-                <tr><td>awasíia</td><td>the time of year when the grass appears after winter</td></tr>
-                <tr><td>áxxaashe íishisshee</td><td>Cold weather forecast</td></tr>
-                <tr><td>Báalee</td><td>winter</td></tr>
-                <tr><td>baáhkusahpua</td><td>Seven days of severe cold weather / seven-day storm</td></tr>
-                <tr><td>Baapbaaliinneetalápasshile</td><td>Saturday</td></tr>
-                <tr><td>Baapbaaliinneeté</td><td>Sunday</td></tr>
-                <tr><td>Baapbassée</td><td>Monday</td></tr>
-                <tr><td>Baapiichiaxxó</td><td>Friday</td></tr>
-                <tr><td>Baapiiláawiia</td><td>Wednesday</td></tr>
-                <tr><td>Baapiilúupe</td><td>Tuesday</td></tr>
-                <tr><td>Baapiishoopé</td><td>Thursday</td></tr>
-                <tr><td>baasaxpilúua</td><td>powwow</td></tr>
-                <tr><td>baatalíahche</td><td>to harvest</td></tr>
-                <tr><td>Baawixóoliche</td><td>November</td></tr>
-                <tr><td>Balapulé Pásshuhkuueetak</td><td>to be so full from eating, it hurts.</td></tr>
-                <tr><td>Baleéwaalasshihchitaahile</td><td>Critical Thinkers</td></tr>
-                <tr><td>Baleewaalaásdee</td><td>Empathetic</td></tr>
-                <tr><td>basáaannisshiwio</td><td>the time in fall when we will dance</td></tr>
-                <tr><td>basée</td><td>fall or autumn</td></tr>
-                <tr><td>Batchiwaalaálio</td><td>Communicators</td></tr>
-                <tr><td>bíawaksaanxalaahachke</td><td>Spring Equinox</td></tr>
-                <tr><td>bíihpe / bíia</td><td>to snow / snow, fallen snow</td></tr>
-                <tr><td>bikkaaapíisshisshiia</td><td>the time of year when heat shimmers rise from the grass</td></tr>
-                <tr><td>Bilítaachiia iiaxpíluupe</td><td>December</td></tr>
-                <tr><td>Bilítaachiia iichiaxxó</td><td>May</td></tr>
-                <tr><td>Bilítaachiia iihawátahpe</td><td>September</td></tr>
-                <tr><td>Bilítaachiia iiláawiia</td><td>March</td></tr>
-                <tr><td>Bilítaachiia iilúupahpe</td><td>August</td></tr>
-                <tr><td>Bilítaachiia iipilaké</td><td>October; Tenth Moon</td></tr>
-                <tr><td>Bilítaachiiawassee</td><td>January</td></tr>
-                <tr><td>Bilítaachiipiishilee</td><td>February</td></tr>
-                <tr><td>Bilítaachiipumme (i)</td><td>February</td></tr>
-                <tr><td>Buluhpashúa</td><td>apple or blue plum</td></tr>
-                <tr><td>Bulúxchilattache</td><td>ice is breaking up</td></tr>
-                <tr><td>bulúxe alasatchikaáshe</td><td>Ice is at its thickest</td></tr>
-                <tr><td>búupchilio</td><td>football</td></tr>
-                <tr><td>Chichúche</td><td>Hardin, MT</td></tr>
-                <tr><td>chilía-k</td><td>It is cold</td></tr>
-                <tr><td>Daásdee</td><td>to love someone</td></tr>
-                <tr><td>Dakáakannuusuua</td><td>Thanksgiving</td></tr>
-                <tr><td>dakáakiskoochiia</td><td>turkey</td></tr>
-                <tr><td>Diiawachisshik</td><td>I love you</td></tr>
-                <tr><td>Ihkúalassee</td><td>Persevere</td></tr>
-                <tr><td>Ihkummíile</td><td>Adaptable</td></tr>
-                <tr><td>ítchi-k</td><td>good</td></tr>
-                <tr><td>Ítchik daluúom!</td><td>It’s good you’ve come!</td></tr>
-                <tr><td>póopahte annáakbisuua</td><td>The time of year when owls have their young</td></tr>
-                <tr><td>Shóotaachi</td><td>How are you?</td></tr>
-                <tr><td>Xawuhxáwua</td><td>to be a crunching sound</td></tr>
-                <tr><td>Xawuhxáwuatchee</td><td>to make a crunching sound</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="learn-box">
-          <h3>Key Feature: Common Sign Language</h3>
-          <p>Many tribes in Montana, including the Crow, used Plains Indian Sign Language (PISL) to communicate across language barriers. This visual language allowed for trade, diplomacy, and storytelling among different nations.</p>
-        </div>
-      </section>
+    </div>
+  </div>
+
+  <div class="learn-box">
+    <h3>Basic Vocabulary</h3>
+    <p><strong>Iichiila</strong> - Horse</p>
+  </div>
+
+  <div class="learn-box">
+    <h3>Extended Vocabulary</h3>
+    <div class="vocab-list">
+      <table>
+        <thead>
+          <tr><th>Crow</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>a'hoo</td><td>thank you</td></tr>
+          <tr><td>Akíssatdee Isbaapúua</td><td>Veterans Day</td></tr>
+          <tr><td>aléekaashe</td><td>the time of year when it is very hot</td></tr>
+          <tr><td>Ammaaéetchiichiwaau</td><td>The time of year when they tell the ancient stories</td></tr>
+          <tr><td>Ammaalaahuwishkaáshe</td><td>Integrity</td></tr>
+          <tr><td>annissúua</td><td>dance arena, powwow grounds</td></tr>
+          <tr><td>apée</td><td>Cold</td></tr>
+          <tr><td>awasíia</td><td>the time of year when the grass appears after winter</td></tr>
+          <tr><td>áxxaashe íishisshee</td><td>Cold weather forecast</td></tr>
+          <tr><td>Báalee</td><td>winter</td></tr>
+          <tr><td>baáhkusahpua</td><td>Seven days of severe cold weather / seven-day storm</td></tr>
+          <tr><td>Baapbaaliinneetalápasshile</td><td>Saturday</td></tr>
+          <tr><td>Baapbaaliinneeté</td><td>Sunday</td></tr>
+          <tr><td>Baapbassée</td><td>Monday</td></tr>
+          <tr><td>Baapiichiaxxó</td><td>Friday</td></tr>
+          <tr><td>Baapiiláawiia</td><td>Wednesday</td></tr>
+          <tr><td>Baapiilúupe</td><td>Tuesday</td></tr>
+          <tr><td>Baapiishoopé</td><td>Thursday</td></tr>
+          <tr><td>baasaxpilúua</td><td>powwow</td></tr>
+          <tr><td>baatalíahche</td><td>to harvest</td></tr>
+          <tr><td>Baawixóoliche</td><td>November</td></tr>
+          <tr><td>Balapulé Pásshuhkuueetak</td><td>to be so full from eating, it hurts.</td></tr>
+          <tr><td>Baleéwaalasshihchitaahile</td><td>Critical Thinkers</td></tr>
+          <tr><td>Baleewaalaásdee</td><td>Empathetic</td></tr>
+          <tr><td>basáaannisshiwio</td><td>the time in fall when we will dance</td></tr>
+          <tr><td>basée</td><td>fall or autumn</td></tr>
+          <tr><td>Batchiwaalaálio</td><td>Communicators</td></tr>
+          <tr><td>bíawaksaanxalaahachke</td><td>Spring Equinox</td></tr>
+          <tr><td>bíihpe / bíia</td><td>to snow / snow, fallen snow</td></tr>
+          <tr><td>bikkaaapíisshisshiia</td><td>the time of year when heat shimmers rise from the grass</td></tr>
+          <tr><td>Bilítaachiia iiaxpíluupe</td><td>December</td></tr>
+          <tr><td>Bilítaachiia iichiaxxó</td><td>May</td></tr>
+          <tr><td>Bilítaachiia iihawátahpe</td><td>September</td></tr>
+          <tr><td>Bilítaachiia iiláawiia</td><td>March</td></tr>
+          <tr><td>Bilítaachiia iilúupahpe</td><td>August</td></tr>
+          <tr><td>Bilítaachiia iipilaké</td><td>October; Tenth Moon</td></tr>
+          <tr><td>Bilítaachiiawassee</td><td>January</td></tr>
+          <tr><td>Bilítaachiipiishilee</td><td>February</td></tr>
+          <tr><td>Bilítaachiipumme (i)</td><td>February</td></tr>
+          <tr><td>Buluhpashúa</td><td>apple or blue plum</td></tr>
+          <tr><td>Bulúxchilattache</td><td>ice is breaking up</td></tr>
+          <tr><td>bulúxe alasatchikaáshe</td><td>Ice is at its thickest</td></tr>
+          <tr><td>búupchilio</td><td>football</td></tr>
+          <tr><td>Chichúche</td><td>Hardin, MT</td></tr>
+          <tr><td>chilía-k</td><td>It is cold</td></tr>
+          <tr><td>Daásdee</td><td>to love someone</td></tr>
+          <tr><td>Dakáakannuusuua</td><td>Thanksgiving</td></tr>
+          <tr><td>dakáakiskoochiia</td><td>turkey</td></tr>
+          <tr><td>Diiawachisshik</td><td>I love you</td></tr>
+          <tr><td>Ihkúalassee</td><td>Persevere</td></tr>
+          <tr><td>Ihkummíile</td><td>Adaptable</td></tr>
+          <tr><td>ítchi-k</td><td>good</td></tr>
+          <tr><td>Ítchik daluúom!</td><td>It’s good you’ve come!</td></tr>
+          <tr><td>póopahte annáakbisuua</td><td>The time of year when owls have their young</td></tr>
+          <tr><td>Shóotaachi</td><td>How are you?</td></tr>
+          <tr><td>Xawuhxáwua</td><td>to be a crunching sound</td></tr>
+          <tr><td>Xawuhxáwuatchee</td><td>to make a crunching sound</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- PISL Interactive Section -->
+<section class="pisl-section">
+  <span class="pisl-eyebrow">Language &amp; Culture</span>
+  <h2 class="pisl-heading">Plains Indian Sign Language (Hand Talk)</h2>
+  <p class="pisl-intro">The Aps&#225;alooke (Crow) people were among many nations of the Great Plains who used Hand Talk &mdash; a shared visual language that enabled communication, ceremony, and diplomacy across tribal boundaries. See it in action below.</p>
+  <div class="pisl-card" id="pisl-trigger" role="button" tabindex="0" aria-label="Open Plains Indian Sign Language video demonstration">
+    <div class="pisl-play-icon">&#9654;</div>
+    <div class="pisl-card-text">
+      <span class="pisl-card-title">Watch PISL Demonstration</span>
+      <span class="pisl-card-subtitle">Click to see real sign language examples</span>
+    </div>
+  </div>
+</section>
+
+<!-- PISL Modal -->
+<div class="pisl-modal" id="pisl-modal" role="dialog" aria-modal="true" aria-label="Plains Indian Sign Language video">
+  <div class="pisl-modal-content">
+    <button class="pisl-close" id="pisl-close" aria-label="Close video">&times;</button>
+    <div class="pisl-video-wrapper">
+      <iframe id="pisl-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var trigger  = document.getElementById('pisl-trigger');
+    var modal    = document.getElementById('pisl-modal');
+    var closeBtn = document.getElementById('pisl-close');
+    var iframe   = document.getElementById('pisl-iframe');
+    var SRC      = 'https://www.youtube.com/embed/DI9mCITMu_k?autoplay=1&rel=0';
+
+    function openModal() {
+      iframe.src = SRC;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function closeModal() {
+      iframe.src = '';
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', openModal);
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  })();
+</script>
+
+<section class="mission-windows" style="margin-top:60px">
+  <div class="mission-window image-window">
+    <div class="quote-bubble">"Education is your greatest weapon. With education you are the white man's equal, without education you are his victim and so shall remain all of your lives. Study, learn, help one another always. Remember there is only poverty and misery in idleness and dreams but in work there is self-respect and independence." &#8213; Chief Plenty Coup</div>
+    <img src="../images/1894-crow-updated.jpeg" alt="Historical Crow photo" loading="lazy">
+  </div>
+  <div class="mission-window image-window">
+    <div class="quote-bubble">"If we must die, we die defending our rights." &ndash;Sitting Bull</div>
+    <img src="../images/2-crow-girls.jpeg" alt="Two Crow girls" loading="lazy">
+  </div>
+  <div class="mission-window image-window">
+    <div class="quote-bubble">"Every picture tells a chapter." - Unknown</div>
+    <img src="../images/1966-crow-fair.jpeg" alt="Crow Fair 1966" loading="lazy">
+  </div>
+</section>
+
+<section class="about-contact-section">
+  <div>
+    <div>
+      <h2>About Us</h2>
+      <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
+      Leon is a Computer Science major with a minor in Native Studies.
+      Luka is a Computer Science major with a minor in U.S. History.</p>
+    </div>
+    <div>
+      <h2>Our Mission</h2>
+        <p>This project was created to support Indigenous language preservation and cultural education across Montana's tribal nations. We hope this site serves as a respectful, community-driven space for learning, sharing stories, and honoring the histories and traditions that have shaped this land for generations.</p>
       </div>
-      <footer class="sticky-footer">
-    <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing"> Site Guide</a> |  | </p>
+    <div>
+      <h2>Contact Us</h2>
+      <p style="margin-bottom:12px;"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
+      <p style="margin-bottom:12px;"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
+      <p style="margin-top:25px;font-size:0.95rem;opacity:0.9;">Montana State University<br>Bozeman, Montana</p>
+    </div>
+  </div>
+</section>
+
+<footer class="sticky-footer">
+  <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
 </footer>
 
-  </body>
+</body>
 </html>
