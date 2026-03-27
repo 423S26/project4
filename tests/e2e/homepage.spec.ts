@@ -6,7 +6,7 @@ test.describe('Homepage', () => {
   });
 
   test('has correct page title', async ({ page }) => {
-    await expect(page).toHaveTitle(/Crow Language/i);
+    await expect(page).toHaveTitle(/Languages & History/i);
   });
 
   test('header logo is visible', async ({ page }) => {
