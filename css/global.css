@@ -21,14 +21,7 @@ header{position:fixed;top:0;width:100%;height:60px;background:rgba(0,0,0,.6);
 #Nav-Links.open li:hover{background:#fff}
 #Nav-Links.open li:hover a{color:#8C5E3C}
 
-/* about-contact */
-.about-contact-section{background:#3B2416;color:#e8dfd6;padding:60px 20px;margin-top:80px}
-.about-contact-section h2{color:#c8a882;font-size:1.1rem;text-transform:uppercase;letter-spacing:1.5px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:8px;margin-bottom:16px;text-align:left}
-.about-contact-section p{font-weight:300;line-height:1.75;color:#d4c9be}
-.about-contact-section strong{color:#fff}
-.about-contact-section a{color:#c8a882}
-.about-contact-section a:hover{color:#fff;text-decoration:underline}
-@media(max-width:700px){.about-contact-section>div{flex-direction:column}}
+
 
 /* footer */
 .sticky-footer{position:fixed;left:0;bottom:0;width:100%;height:60px;
@@ -120,28 +113,58 @@ footer{background:#5B3A29;color:#fff;height:60px;display:flex;
 
 /* About & Contact Section */
 .about-contact-section {
-  background: #5B3A29;
-  color: #fff;
-  padding: 50px 20px;
-  margin-top: 60px;
+  background: #3B2416;
+  color: #e8dfd6;
+  padding: 60px 40px;
+  margin-top: 80px;
 }
-
+.about-contact-section > div {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  justify-content: space-between;
+}
+.about-contact-section > div > div {
+  flex: 1 1 0;
+  min-width: 220px;
+  padding: 0 36px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.about-contact-section > div > div:first-child {
+  padding-left: 0;
+}
+.about-contact-section > div > div:last-child {
+  border-right: none;
+  padding-right: 0;
+}
 .about-contact-section h2 {
-  color: #D8CFC5;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
+  color: #c8a882;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  text-align: left;
 }
-
 .about-contact-section p {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #d4c9be;
 }
-
-.about-contact-section a {
-  color: #D8CFC5;
-  text-decoration: underline;
-}
-
-.about-contact-section a:hover {
-  color: #fff;
+.about-contact-section strong { color: #fff; }
+.about-contact-section a { color: #c8a882; }
+.about-contact-section a:hover { color: #fff; text-decoration: underline; }
+@media(max-width:800px) {
+  .about-contact-section > div > div {
+    flex: 1 1 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding: 24px 0;
+  }
+  .about-contact-section > div > div:last-child { border-bottom: none; }
 }
