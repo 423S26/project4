@@ -128,7 +128,7 @@
 
             div.innerHTML = `
                 <h2>${story.Title || "Untitled"}</h2>
-                <p>${story["Display Description"] || ""}</p>
+                <p>${story.Description || ""}</p>
                 <p><strong>Tribe:</strong> ${story.Tribe || "Unknown"}</p>
                 <p><strong>Category:</strong> ${story.Category || "General"}</p>
                 ${story.File ? `<a href="${story.File}" target="_blank">View Story</a>` : ""}
