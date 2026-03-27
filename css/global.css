@@ -21,6 +21,15 @@ header{position:fixed;top:0;width:100%;height:60px;background:rgba(0,0,0,.6);
 #Nav-Links.open li:hover{background:#fff}
 #Nav-Links.open li:hover a{color:#8C5E3C}
 
+/* about-contact */
+.about-contact-section{background:#3B2416;color:#e8dfd6;padding:60px 20px;margin-top:80px}
+.about-contact-section h2{color:#c8a882;font-size:1.1rem;text-transform:uppercase;letter-spacing:1.5px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:8px;margin-bottom:16px;text-align:left}
+.about-contact-section p{font-weight:300;line-height:1.75;color:#d4c9be}
+.about-contact-section strong{color:#fff}
+.about-contact-section a{color:#c8a882}
+.about-contact-section a:hover{color:#fff;text-decoration:underline}
+@media(max-width:700px){.about-contact-section>div{flex-direction:column}}
+
 /* footer */
 .sticky-footer{position:fixed;left:0;bottom:0;width:100%;height:60px;
   background:rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
@@ -107,4 +116,32 @@ footer{background:#5B3A29;color:#fff;height:60px;display:flex;
   #Nav-Links li a{padding:30px 10px;font-size:.8rem}
   .title{font-size:2.2rem}
   .title.overlay-title{top:30%!important}
+}
+
+/* About & Contact Section */
+.about-contact-section {
+  background: #5B3A29;
+  color: #fff;
+  padding: 50px 20px;
+  margin-top: 60px;
+}
+
+.about-contact-section h2 {
+  color: #D8CFC5;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.about-contact-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.about-contact-section a {
+  color: #D8CFC5;
+  text-decoration: underline;
+}
+
+.about-contact-section a:hover {
+  color: #fff;
 }
