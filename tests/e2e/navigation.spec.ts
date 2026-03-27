@@ -8,10 +8,10 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/learn\.html/);
   });
 
-  test('navigates to Histories page', async ({ page }) => {
+  test('navigates to History page', async ({ page }) => {
     await page.goto('/');
     await page.locator('#menu-toggle').click();
-    await page.getByRole('link', { name: 'Histories' }).click();
+    await page.locator('#Nav-Links').getByRole('link', { name: 'History', exact: true }).click();
     await expect(page).toHaveURL(/culture\.html/);
   });
 
