@@ -102,7 +102,7 @@
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log("DATA:", data); // Should now log approved stories
+            console.log("DATA:", data);
             allStories = data;
             populateFilters(data);
             renderStories(data);
