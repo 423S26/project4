@@ -97,18 +97,17 @@
 <div id="stories-container"></div>
 
 <script>
-    const url = "https://script.google.com/macros/s/AKfycbyE_Em92C1zRps79GCbOlAAjyEhrPEfbAxQjI4OrEwrbuBuhX5poTgq7L60BDVdBOUfPA/exec";
+    const url = "https://script.google.com/macros/s/AKfycby7k361NAsZSFyZLdZQeG9PaRw4c6j9dYYjdT6GeWfypfFbCQSi7UQNM8oTP3TYIqesig/exec";
     const proxy = "https://api.allorigins.win/raw?url=";
-#test
-fetch(proxy + encodeURIComponent(url))
-    .then(res => res.json())
-    .then(data => {
-        console.log("DATA:", data);
-        allStories = data;
-        populateFilters(data);
-        renderStories(data);
-    })
-    .catch(err => console.error("Error loading stories:", err));
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+      console.log("DATA:", data); // should now log
+      allStories = data;
+      populateFilters(data);
+      renderStories(data);
+  })
+  .catch(err => console.error("Error loading stories:", err));
     let allStories = [];
 
     function populateFilters(data) {
