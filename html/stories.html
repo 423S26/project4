@@ -98,17 +98,18 @@
 
 <script>
     const url = "https://script.google.com/macros/s/AKfycbxRa-1xRKhI5uwgzK6xCsPBT_IsZYwxVsbTvQ-8rJiFdTL4I7LJQ1y9A0SJVsfPscE1dw/exec";
-    const proxy = "https://api.allorigins.win/raw?url=";
-fetch(url)
-  .then(res => res.json())
-  .then(data => {
-      console.log("DATA:", data); // should now log
-      allStories = data;
-      populateFilters(data);
-      renderStories(data);
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log("DATA:", data); // Should now log approved stories
+            allStories = data;
+            populateFilters(data);
+            renderStories(data);
   })
+
   .catch(err => console.error("Error loading stories:", err));
-    let allStories = [];
+   let allStories = [];
 
     function populateFilters(data) {
         const categories = new Set();
