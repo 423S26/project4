@@ -110,15 +110,6 @@ fetch(proxy + encodeURIComponent(url))
     .catch(err => console.error("Error loading stories:", err));
     let allStories = [];
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            allStories = data;
-            populateFilters(data);
-            renderStories(data);
-        })
-        .catch(err => console.error("Error loading stories:", err));
-
     function populateFilters(data) {
         const categories = new Set();
         const tribes = new Set();
