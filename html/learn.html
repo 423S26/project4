@@ -56,45 +56,67 @@
       font-weight: 700;
     }
     .pisl-card {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      background: linear-gradient(135deg, #5B3A29 0%, #3B2416 100%);
-      border: 2px solid #c8a882;
-      border-radius: 14px;
-      padding: 36px 44px;
-      max-width: 540px;
+      position: relative;
+      max-width: 640px;
       margin: 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
       cursor: pointer;
+      box-shadow: 0 6px 28px rgba(59,36,22,0.28);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 18px rgba(59,36,22,0.22);
       outline: none;
+      background: #000;
     }
     .pisl-card:hover, .pisl-card:focus {
       transform: translateY(-4px);
-      box-shadow: 0 10px 32px rgba(59,36,22,0.34);
+      box-shadow: 0 14px 40px rgba(59,36,22,0.40);
     }
-    .pisl-play-icon {
-      font-size: 3rem;
-      color: #c8a882;
-      line-height: 1;
-      flex-shrink: 0;
+    .pisl-card img {
+      width: 100%;
+      display: block;
+      opacity: 0.88;
+      transition: opacity 0.2s ease;
     }
-    .pisl-card-text {
+    .pisl-card:hover img, .pisl-card:focus img { opacity: 0.72; }
+    .pisl-play-btn {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
-      text-align: left;
-      gap: 7px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
-    .pisl-card-title {
-      color: #e8dfd6;
-      font-size: 1.18rem;
+    .pisl-play-circle {
+      width: 74px;
+      height: 74px;
+      background: rgba(200,168,130,0.92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .pisl-card:hover .pisl-play-circle, .pisl-card:focus .pisl-play-circle {
+      transform: scale(1.1);
+      background: #c8a882;
+    }
+    .pisl-play-circle svg {
+      width: 30px;
+      height: 30px;
+      fill: #3B2416;
+      margin-left: 4px;
+    }
+    .pisl-play-label {
+      color: #fff;
+      font-size: 0.95rem;
       font-weight: 600;
-    }
-    .pisl-card-subtitle {
-      color: #c8a882;
-      font-size: 0.88rem;
-      opacity: 0.9;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+      background: rgba(59,36,22,0.55);
+      padding: 5px 16px;
+      border-radius: 20px;
     }
     /* ── Modal ── */
     .pisl-modal {
@@ -456,82 +478,68 @@ I have just repeated what my grandmother told me.
     </div>
   </div>
 
-  <div class="learn-box">
-    <h3>Basic Vocabulary</h3>
-    <p><strong>Iichiila</strong> - Horse</p>
-  </div>
-
-  <div class="learn-box">
-    <h3>Extended Vocabulary</h3>
-    <div class="vocab-list">
-      <table>
-        <thead>
-          <tr><th>Crow</th><th>Meaning</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>a'hoo</td><td>thank you</td></tr>
-          <tr><td>Akíssatdee Isbaapúua</td><td>Veterans Day</td></tr>
-          <tr><td>aléekaashe</td><td>the time of year when it is very hot</td></tr>
-          <tr><td>Ammaaéetchiichiwaau</td><td>The time of year when they tell the ancient stories</td></tr>
-          <tr><td>Ammaalaahuwishkaáshe</td><td>Integrity</td></tr>
-          <tr><td>annissúua</td><td>dance arena, powwow grounds</td></tr>
-          <tr><td>apée</td><td>Cold</td></tr>
-          <tr><td>awasíia</td><td>the time of year when the grass appears after winter</td></tr>
-          <tr><td>áxxaashe íishisshee</td><td>Cold weather forecast</td></tr>
-          <tr><td>Báalee</td><td>winter</td></tr>
-          <tr><td>baáhkusahpua</td><td>Seven days of severe cold weather / seven-day storm</td></tr>
-          <tr><td>Baapbaaliinneetalápasshile</td><td>Saturday</td></tr>
-          <tr><td>Baapbaaliinneeté</td><td>Sunday</td></tr>
-          <tr><td>Baapbassée</td><td>Monday</td></tr>
-          <tr><td>Baapiichiaxxó</td><td>Friday</td></tr>
-          <tr><td>Baapiiláawiia</td><td>Wednesday</td></tr>
-          <tr><td>Baapiilúupe</td><td>Tuesday</td></tr>
-          <tr><td>Baapiishoopé</td><td>Thursday</td></tr>
-          <tr><td>baasaxpilúua</td><td>powwow</td></tr>
-          <tr><td>baatalíahche</td><td>to harvest</td></tr>
-          <tr><td>Baawixóoliche</td><td>November</td></tr>
-          <tr><td>Balapulé Pásshuhkuueetak</td><td>to be so full from eating, it hurts.</td></tr>
-          <tr><td>Baleéwaalasshihchitaahile</td><td>Critical Thinkers</td></tr>
-          <tr><td>Baleewaalaásdee</td><td>Empathetic</td></tr>
-          <tr><td>basáaannisshiwio</td><td>the time in fall when we will dance</td></tr>
-          <tr><td>basée</td><td>fall or autumn</td></tr>
-          <tr><td>Batchiwaalaálio</td><td>Communicators</td></tr>
-          <tr><td>bíawaksaanxalaahachke</td><td>Spring Equinox</td></tr>
-          <tr><td>bíihpe / bíia</td><td>to snow / snow, fallen snow</td></tr>
-          <tr><td>bikkaaapíisshisshiia</td><td>the time of year when heat shimmers rise from the grass</td></tr>
-          <tr><td>Bilítaachiia iiaxpíluupe</td><td>December</td></tr>
-          <tr><td>Bilítaachiia iichiaxxó</td><td>May</td></tr>
-          <tr><td>Bilítaachiia iihawátahpe</td><td>September</td></tr>
-          <tr><td>Bilítaachiia iiláawiia</td><td>March</td></tr>
-          <tr><td>Bilítaachiia iilúupahpe</td><td>August</td></tr>
-          <tr><td>Bilítaachiia iipilaké</td><td>October; Tenth Moon</td></tr>
-          <tr><td>Bilítaachiiawassee</td><td>January</td></tr>
-          <tr><td>Bilítaachiipiishilee</td><td>February</td></tr>
-          <tr><td>Bilítaachiipumme (i)</td><td>February</td></tr>
-          <tr><td>Buluhpashúa</td><td>apple or blue plum</td></tr>
-          <tr><td>Bulúxchilattache</td><td>ice is breaking up</td></tr>
-          <tr><td>bulúxe alasatchikaáshe</td><td>Ice is at its thickest</td></tr>
-          <tr><td>búupchilio</td><td>football</td></tr>
-          <tr><td>Chichúche</td><td>Hardin, MT</td></tr>
-          <tr><td>chilía-k</td><td>It is cold</td></tr>
-          <tr><td>Daásdee</td><td>to love someone</td></tr>
-          <tr><td>Dakáakannuusuua</td><td>Thanksgiving</td></tr>
-          <tr><td>dakáakiskoochiia</td><td>turkey</td></tr>
-          <tr><td>Diiawachisshik</td><td>I love you</td></tr>
-          <tr><td>Ihkúalassee</td><td>Persevere</td></tr>
-          <tr><td>Ihkummíile</td><td>Adaptable</td></tr>
-          <tr><td>ítchi-k</td><td>good</td></tr>
-          <tr><td>Ítchik daluúom!</td><td>It’s good you’ve come!</td></tr>
-          <tr><td>póopahte annáakbisuua</td><td>The time of year when owls have their young</td></tr>
-          <tr><td>Shóotaachi</td><td>How are you?</td></tr>
-          <tr><td>Xawuhxáwua</td><td>to be a crunching sound</td></tr>
-          <tr><td>Xawuhxáwuatchee</td><td>to make a crunching sound</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
 </section>
+
+<!-- === APSÁALOOKE PHRASE WEAVER + FURTHER LEARNING === -->
+<div class="learn-box" style="background:#FAF3E0; border-left-color:#5B3A29;">
+  <h3>Apsáalooke Phrase Weaver</h3>
+  <p style="font-style:italic; color:#5B3A29; margin-bottom:20px;">Weave words like traditional Crow beadwork • Real elder audio coming soon</p>
+
+  <div style="margin-bottom:20px;">
+    <input 
+      id="phrase-search-input" 
+      type="text" 
+      placeholder="Search Crow or English (e.g. 'love' or 'Diiawachisshik')" 
+      style="width:100%; padding:14px; border:2px solid #8C5E3C; border-radius:8px; font-size:1.05rem;">
+  </div>
+
+  <div id="phrase-results-list" class="hidden" style="background:#fff; border:1px solid #c8a882; border-radius:8px; max-height:220px; overflow-y:auto; margin-bottom:20px;"></div>
+
+  <div id="phrase-bead-container" style="min-height:80px; border:2px dashed #8C5E3C; border-radius:8px; padding:20px; background:#fff; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:10px;"></div>
+
+  <div id="phrase-result-box" class="hidden" style="background:#fff; padding:24px; border-radius:8px; border:1px solid #c8a882;">
+    <p id="crow-phrase-display" style="font-size:1.35rem; font-weight:600; color:#5B3A29; margin-bottom:8px;"></p>
+    <p id="english-phrase-display" style="font-size:1.15rem; margin-bottom:20px;"></p>
+    
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <button onclick="playPlaceholderAudio()" 
+              style="flex:1; padding:14px; background:#5B3A29; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+        🔊 Hear Real Elder Audio (Coming Soon)
+      </button>
+      <button onclick="surpriseMePhrase()" 
+              style="flex:1; padding:14px; background:#8C5E3C; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+        🎲 Surprise Me (Doorway Song Style)
+      </button>
+    </div>
+    
+    <p id="phrase-notes" style="margin-top:20px; font-size:0.95rem; font-style:italic; color:#5B3A29;"></p>
+  </div>
+
+  <!-- Further Learning Cards -->
+  <h3 style="margin:40px 0 20px 0; color:#8C5E3C;">Further Learning with Crow Language Consortium</h3>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+    <a href="https://dictionary.crowlanguage.org/" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
+      <strong style="color:#5B3A29;">Online Dictionary</strong><br>
+      <span style="font-size:0.95rem;">Explore by topic: Food, Ceremony, Seasons, Animals & more.</span>
+    </a>
+    <a href="https://crowlanguage.org/" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
+      <strong style="color:#5B3A29;">Crow Language Consortium</strong><br>
+      <span style="font-size:0.95rem;">Textbooks, materials, teacher training • Contact: info@crowlanguage.org</span>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=org.crowlanguage.dictionary" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
+      <strong style="color:#5B3A29;">Crow Mobile Dictionary App</strong><br>
+      <span style="font-size:0.95rem;">10,000+ entries with real Crow speaker audio (Android)</span>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=org.crowlanguage.vb2" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
+      <strong style="color:#5B3A29;">Crow Vocab Builder (v2)</strong><br>
+      <span style="font-size:0.95rem;">Daily quizzes with audio • iOS & Android</span>
+    </a>
+  </div>
+  <p style="margin-top:20px; font-size:0.85rem; color:#666; text-align:center;">
+    Resources developed by the Crow Language Consortium in partnership with the Crow Nation and Little Big Horn College. 
+    For authentic audio and deeper study, visit their official tools.
+  </p>
+</div>
 
 <!-- PISL Interactive Section -->
 <section class="pisl-section">
@@ -539,10 +547,14 @@ I have just repeated what my grandmother told me.
   <h2 class="pisl-heading">Plains Indian Sign Language (Hand Talk)</h2>
   <p class="pisl-intro">The Aps&#225;alooke (Crow) people were among many nations of the Great Plains who used Hand Talk &mdash; a shared visual language that enabled communication, ceremony, and diplomacy across tribal boundaries. See it in action below.</p>
   <div class="pisl-card" id="pisl-trigger" role="button" tabindex="0" aria-label="Open Plains Indian Sign Language video demonstration">
-    <div class="pisl-play-icon">&#9654;</div>
-    <div class="pisl-card-text">
-      <span class="pisl-card-title">Watch PISL Demonstration</span>
-      <span class="pisl-card-subtitle">Click to see real sign language examples</span>
+    <img src="https://img.youtube.com/vi/DI9mCITMu_k/maxresdefault.jpg"
+         onerror="this.src='https://img.youtube.com/vi/DI9mCITMu_k/hqdefault.jpg'"
+         alt="Plains Indian Sign Language demonstration video thumbnail">
+    <div class="pisl-play-btn">
+      <div class="pisl-play-circle">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <span class="pisl-play-label">Watch PISL Demonstration</span>
     </div>
   </div>
 </section>
@@ -628,9 +640,127 @@ I have just repeated what my grandmother told me.
   </div>
 </section>
 
+<script>
+  // Phrase Weaver
+  (function() {
+    const vocab = [];
+    document.querySelectorAll('.vocab-list table tbody tr').forEach(row => {
+      const cells = row.querySelectorAll('td');
+      if (cells.length >= 2) {
+        vocab.push({ crow: cells[0].textContent.trim(), english: cells[1].textContent.trim(), note: '' });
+      }
+    });
+    vocab.push({crow: "Diiawachisshik",                 english: "I love you",         note: "Often used in serenading songs like the Doorway Song"});
+    vocab.push({crow: "Awa chisshe kaate moohik eele",  english: "My love I came",      note: "From the Doorway Song chorus"});
+
+    const searchInput   = document.getElementById('phrase-search-input');
+    const resultsList   = document.getElementById('phrase-results-list');
+    const beadContainer = document.getElementById('phrase-bead-container');
+    const resultBox     = document.getElementById('phrase-result-box');
+    const crowDisplay   = document.getElementById('crow-phrase-display');
+    const englishDisplay= document.getElementById('english-phrase-display');
+    const notesDisplay  = document.getElementById('phrase-notes');
+
+    let selected = [];
+
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.trim().toLowerCase();
+      resultsList.innerHTML = '';
+      if (!term) { resultsList.classList.add('hidden'); return; }
+      const matches = vocab.filter(i =>
+        i.crow.toLowerCase().includes(term) || i.english.toLowerCase().includes(term)
+      ).slice(0, 8);
+      if (matches.length === 0) { resultsList.classList.add('hidden'); return; }
+      matches.forEach(item => {
+        const div = document.createElement('div');
+        div.style.padding = '12px 16px';
+        div.style.borderBottom = '1px solid #eee';
+        div.style.cursor = 'pointer';
+        div.innerHTML = `<strong>${item.crow}</strong> — ${item.english}`;
+        div.onclick = () => {
+          selected.push(item);
+          renderBeads();
+          searchInput.value = '';
+          resultsList.classList.add('hidden');
+          updateResult();
+        };
+        resultsList.appendChild(div);
+      });
+      resultsList.classList.remove('hidden');
+    });
+
+    function renderBeads() {
+      beadContainer.innerHTML = '';
+      selected.forEach((item, idx) => {
+        const bead = document.createElement('div');
+        bead.style.cssText = 'background:#5B3A29;color:#fff;padding:8px 16px;border-radius:9999px;display:flex;align-items:center;gap:8px;cursor:pointer;';
+        bead.innerHTML = `${item.crow} <span data-remove-idx="${idx}" style="font-weight:bold;font-size:1.2rem;cursor:pointer;margin-left:4px;">×</span>`;
+        beadContainer.appendChild(bead);
+      });
+      if (selected.length === 0) {
+        beadContainer.innerHTML = '<p style="color:#999;font-style:italic;margin:0 auto;">Add words to weave your phrase...</p>';
+      }
+    }
+
+    beadContainer.addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-remove-idx]');
+      if (!btn) return;
+      e.stopPropagation();
+      selected.splice(Number(btn.dataset.removeIdx), 1);
+      renderBeads();
+      updateResult();
+    });
+
+    function updateResult() {
+      if (selected.length === 0) { resultBox.classList.add('hidden'); return; }
+      resultBox.classList.remove('hidden');
+      crowDisplay.textContent   = selected.map(i => i.crow).join(' ');
+      englishDisplay.textContent= selected.map(i => i.english).join(' ');
+      const notes = selected.map(i => i.note).filter(Boolean).join(' • ');
+      notesDisplay.textContent  = notes ? `Cultural note: ${notes}` : '';
+    }
+
+    window.playPlaceholderAudio = function() {
+      alert("Real elder audio recordings are coming soon!\n\nFor authentic Crow pronunciations today, please visit the Crow Mobile Dictionary app or contact the Crow Language Consortium at info@crowlanguage.org.");
+    };
+
+    window.addToPhraseWeaver = function(item) {
+      selected.push(item);
+      renderBeads();
+      updateResult();
+    };
+
+    const doorwaySongPool = [
+      {crow: "Hilaake hinne buum biilaawehkuuk",     english: "I have been asked to sing a song",                          note: "Doorway Song — opening line"},
+      {crow: "Ii ash bilian balaxuk",                english: "It is a doorway song",                                      note: "Doorway Song — naming the song"},
+      {crow: "Heetaa alakuukaa hualaawe",             english: "It came from long ago",                                    note: "Doorway Song — honoring ancestry"},
+      {crow: "Diiawachisshik",                       english: "I love you",                                                note: "Doorway Song — declaration of love"},
+      {crow: "Awa chisshe kaate moohik eele",        english: "My love I came",                                            note: "Doorway Song — chorus phrase"},
+      {crow: "Bii chicheessee lachi boohik",         english: "I am so lonesome I came",                                   note: "Doorway Song — longing verse"},
+      {crow: "Dii awaxpe wiawak ii waluu haawik",    english: "I want to marry you so",                                    note: "Doorway Song — marriage desire"},
+      {crow: "Heet aliatteedak daalah",              english: "It's alright, go",                                          note: "Doorway Song — letting go"},
+      {crow: "Bi aliateetak daalah",                 english: "I'm ok, go",                                                note: "Doorway Song — selfless farewell"},
+      {crow: "Bash baashe diawak dii wiioommaachik", english: "I will make a boat to reach you",                           note: "Doorway Song — promise of return"},
+      {crow: "Bassaannak kan diiwiioommaachik",      english: "I will catch up with you in the Fall",                      note: "Doorway Song — seasonal promise"},
+      {crow: "Heelak daak bashpilaxpaakua chiiwaah", english: "Go home and tell our family",                               note: "Doorway Song — message home"},
+      {crow: "Biilaptaa beessuulak xaawiimmah",      english: "It will not be good if both of us don't make it home",      note: "Doorway Song — sacrifice verse"},
+      {crow: "Baaleetaa kan biihpe kalaheettak",     english: "If the snow has started coming down",                       note: "Doorway Song — winter imagery"},
+      {crow: "Biihiileelak baakoon baaliichik",      english: "I am here and I'm doing ok",                                note: "Doorway Song — reassurance"},
+    ];
+
+    window.surpriseMePhrase = function() {
+      const shuffled = doorwaySongPool.slice().sort(() => Math.random() - 0.5);
+      selected = shuffled.slice(0, Math.random() < 0.5 ? 2 : 3);
+      renderBeads();
+      updateResult();
+    };
+
+    renderBeads();
+  })();
+</script>
+
 <footer class="sticky-footer">
   <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
 </footer>
-
 </body>
 </html>
