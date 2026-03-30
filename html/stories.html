@@ -97,19 +97,19 @@
 <div id="stories-container"></div>
 
 <script>
-    const url = "https://script.google.com/macros/s/AKfycbxRa-1xRKhI5uwgzK6xCsPBT_IsZYwxVsbTvQ-8rJiFdTL4I7LJQ1y9A0SJVsfPscE1dw/exec";
+    let allStories = [];
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log("DATA:", data);
-            allStories = data;
-            populateFilters(data);
-            renderStories(data);
-  })
+    function loadStories(data) {
+        console.log("DATA:", data);
+        allStories = data;
+        populateFilters(data);
+        renderStories(data);
+    }
 
-  .catch(err => console.error("Error loading stories:", err));
-   let allStories = [];
+    // 👇 JSONP request to your Apps Script
+    const script = document.createElement("script");
+    script.src = "https://script.google.com/macros/s/AKfycbziycQ1SPTbmWyojIJFnGTHfTtEx26qC1O-0qBL0Zjz3rbr_vmzzwK1e886bXeN9uducw/exec?callback=loadStories";
+    document.body.appendChild(script);
 
     function populateFilters(data) {
         const categories = new Set();
