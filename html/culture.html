@@ -16,6 +16,108 @@
       position: absolute; top: 18px; right: 24px; font-size: 1.2em;
       color: #8C5E3C; user-select: none;
     }
+    .map-thumb-card {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(59,36,22,0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: block;
+      text-decoration: none;
+      background: #2a4a2a;
+    }
+    .map-thumb-card:hover, .map-thumb-card:focus {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(59,36,22,0.40);
+      outline: 2px solid #c8a882;
+    }
+    .map-thumb-card img {
+      width: 100%;
+      display: block;
+      opacity: 0.82;
+      transition: opacity 0.2s ease;
+    }
+    .map-thumb-card:hover img, .map-thumb-card:focus img { opacity: 0.65; }
+    .map-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .map-pin-circle {
+      width: 68px;
+      height: 68px;
+      background: rgba(200,168,130,0.92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+      transition: transform 0.2s ease, background 0.2s ease;
+      font-size: 2rem;
+    }
+    .map-thumb-card:hover .map-pin-circle {
+      transform: scale(1.1);
+      background: #c8a882;
+    }
+    .map-thumb-label {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+      background: rgba(59,36,22,0.60);
+      padding: 6px 20px;
+      border-radius: 20px;
+    }
+    /* CSS map illustration */
+    .map-thumb-visual {
+      width: 100%;
+      height: 280px;
+      background:
+        linear-gradient(180deg, #b8d4a8 0%, #a8c898 30%, #c8b87a 55%, #a8c898 70%, #8ab87a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-thumb-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .map-thumb-visual::after {
+      content: '';
+      position: absolute;
+      top: 38%; left: 28%;
+      width: 44%; height: 32%;
+      background: rgba(139,90,43,0.38);
+      border-radius: 38% 52% 44% 60% / 40% 36% 54% 48%;
+      box-shadow: 0 0 0 3px rgba(200,168,130,0.5);
+    }
+    .map-river {
+      position: absolute;
+      top: 52%; left: 10%;
+      width: 80%; height: 5px;
+      background: rgba(100,160,200,0.6);
+      border-radius: 3px;
+      transform: rotate(-3deg);
+    }
+    .map-river-2 {
+      position: absolute;
+      top: 62%; left: 50%;
+      width: 40%; height: 4px;
+      background: rgba(100,160,200,0.5);
+      border-radius: 3px;
+      transform: rotate(8deg);
+    }
   </style>
 </head>
 <body>
@@ -80,14 +182,17 @@
       Explore whose traditional lands you are on. This map from <strong>Native Land Digital</strong> shows Indigenous territories, treaties, and languages.
       Search by address, city, or zoom to Montana to see Indigenous territories.
     </p>
-    <div style="border: 2px solid #8C5E3C; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f5f0eb; padding: 60px 20px; text-align: center;">
-      <p style="font-size: 1.1rem; color: #5B3A29; margin-bottom: 24px;">Click below to open the interactive map in a new tab.</p>
-      <a href="https://native-land.ca/maps/native-land" target="_blank" rel="noopener"
-        style="display: inline-block; background: #5B3A29; color: #fff; padding: 14px 36px; border-radius: 6px; font-size: 1rem; font-weight: 500; text-decoration: none; letter-spacing: 0.5px;">
-        Open Native Land Map &#8599;
+    <a class="map-thumb-card" href="https://native-land.ca/maps/native-land" target="_blank" rel="noopener" aria-label="Open Native Land Digital map in new tab">
+        <div class="map-thumb-visual">
+          <div class="map-river"></div>
+          <div class="map-river-2"></div>
+        </div>
+        <div class="map-thumb-overlay">
+          <div class="map-pin-circle">&#x1F4CD;</div>
+          <span class="map-thumb-label">Open Native Land Map &#8599;</span>
+        </div>
       </a>
-      <p style="margin-top: 20px; font-size: 0.9rem; color: #777;">Search "Crow" or "Other tribes within Montana" once the map opens to highlight territories.</p>
-    </div>
+      <p style="text-align:center; margin-top:14px; font-size:0.9rem; color:#666;">Search <strong>"Crow"</strong> or <strong>"Apsáalooke"</strong> once the map opens to highlight Crow Nation territory.</p>
     <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #555;">
       Map by <a href="https://native-land.ca/" target="_blank" rel="noopener">Native Land Digital</a> •
       Data is for educational purposes and does not represent legal boundaries.
