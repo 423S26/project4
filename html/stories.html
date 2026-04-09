@@ -5,67 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stories</title>
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 12px;
-            margin: 24px 20px 28px;
-            padding: 18px 24px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-            border-left: 5px solid #8C5E3C;
+        /* ── DARK PAGE ── */
+        body.stories-dark-page { background: #0c0a09; color: #f5f5f4; padding-bottom: 0; padding-top: 70px; }
+        /* header */
+        body.stories-dark-page header { background: rgba(28,25,23,0.97); border-bottom: 1px solid #292524; height: 70px; padding: 0 32px; }
+        .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+        body.stories-dark-page #headerLogo { height: 50px; width: auto; object-fit: contain; margin-left: 0; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #fbbf24; letter-spacing: -0.5px; }
+        .logo-sub { font-size: 0.58rem; color: #a8a29e; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; margin-top: 2px; }
+        body.stories-dark-page #Nav-Links { display: none !important; }
+        body.stories-dark-page #Nav-Links.open { display: flex !important; flex-direction: column; position: absolute; top: 70px; right: 0; background: #1c1917 !important; border: 1px solid #292524 !important; border-radius: 16px !important; padding: 12px 0; min-width: 220px; z-index: 1001; gap: 0; }
+        body.stories-dark-page #Nav-Links.open li a { display: block; padding: 14px 28px; font-size: 0.9rem; color: #d6d3d1; border-bottom: none; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 500; transition: color 0.2s, background 0.2s; }
+        body.stories-dark-page #Nav-Links.open li a:hover,
+        body.stories-dark-page #Nav-Links.open li a.nav-active { color: #fbbf24; }
+        body.stories-dark-page #Nav-Links.open li:hover { background: #292524; }
+        body.stories-dark-page #menu-toggle { display: block !important; color: #f5f5f4; background: none; border: none; font-size: 32px; cursor: pointer; }
+        /* page title */
+        body.stories-dark-page h1 { font-family: 'Playfair Display', serif; color: #f5f5f4; margin: 40px 20px 0; font-size: clamp(1.8rem, 4vw, 2.8rem); text-align: left; }
+        /* filter controls */
+        body.stories-dark-page .controls { background: #1c1917; border-radius: 12px; border: 1px solid #292524; border-left: 4px solid #fbbf24; box-shadow: none; }
+        body.stories-dark-page .controls label { color: #a8a29e; }
+        body.stories-dark-page .controls select { background: #111110; border: 1.5px solid #292524; color: #f5f5f4; font-family: 'Inter', sans-serif; }
+        body.stories-dark-page .controls select:focus, body.stories-dark-page .controls select:hover { border-color: #fbbf24; }
+        /* story cards */
+        body.stories-dark-page .story { background: #1c1917; border: 1px solid #292524; border-left: 4px solid #fbbf24; border-radius: 12px; box-shadow: none; transition: border-color 0.2s; }
+        body.stories-dark-page .story:hover { border-color: #fbbf24; }
+        body.stories-dark-page .story h2 { color: #f5f5f4; margin: 0 0 10px 0; }
+        body.stories-dark-page .story p { color: #a8a29e; }
+        body.stories-dark-page .story a { color: #fbbf24; }
+        /* upload section */
+        body.stories-dark-page .firstInfo { background: #1c1917; border: 1px solid #292524; border-radius: 16px; padding: 40px; }
+        body.stories-dark-page .firstInfo h1 { color: #fbbf24; margin: 0 0 12px; font-size: 1.6rem; }
+        body.stories-dark-page .firstInfo p { color: #a8a29e; margin: 0; }
+        body.stories-dark-page .firstInfo a { color: inherit; }
+        /* about-contact */
+        body.stories-dark-page .about-contact-section { background: #111110 !important; border-top: 1px solid #292524; }
+        body.stories-dark-page .about-contact-section h2 { color: #fbbf24 !important; }
+        body.stories-dark-page .about-contact-section p,
+        body.stories-dark-page .about-contact-section a { color: #a8a29e !important; }
+        /* dark footer */
+        .dark-footer { background: #0c0a09; border-top: 1px solid #292524; padding: 48px 0; }
+        .dark-footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 0.75rem; color: #57534e; font-weight: 400; letter-spacing: 0.3px; }
+        .dark-footer p { font-size: 0.75rem; font-weight: 400; }
+        .dark-footer-right { color: #44403c; }
+        .dark-footer a { color: #a8a29e; text-decoration: none; transition: color 0.2s; }
+        .dark-footer a:hover { color: #fbbf24; }
+        /* responsive */
+        @media (max-width: 900px) {
+            .dark-footer-inner { flex-direction: column; gap: 8px; }
         }
-        .controls label {
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #8C5E3C;
-        }
-        .controls select {
-            padding: 8px 14px;
-            border: 1.5px solid #c8a882;
-            border-radius: 6px;
-            background: #fdf8f3;
-            color: #3B2416;
-            font-size: 0.9rem;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .controls select:focus, .controls select:hover {
-            border-color: #8C5E3C;
-        }
-        .story {
-            border: 1px solid #ddd;
-            padding: 20px 24px;
-            margin: 0 20px 16px;
-            border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-left: 4px solid #8C5E3C;
-        }
-        .story h2 { margin: 0 0 10px 0; color: #3B2416; }
     </style>
 </head>
-<body>
+<body class="stories-dark-page">
 
 <header>
-    <a href="../index.html">
+    <a href="../index.html" class="logo-link">
         <img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
+        <div class="logo-text">
+            <span class="logo-name">Native Language &amp; History</span>
+            <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
+        </div>
     </a>
     <ul id="Nav-Links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="learn.html">Learn</a></li>
         <li><a href="culture.html">History</a></li>
-        <li><a href="stories.html">Stories</a></li>
+        <li><a href="stories.html" class="nav-active">Stories</a></li>
     </ul>
-    <button id="menu-toggle">&#9776;</button>
+    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
 </header>
 
 <script>
@@ -74,7 +86,7 @@
     });
 </script>
 
-<h1 style="margin-top: 80px;">Community Stories</h1>
+<h1>Community Stories</h1>
 
 <div class="controls">
     <label>Category:</label>
@@ -206,8 +218,11 @@
   </div>
 </section>
 
-<footer class="sticky-footer">
-    <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+<footer class="dark-footer">
+    <div class="dark-footer-inner">
+        <p>&copy; 2026 Native Language &amp; History &bull; Montana Tribal Language Revitalization Project</p>
+        <p class="dark-footer-right">Montana State University &bull; Bozeman, Montana &bull; <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+    </div>
 </footer>
 
 </body>

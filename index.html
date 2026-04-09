@@ -8,15 +8,20 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <a href="index.html">
+<body class="dark-page">
+
+  <header id="main-header">
+    <a href="index.html" class="logo-link">
       <img src="images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
+      <div class="logo-text">
+        <span class="logo-name">Native Language &amp; History</span>
+        <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
+      </div>
     </a>
     <ul id="Nav-Links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="nav-active">Home</a></li>
       <li><a href="html/learn.html">Learn</a></li>
       <li><a href="html/culture.html">History</a></li>
       <li><a href="html/stories.html">Stories</a></li>
@@ -30,30 +35,47 @@
     });
   </script>
 
-  <div class="titlecontainer" id="indexcontainer">
-    <img class="titleimage" id="indexTemp" src="images/vecteezy_serene-alpine-lake-reflecting-snow-capped-mountains-at_69765282.jpg" alt="Serene alpine lake">
-    <p class="title overlay-title" id="indextitle">Native Language & History</p>
+  <!-- HERO -->
+  <section class="hero-section">
+    <img class="hero-img" src="https://picsum.photos/id/1015/2000/1200" alt="Montana landscape">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">12 TRIBES &bull; 8 RESERVATIONS &bull; MONTANA</div>
+      <h1 class="hero-title">Preserve. Learn.<br>Honor Montana's<br>First Languages.</h1>
+      <p class="hero-sub">A space dedicated to helping communities understand the rights, boundaries, and traditions that shape Indigenous practices across generations.</p>
+      <a href="html/learn.html" class="hero-cta">EXPLORE LANGUAGES <span>&#x2192;</span></a>
+    </div>
+  </section>
+
+  <!-- GOAL -->
+  <div class="goal-section">
+    <h2>What is our goal?</h2>
+    <p>A living resource built alongside Montana's tribal communities — dedicated to language preservation, cultural education, and honoring the histories that have shaped this land for generations.</p>
   </div>
 
-  <div class="firstInfo">
-    <h1>What is our goal?</h1>
-    <p>A space dedicated to helping communities understand the rights, boundaries, and traditions that shape Indigenous practices across generations.</p>
-  </div>
-
-  <div class="row">
-    <a href="html/learn.html" class="text">
-      <h1>Learn & Translate</h1>
+  <!-- FEATURE CARDS -->
+  <section class="feature-grid">
+    <a href="html/learn.html" class="feature-card">
+      <div class="feature-card-icon">&#128218;</div>
+      <h3>Learn &amp; Translate</h3>
       <p>A living resource built by and for Montana's tribal communities. Learn vocabulary, explore sentence structure, and translate phrases from the many Indigenous languages that call this land home.</p>
+      <div class="feature-card-cta">EXPLORE LANGUAGE &rarr;</div>
     </a>
-  </div>
-
-  <div class="row">
-    <a href="html/culture.html" class="text">
-      <h1>History & Treaties</h1>
+    <a href="html/culture.html" class="feature-card">
+      <div class="feature-card-icon">&#128220;</div>
+      <h3>History &amp; Treaties</h3>
       <p>Explore the histories, leaders, and treaty agreements that have shaped Montana's tribal nations — stories of resilience, sovereignty, and survival that deserve to be remembered.</p>
+      <div class="feature-card-cta">EXPLORE HISTORY &rarr;</div>
     </a>
-  </div>
+    <a href="html/stories.html" class="feature-card feature-card-wide">
+      <div class="feature-card-icon">&#128483;</div>
+      <h3>Stories</h3>
+      <p>Listen to and read stories passed down through generations — oral traditions, legends, and personal accounts from Montana's tribal nations that keep culture alive.</p>
+      <div class="feature-card-cta">READ STORIES &rarr;</div>
+    </a>
+  </section>
 
+  <!-- ABOUT & CONTACT -->
   <section class="about-contact-section">
     <div>
       <div>
@@ -75,8 +97,12 @@
     </div>
   </section>
 
-  <footer class="sticky-footer">
-    <p>Language App | <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+  <footer class="dark-footer">
+    <div class="dark-footer-inner">
+      <p>&copy; 2026 Native Language &amp; History &bull; Montana Tribal Language Revitalization Project</p>
+      <p class="dark-footer-right">Montana State University &bull; Bozeman, Montana &bull; <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+    </div>
   </footer>
+
 </body>
 </html>

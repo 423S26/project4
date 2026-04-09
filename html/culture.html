@@ -8,17 +8,85 @@
   <link rel="stylesheet" href="../css/hist.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* ── DARK PAGE ── */
+    body.culture-dark-page { background: #0c0a09; color: #f5f5f4; padding-bottom: 0; padding-top: 71px; }
+    /* header */
+    body.culture-dark-page header { background: rgba(28,25,23,0.97); border-bottom: 1px solid #292524; height: 70px; padding: 0 32px; }
+    .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    body.culture-dark-page #headerLogo { height: 50px; width: auto; object-fit: contain; margin-left: 0; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #fbbf24; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 0.58rem; color: #a8a29e; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; margin-top: 2px; }
+    body.culture-dark-page #Nav-Links { display: none !important; }
+    body.culture-dark-page #Nav-Links.open { display: flex !important; flex-direction: column; position: absolute; top: 70px; right: 0; background: #1c1917 !important; border: 1px solid #292524 !important; border-radius: 16px !important; padding: 12px 0; min-width: 220px; z-index: 1001; gap: 0; }
+    body.culture-dark-page #Nav-Links.open li a { display: block; padding: 14px 28px; font-size: 0.9rem; color: #d6d3d1; border-bottom: none; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 500; transition: color 0.2s, background 0.2s; }
+    body.culture-dark-page #Nav-Links.open li a:hover,
+    body.culture-dark-page #Nav-Links.open li a.nav-active { color: #fbbf24; }
+    body.culture-dark-page #Nav-Links.open li:hover { background: #292524; }
+    body.culture-dark-page #menu-toggle { display: block !important; color: #f5f5f4; background: none; border: none; font-size: 32px; cursor: pointer; }
+    /* hero / title area */
+    body.culture-dark-page .titlecontainer { position: relative; width: 100%; height: calc(100vh - 71px); overflow: hidden; display: flex; align-items: flex-end; padding-bottom: 0; margin-top: 0; }
+    body.culture-dark-page .titleimage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.9; filter: brightness(100%) !important; }
+    body.culture-dark-page .titlecontainer::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,10,9,0.75) 0%, rgba(12,10,9,0.1) 50%, transparent 100%); z-index: 1; }
+    body.culture-dark-page .overlay-title { position: relative; z-index: 2; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: #f5f5f4; letter-spacing: -1px; line-height: 1.1; padding: 0 48px; text-shadow: none; text-align: left; margin: 0; }
+    /* timeline */
+    body.culture-dark-page .timeline { max-width: 1000px; margin: 60px auto; padding: 0 32px; }
+    body.culture-dark-page .timeline-item { background: #1c1917; border: 1px solid #292524; border-radius: 16px; padding: 28px 32px; margin-bottom: 20px; transition: border-color 0.2s; }
+    body.culture-dark-page .timeline-item:hover { border-color: #fbbf24; }
+    body.culture-dark-page .timeline-item h3 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 1.3rem; margin-bottom: 10px; text-align: left; font-weight: 700; }
+    body.culture-dark-page .timeline-item p { color: #a8a29e; line-height: 1.7; }
+    /* map section */
+    body.culture-dark-page .map-section h2 { color: #fbbf24 !important; font-family: 'Playfair Display', serif; }
+    body.culture-dark-page .map-section p { color: #a8a29e !important; }
+    body.culture-dark-page .map-section > div { background: #1c1917 !important; border: 1px solid #292524 !important; box-shadow: none !important; }
+    body.culture-dark-page .map-section > div p { color: #a8a29e !important; }
+    body.culture-dark-page .map-section a[href*="native-land"] { background: #fbbf24 !important; color: #0c0a09 !important; border-radius: 8px !important; font-weight: 600 !important; }
+    /* treaties */
+    body.culture-dark-page .treaties-section { max-width: 1000px; margin: 60px auto; padding: 0 32px 60px; }
+    body.culture-dark-page .treaties-section h2 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 2rem; margin-bottom: 24px; text-align: left; }
+    body.culture-dark-page .treaty-box { background: #1c1917; border: 1px solid #292524; border-radius: 16px; padding: 24px 48px 24px 32px; margin-bottom: 16px; transition: border-color 0.2s; }
+    body.culture-dark-page .treaty-box:hover { border-color: #fbbf24; }
+    body.culture-dark-page .treaty-box h4 { color: #f5f5f4; font-size: 1.05rem; font-weight: 600; }
+    body.culture-dark-page .treaty-box p, body.culture-dark-page .treaty-box ul { color: #a8a29e; line-height: 1.8; margin-top: 12px; }
+    body.culture-dark-page .treaty-box ul { padding-left: 20px; }
+    body.culture-dark-page .treaty-box ul li { margin-bottom: 8px; }
+    body.culture-dark-page .treaty-box strong { color: #d6d3d1; }
+    body.culture-dark-page .treaty-box em { color: #78716c; }
+    body.culture-dark-page .expand-indicator { color: #fbbf24 !important; }
+    /* about-contact */
+    body.culture-dark-page .about-contact-section { background: #111110 !important; border-top: 1px solid #292524; }
+    body.culture-dark-page .about-contact-section h2 { color: #fbbf24 !important; }
+    body.culture-dark-page .about-contact-section p,
+    body.culture-dark-page .about-contact-section a { color: #a8a29e !important; }
+    /* dark footer */
+    .dark-footer { background: #0c0a09; border-top: 1px solid #292524; padding: 48px 0; }
+    .dark-footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 0.75rem; color: #57534e; font-weight: 400; letter-spacing: 0.3px; }
+    .dark-footer p { font-size: 0.75rem; font-weight: 400; }
+    .dark-footer-right { color: #44403c; }
+    .dark-footer a { color: #a8a29e; text-decoration: none; transition: color 0.2s; }
+    .dark-footer a:hover { color: #fbbf24; }
+    /* treaty accordion */
     .treaty-box.collapsed p, .treaty-box.collapsed ul { display: none; }
     .treaty-box { cursor: pointer; position: relative; }
-    .treaty-box .expand-indicator {
-      position: absolute; top: 18px; right: 24px; font-size: 1.2em;
-      color: #8C5E3C; user-select: none;
+    .treaty-box .expand-indicator { position: absolute; top: 18px; right: 24px; font-size: 1.2em; user-select: none; }
+    /* hero overlay cards */
+    .hero-overlay-content { position: relative; z-index: 2; width: 100%; padding: 0 32px 48px; }
+    .hero-timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .hero-timeline-card { background: rgba(12,10,9,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 24px 22px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
+    .hero-timeline-card:hover { border-color: #fbbf24; background: rgba(28,25,23,0.88); transform: translateY(-4px); }
+    .hero-timeline-card h3 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 1.1rem; margin-bottom: 10px; text-align: left; font-weight: 700; }
+    .hero-timeline-card p { color: #d6d3d1; font-size: 0.82rem; line-height: 1.65; font-weight: 300; }
+    @media (max-width: 900px) {
+      .hero-timeline-grid { grid-template-columns: 1fr; }
+      .dark-footer-inner { flex-direction: column; gap: 8px; }
+      body.culture-dark-page .overlay-title { padding: 0 24px; }
+      .hero-overlay-content { padding: 0 20px 32px; }
     }
   </style>
 </head>
-<body>
+<body class="culture-dark-page">
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -38,11 +106,17 @@
   </script>
 
   <header>
-    <a href="../index.html"><img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo"></a>
+    <a href="../index.html" class="logo-link">
+      <img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
+      <div class="logo-text">
+        <span class="logo-name">Native Language &amp; History</span>
+        <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
+      </div>
+    </a>
     <ul id="Nav-Links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="learn.html">Learn</a></li>
-      <li><a href="culture.html">History</a></li>
+      <li><a href="culture.html" class="nav-active">History</a></li>
       <li><a href="stories.html">Stories</a></li>
     </ul>
     <button id="menu-toggle" aria-label="Menu">&#9776;</button>
@@ -56,21 +130,22 @@
 
   <div class="titlecontainer" id="historycontainer">
     <img class="titleimage" id="historyMountains" src="../images/tribal-teepee.jpg" alt="Tribal Teepee"/>
-    <p class="title overlay-title" id="historytitle">Overall Impact of Treaties</p>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Important Leaders</h3>
-      <p>The strength of Montana's tribal nations is rooted in its leaders. Discover the men and women from the Blackfeet, Crow, Northern Cheyenne, Salish, Kootenai, Assiniboine, Gros Ventre, Chippewa Cree, and Sioux nations whose courage and wisdom shaped the course of history.</p>
-    </div>
-    <div class="timeline-item">
-      <h3>Treaty Agreements</h3>
-      <p>From the Fort Laramie Treaties to the Hellgate and Blackfeet Treaties, the nations of Montana negotiated agreements that were meant to protect their lands, resources, and ways of life. Learn about the treaties that shaped every reservation and tribal nation across the state.</p>
-    </div>
-    <div class="timeline-item">
-      <h3>Modern Era</h3>
-      <p>Today, Montana's tribal nations continue to preserve their languages, cultures, and traditions while navigating the challenges and opportunities of the modern world. From language revitalization programs to tribal colleges and cultural centers, Indigenous communities across the state are leading the way forward — on their own terms.</p>
+    <div class="hero-overlay-content">
+      <p class="title overlay-title" id="historytitle">Overall Impact of Treaties</p>
+      <div class="hero-timeline-grid">
+        <div class="hero-timeline-card">
+          <h3>Important Leaders</h3>
+          <p>The strength of Montana's tribal nations is rooted in its leaders. Discover the men and women from the Blackfeet, Crow, Northern Cheyenne, Salish, Kootenai, Assiniboine, Gros Ventre, Chippewa Cree, and Sioux nations whose courage and wisdom shaped the course of history.</p>
+        </div>
+        <div class="hero-timeline-card">
+          <h3>Treaty Agreements</h3>
+          <p>From the Fort Laramie Treaties to the Hellgate and Blackfeet Treaties, the nations of Montana negotiated agreements that were meant to protect their lands, resources, and ways of life. Learn about the treaties that shaped every reservation and tribal nation across the state.</p>
+        </div>
+        <div class="hero-timeline-card">
+          <h3>Modern Era</h3>
+          <p>Today, Montana's tribal nations continue to preserve their languages, cultures, and traditions while navigating the challenges and opportunities of the modern world. From language revitalization programs to tribal colleges and cultural centers, Indigenous communities across the state are leading the way forward — on their own terms.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -140,8 +215,11 @@
     </div>
   </section>
 
-    <footer class="sticky-footer">
-    <p>Language App | <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+  <footer class="dark-footer">
+    <div class="dark-footer-inner">
+      <p>&copy; 2026 Native Language &amp; History &bull; Montana Tribal Language Revitalization Project</p>
+      <p class="dark-footer-right">Montana State University &bull; Bozeman, Montana &bull; <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+    </div>
   </footer>
 </body>
 </html>

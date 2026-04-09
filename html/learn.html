@@ -3,13 +3,335 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learn the Crow Language</title>
+  <title>Learn • Montana Tribal Nations</title>
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/langtranslate.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* ── DARK PAGE ── */
+    body.learn-dark-page {
+      background: #0c0a09;
+      color: #f5f5f4;
+      padding-bottom: 0;
+    }
+    /* header */
+    body.learn-dark-page header {
+      background: rgba(28,25,23,0.97);
+      border-bottom: 1px solid #292524;
+      height: 70px;
+      padding: 0 32px;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    body.learn-dark-page #headerLogo {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      margin-left: 0;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #fbbf24;
+      letter-spacing: -0.5px;
+    }
+    .logo-sub {
+      font-size: 0.58rem;
+      color: #a8a29e;
+      letter-spacing: 2px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    /* Always-on hamburger nav */
+    body.learn-dark-page #Nav-Links { display: none !important; }
+    body.learn-dark-page #Nav-Links.open {
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      top: 70px; right: 0;
+      background: #1c1917 !important;
+      border: 1px solid #292524 !important;
+      border-radius: 16px !important;
+      padding: 12px 0;
+      min-width: 220px;
+      z-index: 1001;
+      gap: 0;
+    }
+    body.learn-dark-page #Nav-Links.open li a { display: block; padding: 14px 28px; font-size: 0.9rem; color: #d6d3d1; border-bottom: none; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 500; transition: color 0.2s, background 0.2s; }
+    body.learn-dark-page #Nav-Links.open li a:hover,
+    body.learn-dark-page #Nav-Links.open li a.nav-active { color: #fbbf24; }
+    body.learn-dark-page #Nav-Links.open li:hover { background: #292524; }
+    body.learn-dark-page #menu-toggle { display: block !important; color: #f5f5f4; background: none; border: none; font-size: 32px; cursor: pointer; }
+    /* hero */
+    .learn-hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-bottom: 72px;
+    }
+    .learn-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.82;
+    }
+    .learn-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,10,9,0.88) 25%, rgba(12,10,9,0.15) 100%);
+    }
+    .learn-hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 0 48px;
+      width: 100%;
+      max-width: 900px;
+    }
+    .learn-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(251,191,36,0.1);
+      border: 1px solid rgba(251,191,36,0.25);
+      color: #fbbf24;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      padding: 6px 20px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .learn-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: #f5f5f4;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .learn-hero-sub {
+      font-size: 1rem;
+      color: #a8a29e;
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.8;
+    }
+    /* learn-boxes dark */
+    body.learn-dark-page .learn-boxes-section {
+      background: transparent;
+    }
+    body.learn-dark-page .learn-box {
+      background: #1c1917 !important;
+      border-left-color: #fbbf24 !important;
+      color: #d6d3d1;
+    }
+    body.learn-dark-page .learn-box h3 {
+      color: #fbbf24;
+      font-family: 'Playfair Display', serif;
+    }
+    body.learn-dark-page .learn-box pre {
+      color: #a8a29e;
+      background: transparent;
+    }
+    body.learn-dark-page .song-lyrics {
+      background: #111110 !important;
+      border-color: #292524 !important;
+    }
+    /* phrase weaver */
+    body.learn-dark-page #phrase-search-input {
+      background: #111110 !important;
+      color: #f5f5f4 !important;
+      border: 2px solid #fbbf24 !important;
+    }
+    body.learn-dark-page #phrase-search-input::placeholder { color: #57534e !important; }
+    body.learn-dark-page #phrase-results-list {
+      background: #1c1917 !important;
+      border-color: #292524 !important;
+      color: #f5f5f4 !important;
+    }
+    body.learn-dark-page #phrase-bead-container {
+      background: #111110 !important;
+      border-color: #292524 !important;
+    }
+    body.learn-dark-page #phrase-result-box {
+      background: #1c1917 !important;
+      border-color: #292524 !important;
+    }
+    body.learn-dark-page #crow-phrase-display { color: #fbbf24 !important; }
+    body.learn-dark-page #english-phrase-display { color: #d6d3d1 !important; }
+    body.learn-dark-page #phrase-notes { color: #a8a29e !important; }
+    body.learn-dark-page .learn-box > h3[style] { color: #fbbf24 !important; }
+    /* further learning cards */
+    body.learn-dark-page .further-card {
+      background: #111110 !important;
+      border: 1px solid #292524 !important;
+      border-radius: 12px !important;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    body.learn-dark-page .further-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(180,83,9,0.3);
+      border-color: rgba(251,191,36,0.2) !important;
+    }
+    body.learn-dark-page .further-card strong { color: #fbbf24 !important; }
+    body.learn-dark-page .further-card span { color: #78716c !important; }
+    /* PISL dark */
+    body.learn-dark-page .pisl-eyebrow {
+      background: #1c1917;
+      color: #fbbf24;
+      border-color: rgba(251,191,36,0.3);
+    }
+    body.learn-dark-page .pisl-heading { color: #f5f5f4; }
+    body.learn-dark-page .pisl-heading::after { background: #fbbf24; }
+    body.learn-dark-page .pisl-intro { color: #a8a29e; font-weight: 300; }
+    /* about-contact dark overrides */
+    body.learn-dark-page .about-contact-section {
+      background: #111110;
+      border-top: 1px solid #292524;
+      color: #d6d3d1;
+      margin-top: 0;
+    }
+    body.learn-dark-page .about-contact-section > div > div {
+      border-right-color: rgba(255,255,255,0.07);
+    }
+    body.learn-dark-page .about-contact-section h2 {
+      color: #fbbf24;
+      border-bottom-color: rgba(255,255,255,0.07);
+    }
+    body.learn-dark-page .about-contact-section p { color: #78716c; }
+    body.learn-dark-page .about-contact-section strong { color: #d6d3d1; }
+    body.learn-dark-page .about-contact-section a { color: #fbbf24; }
+    body.learn-dark-page .about-contact-section a:hover { color: #fcd34d; text-decoration: underline; }
+    /* dark footer */
+    .dark-footer {
+      background: #0c0a09;
+      border-top: 1px solid #292524;
+      padding: 48px 0;
+    }
+    .dark-footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: #57534e;
+      font-weight: 400;
+    }
+    .dark-footer-inner { letter-spacing: 0.3px; }
+    .dark-footer p { font-size: 0.75rem; font-weight: 400; }
+    .dark-footer-right { color: #44403c; }
+    .dark-footer a { color: #a8a29e; text-decoration: none; transition: color 0.2s; }
+    .dark-footer a:hover { color: #fbbf24; }
+    /* tribe selector */
+    .tribe-selector-section {
+      padding: 90px 32px 100px;
+    }
+    .tribe-selector-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .tribe-selector-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #f5f5f4;
+      letter-spacing: -1px;
+      text-align: left;
+      margin-bottom: 12px;
+    }
+    .tribe-selector-sub {
+      font-size: 1rem;
+      color: #78716c;
+      font-weight: 300;
+      margin-bottom: 52px;
+      text-align: left;
+    }
+    .tribe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .tribe-card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .tribe-card-dark {
+      background: #1c1917;
+      border: 1px solid #292524;
+      border-radius: 24px;
+      padding: 36px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  border-color 0.3s;
+    }
+    .tribe-card-link:hover .tribe-card-dark {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 28px 56px -12px rgba(180, 83, 9, 0.38);
+      border-color: rgba(251, 191, 36, 0.18);
+    }
+    .tribe-emoji {
+      font-size: 2.8rem;
+      margin-bottom: 4px;
+    }
+    .tribe-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f5f5f4;
+      line-height: 1.2;
+    }
+    .tribe-alt {
+      font-size: 0.9rem;
+      color: #fbbf24;
+      font-weight: 400;
+    }
+    .tribe-explore {
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #57534e;
+      font-weight: 500;
+    }
+    /* responsive */
+    @media (max-width: 900px) {
+      .tribe-grid { grid-template-columns: repeat(2, 1fr); }
+      .learn-hero-content { padding: 0 24px; }
+      .learn-hero-title { letter-spacing: -1px; }
+      .dark-footer-inner { flex-direction: column; gap: 8px; }
+    }
+    @media (max-width: 600px) {
+      .tribe-grid { grid-template-columns: 1fr; }
+      .tribe-selector-heading { font-size: 2rem; }
+    }
     /* ── PISL Section ── */
     .pisl-section {
       max-width: 900px;
@@ -183,13 +505,19 @@
     }
   </style>
 </head>
-<body>
+<body class="learn-dark-page">
 
 <header>
-  <a href="../index.html"><img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo"></a>
+  <a href="../index.html" class="logo-link">
+    <img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
+    <div class="logo-text">
+      <span class="logo-name">Native Language &amp; History</span>
+      <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
+    </div>
+  </a>
   <ul id="Nav-Links">
     <li><a href="../index.html">Home</a></li>
-    <li><a href="learn.html">Learn</a></li>
+    <li><a href="learn.html" class="nav-active">Learn</a></li>
     <li><a href="culture.html">History</a></li>
     <li><a href="stories.html">Stories</a></li>
   </ul>
@@ -202,422 +530,101 @@
   });
 </script>
 
-<div class="titlecontainer" id="langcontainer">
-  <div class="image-wrapper">
-    <img class="titleimage" id="learnPowwow" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" loading="lazy">
-    <p class="title overlay-title" id="langtitle">Learn A Tribal Language</p>
+<section class="learn-hero">
+  <img class="learn-hero-img" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" loading="lazy">
+  <div class="learn-hero-overlay"></div>
+  <div class="learn-hero-content">
+    <div class="learn-hero-badge">12 TRIBES &bull; 8 RESERVATIONS &bull; MONTANA</div>
+    <h1 class="learn-hero-title">Montana Tribal<br>Nations. Learn.</h1>
+    <p class="learn-hero-sub">Select a tribal nation below to explore its language, vocabulary, oral traditions, and cultural resources.</p>
   </div>
-</div>
-
-<div class="titlecontainer" id="teaching-container">
-  <img class="titleimage" src="../images/teaching.jpeg" alt="Teaching" loading="lazy">
-</div>
-
-
-
-<section class="learn-boxes-section">
-  <div class="learn-box song-box">
-    <h3>Doorway Song / Serenading Song</h3>
-    <div class="song-lyrics">
-      <pre>Doorway song or Serenading song
-Story and Doorway Song By: Corky Old Horn
-Crow Name: Ihchawaxxiash
-Translation: Throws Himself Away 
-
-Ash bilian malaxuua
-Doorway Song
-
-Love Story:	Bale bache kuushde heele baachaache Chiilapaashuua and Xooxaashbia/Xooxaasshiile
-
-Hilaake hinne buum biilaawehkuuk
-I have been asked to sing a song 
-
-Ii ash bilian balaxuk
-It is a doorway song 
-
-Heetaa alakuukaa hualaawe
-It came from long ago 
-
-Biwasahkaale May Takes Gun, Old Coyote, Childs koon bii axpiichiiweek
-My grandmother May Takes Gun, Old Coyote, Childs told me the story
-
-Iiiilak ammalee Awasshee kuhtaahe
-When we were still with the Hitdatsa 
-
-Koolaale Awasheeolak duxxiilaak
-At that time a group of Hitdatsa went on a raiding party 
-
-Hileen Aashuuxaape isaashkua hambeekshiiwook hak
-We will take some horses from the Flat Head 
-
-Kalakoon kan duxiilaauk
-Then they went on a raid 
-
-Hileen duuxiash iisawuulak
-Several warriors 
-
-Daaliio aa ii iilak Baaachuua Aashe kuhtaa ammishe kalakoon koo
-They went on and on and got to the Gallatin River, around there 
-
-Aashuuxaape dioolak 
-Met a party of Flatheads 
-
-Kalakoon bachiook
-Then they battled 
-
-Hinne iiichin dutchiwiiosh akaasheeolak
-The raiding party encountered a surprise attack 
- 
-Bachiiolak heeleen hinne duuxiash
-One of the men in the raiding party
-
-Bachiiolak heeleen hawatak Chiilapaashuush huuk huuk
-One of the men in the war party was named Bull Head 
-
-Heelak koo Chiilapaashuush huua itchuupe ootaahuuk
-Then Bull Head’s ankle was fractured
-
-Kalakoon axpe hileen Aashuuxaapesh chipxussaak axpua kulutak kalakoon kala
-Then the war party pushed away the Flatheads and rescued Bull Head 
-
-Dualaaliiok huuk aashe awuataa
-They say they came along the river
-
-Heelak bisshe lak dapiak alaakualittak diak
-The party killed a buffalo and made a travois
-
-Kookan duuxalualaaliioaa
-They dragged him in the travois 
-
-Ammalapashkua hilaake eehk kalihchia anniio eehk tale alawasseelittuuash
-They arrived what is now Billings, Montana near the Conoco Power Plant area 
-
-Eehk Iisaxpuatahche Aashe bakuutaale anniiosh dak kalihchialak oopkisheelak anniioosh
-Along the Elk River where the power plant is today
-
-Koo iak Aashe akkaako ammaakoo
-Across the river from the power plant on the high cliff
-
-Baahpe chechixiatesh iisaawaxse kook huuk
-Below the high cliffs 
-
-Kuute balapaale annak koon hinne Chiilapaashuush axpammishe koote
-Where the brush was thick Bull Head’s partners 
-
-Baaluuk hilite bi aalaliook
-It has been a long hard journey and you got me here
-
-Kala hileen baalitak
-I will stay here now 
-
-koota ammaaluuash heeleetaah biialaliiok kala hileen baalitak
-You even brought me through a hard time, I will stay here now
-
-Aala kan biawakussaalak
-When it is spring time 
-
-Diiwiiwoomah eehk aashawuataa
-I will go along the river and I will reach you
-
-Bash baashe diawak dii wiioommaachik
-I will make a boat to reach you
-
-Bassaannak kan diiwiioommaachik
-I will catch up with you in the Fall
-
-Baaleetaa kan biihpe kalaheettak kuukkala hileen baawaachik
-If not and the snow is has started coming down, I will have to stay here for good
-
-Heet aliatteedak daalah
-It's alright, go 
-
-Ichuuke heeleenak daaotaa iilissaawattak chissaalahkuk huuk
-His younger brother who was in the party would start off and then he would cry and come back to his brother
-
-Aliatteetak biialatteetak daak
-It’s ok, I’m ok, go
-
-Biilaptaa beessuulak xaawiimmah
-It will not be good if both of us don’t make it home
-
-Heelak daak bashpilaxpaakua chiiwaah
-So, go home and tell our family 
-
-Biihiileelak baakoon baaliichik aaliatteetak
-That I am here and I’m doing ok and it’s ok
-
-Bi aliateetak daalah
-I’m ok, go
-
-Heelak daaolak
-Then they left
-
-Daamnaa ashe diiolak
-When the party arrived home 
-
-Kalakoon biakalishtalak heeleelak hinne akiikshe kook huuk koo Chilapaashuush huuah
-Then, a young woman who was Bull Head’s girlfriend wondered 
-
-Heeleelak heeleelassaalak Kalakoon
-Wondered and he was not among the ones who returned home
-
-Shootaa Chilapaashuush
-How is Bull Head 
-
-Koo iisaakshe hawatak 
-One of the men
-
-Iichuupe ooshissuum
-Fractured his ankle
-
-Iiiilak alakoole diawak itchiiwak, iilak aashe Iichilikaash Aashe koon balapaale satchim koon alakoole diawaak itchiiwak buook
-We made a place for him way down there along the Elk River, there where the brush is thick, there we made a good place for him, then we came
-
-Heem hinne bachuupe chipdak baaleewimmaachik
-Then when my ankle heals I will go
-
-Biialatteetak kandaalah heem eehk buuok
-He said, “I’m alright, go now.” So we came 
-
-Koo biakalishte baaleewiawaak shoolaakashtak bii chiiwaah heelak
-This young woman said, “I want to go there, tell me exactly where he is.” 
-
-Koon koo iisaakshe
-Then that young man 
-
-Chilaakussaalak baammaxe iicheem ooak uuweem aapaa ooh heelak baawaalaatak itchewaak alixiase
-Said, “Come back tomorrow morning with a good buckskin with red clay and I will draw a good map.”
- 
-Iixiassee itchiiwaalak
-I will make a good map
-
-Kala iiliatak ii alapasshish daaleewialaalak
-Now use it to go his way
-
-Iihase koo wia ammaaimiteeche ahaachiichetaah
-There may have been other stipulations attached but that was all I knew 
-
-Kala iilahkootak kalakoon hinne baammaxxe ammaalaatuash kalakoon kuulaak kala huuk hush
-So then she carried her map on a piece of buckskin and started on her journey 
-
-Huulaawe deelaa kala baakoo saamnak hiliawik heessuuk
-She came a long ways, however many days she traveled, it was not said
-
-Heet huuaweeaa deelaa iixiassahkuash kuhta ammisshe koon huak kalakoon kan balaxik huuk
-But she traveled a long ways until she recognized the landmarks on her map, so she started singing
-“Song”
-
-Awa chisshe kaate moohik eele
-My love I came
-
-Bii chicheessee lachi boohik
-I am so lonesome I came
-
-Dii awaxpe wiawak ii waluu haawik
-I want to marry you so
-
-Bii chicheesaam boohik
-I am so lonesome I came
-
-Heelaak huuk huuk ko biakaalishte
-So this young woman came
-
-Haalaak huu cheeluk huuk
-So it was said, that she came 
-
-Daashe Xooxaash Bia haak chii Xooxaasshiile huucheeluk
-Her name was Corn Woman or Yellow Corn. That was what she was called
-
-Heelakkoo Chiilapaashuua huah eehkkaa baakoonbaalish kaat beesh hiiloosh saapdak biihiichicheewik
-So then, the person they call Bull Head said, “Oh, oh I was doing fine, I think something is approaching me.” 
-
-Heeleelak ooliakaattaa 
-Then again he heard singing 
-“Song”
-
-Iwakooshia aalaak huulak iiwaakooshialaalaawak huulak
-She sang as she was walking toward the place
-
-Baa alakootiileettakdaa Xooxaash bia dii heelak
-He said, “I know it cannot be true, but is that you Corn Woman?”
-
-Aa biim mook
-Yes, it’s me, I came
-
-Aa biihiileelak heelak
-Yes, I’m here
-
-Kalakoon daam naa hilak
-Then she approached him
-
-Kala koon bachohchiikaapak
-They greeted each other
-
-Kala koon kan daakuukaattuuk huuk
-Then, they went home together
-
-Ammalee bachee kosh deek huulak kala heele baachaache kook haak biichiiwaaok
-I was told that this was the greatest story about a woman going after a man
-
-Biiwassaakaale hiiliatahcheeluk haak
-My own grandmother said, “This is how it was meant to happen.” 
-
-Biiaxpiichiweek
-She told me this story
-
-Iilak alasheewe kukkala kook
-How I said it is how it is 
-“CUT”
-
- Ihchawaxxiash biish
-It’s me, Throws Himself Away
-
-Basahkaale koon bii axbiichiweem Kookakaa sheewaak 
-I have just repeated what my grandmother told me. 
-</pre>
-    </div>
-  </div>
-
 </section>
 
-<!-- === APSÁALOOKE PHRASE WEAVER + FURTHER LEARNING === -->
-<div class="learn-box" style="background:#FAF3E0; border-left-color:#5B3A29;">
-  <h3>Apsáalooke Phrase Weaver</h3>
-  <p style="font-style:italic; color:#5B3A29; margin-bottom:20px;">Weave words like traditional Crow beadwork • Real elder audio coming soon</p>
 
-  <div style="margin-bottom:20px;">
-    <input 
-      id="phrase-search-input" 
-      type="text" 
-      placeholder="Search Crow or English (e.g. 'love' or 'Diiawachisshik')" 
-      style="width:100%; padding:14px; border:2px solid #8C5E3C; border-radius:8px; font-size:1.05rem;">
-  </div>
 
-  <div id="phrase-results-list" class="hidden" style="background:#fff; border:1px solid #c8a882; border-radius:8px; max-height:220px; overflow-y:auto; margin-bottom:20px;"></div>
+<!-- TRIBE SELECTOR GRID -->
+<section class="tribe-selector-section">
+  <div class="tribe-selector-inner">
+    <h2 class="tribe-selector-heading">Select a Tribal Nation</h2>
+    <p class="tribe-selector-sub">Each nation has its own dedicated language hub. Choose one to begin.</p>
+    <div class="tribe-grid">
 
-  <div id="phrase-bead-container" style="min-height:80px; border:2px dashed #8C5E3C; border-radius:8px; padding:20px; background:#fff; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:10px;"></div>
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#129462;</div>
+          <div class="tribe-name">Crow Nation</div>
+          <div class="tribe-alt">Apsáalooke</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
 
-  <div id="phrase-result-box" class="hidden" style="background:#fff; padding:24px; border-radius:8px; border:1px solid #c8a882;">
-    <p id="crow-phrase-display" style="font-size:1.35rem; font-weight:600; color:#5B3A29; margin-bottom:8px;"></p>
-    <p id="english-phrase-display" style="font-size:1.15rem; margin-bottom:20px;"></p>
-    
-    <div style="display:flex; gap:12px; flex-wrap:wrap;">
-      <button onclick="playPlaceholderAudio()" 
-              style="flex:1; padding:14px; background:#5B3A29; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-        🔊 Hear Real Elder Audio (Coming Soon)
-      </button>
-      <button onclick="surpriseMePhrase()" 
-              style="flex:1; padding:14px; background:#8C5E3C; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-        🎲 Surprise Me (Doorway Song Style)
-      </button>
-    </div>
-    
-    <p id="phrase-notes" style="margin-top:20px; font-size:0.95rem; font-style:italic; color:#5B3A29;"></p>
-  </div>
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#129452;</div>
+          <div class="tribe-name">Blackfeet Nation</div>
+          <div class="tribe-alt">Niitsitapi</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
 
-  <!-- Further Learning Cards -->
-  <h3 style="margin:40px 0 20px 0; color:#8C5E3C;">Further Learning with Crow Language Consortium</h3>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
-    <a href="https://dictionary.crowlanguage.org/" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
-      <strong style="color:#5B3A29;">Online Dictionary</strong><br>
-      <span style="font-size:0.95rem;">Explore by topic: Food, Ceremony, Seasons, Animals & more.</span>
-    </a>
-    <a href="https://crowlanguage.org/" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
-      <strong style="color:#5B3A29;">Crow Language Consortium</strong><br>
-      <span style="font-size:0.95rem;">Textbooks, materials, teacher training • Contact: info@crowlanguage.org</span>
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=org.crowlanguage.dictionary" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
-      <strong style="color:#5B3A29;">Crow Mobile Dictionary App</strong><br>
-      <span style="font-size:0.95rem;">10,000+ entries with real Crow speaker audio (Android)</span>
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=org.crowlanguage.vb2" target="_blank" style="background:#fff; padding:20px; border:1px solid #c8a882; border-radius:8px; text-decoration:none; color:inherit; display:block;">
-      <strong style="color:#5B3A29;">Crow Vocab Builder (v2)</strong><br>
-      <span style="font-size:0.95rem;">Daily quizzes with audio • iOS & Android</span>
-    </a>
-  </div>
-  <p style="margin-top:20px; font-size:0.85rem; color:#666; text-align:center;">
-    Resources developed by the Crow Language Consortium in partnership with the Crow Nation and Little Big Horn College. 
-    For authentic audio and deeper study, visit their official tools.
-  </p>
-</div>
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#127956;&#65039;</div>
+          <div class="tribe-name">Confederated Salish &amp; Kootenai</div>
+          <div class="tribe-alt">Séliš &amp; Ksanka</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
 
-<!-- PISL Interactive Section -->
-<section class="pisl-section">
-  <span class="pisl-eyebrow">Language &amp; Culture</span>
-  <h2 class="pisl-heading">Plains Indian Sign Language (Hand Talk)</h2>
-  <p class="pisl-intro">The Aps&#225;alooke (Crow) people were among many nations of the Great Plains who used Hand Talk &mdash; a shared visual language that enabled communication, ceremony, and diplomacy across tribal boundaries. See it in action below.</p>
-  <div class="pisl-card" id="pisl-trigger" role="button" tabindex="0" aria-label="Open Plains Indian Sign Language video demonstration">
-    <img src="https://img.youtube.com/vi/DI9mCITMu_k/maxresdefault.jpg"
-         onerror="this.src='https://img.youtube.com/vi/DI9mCITMu_k/hqdefault.jpg'"
-         alt="Plains Indian Sign Language demonstration video thumbnail">
-    <div class="pisl-play-btn">
-      <div class="pisl-play-circle">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      </div>
-      <span class="pisl-play-label">Watch PISL Demonstration</span>
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#128293;</div>
+          <div class="tribe-name">Northern Cheyenne</div>
+          <div class="tribe-alt">Tsetsêhesêstâhase</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
+
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#127806;</div>
+          <div class="tribe-name">Assiniboine &amp; Gros Ventre</div>
+          <div class="tribe-alt">Nakona &amp; A’aninin</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
+
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#127754;</div>
+          <div class="tribe-name">Fort Peck Tribes</div>
+          <div class="tribe-alt">Assiniboine &amp; Sioux</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
+
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#128059;</div>
+          <div class="tribe-name">Chippewa Cree</div>
+          <div class="tribe-alt">Anishinaabe &amp; Nehiyawak</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
+
+      <a href="#" class="tribe-card-link">
+        <div class="tribe-card-dark">
+          <div class="tribe-emoji">&#11088;</div>
+          <div class="tribe-name">Little Shell Chippewa</div>
+          <div class="tribe-alt">Métis &amp; Anishinaabe</div>
+          <div class="tribe-explore">Explore Language →</div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- PISL Modal -->
-<div class="pisl-modal" id="pisl-modal" role="dialog" aria-modal="true" aria-label="Plains Indian Sign Language video">
-  <div class="pisl-modal-content">
-    <button class="pisl-close" id="pisl-close" aria-label="Close video">&times;</button>
-    <div class="pisl-video-wrapper">
-      <iframe id="pisl-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function () {
-    var trigger  = document.getElementById('pisl-trigger');
-    var modal    = document.getElementById('pisl-modal');
-    var closeBtn = document.getElementById('pisl-close');
-    var iframe   = document.getElementById('pisl-iframe');
-    var SRC      = 'https://www.youtube.com/embed/DI9mCITMu_k?autoplay=1&rel=0';
-
-    function openModal() {
-      iframe.src = SRC;
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    }
-    function closeModal() {
-      iframe.src = '';
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-      trigger.focus();
-    }
-
-    trigger.addEventListener('click', openModal);
-    trigger.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
-    });
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
-  })();
-</script>
-
-<section class="mission-windows" style="margin-top:60px">
-  <div class="mission-window image-window">
-    <div class="quote-bubble">"Education is your greatest weapon. With education you are the white man's equal, without education you are his victim and so shall remain all of your lives. Study, learn, help one another always. Remember there is only poverty and misery in idleness and dreams but in work there is self-respect and independence." &#8213; Chief Plenty Coup</div>
-    <img src="../images/1894-crow-updated.jpeg" alt="Historical Crow photo" loading="lazy">
-  </div>
-  <div class="mission-window image-window">
-    <div class="quote-bubble">"If we must die, we die defending our rights." &ndash;Sitting Bull</div>
-    <img src="../images/2-crow-girls.jpeg" alt="Two Crow girls" loading="lazy">
-  </div>
-  <div class="mission-window image-window">
-    <div class="quote-bubble">"Every picture tells a chapter." - Unknown</div>
-    <img src="../images/1966-crow-fair.jpeg" alt="Crow Fair 1966" loading="lazy">
-  </div>
-</section>
 
 <section class="about-contact-section">
   <div>
@@ -641,8 +648,9 @@ I have just repeated what my grandmother told me.
 </section>
 
 <script>
-  // Phrase Weaver
+  // Phrase Weaver — reserved for individual tribe pages
   (function() {
+    if (!document.getElementById('phrase-search-input')) return;
     const vocab = [];
     document.querySelectorAll('.vocab-list table tbody tr').forEach(row => {
       const cells = row.querySelectorAll('td');
@@ -759,8 +767,11 @@ I have just repeated what my grandmother told me.
   })();
 </script>
 
-<footer class="sticky-footer">
-  <p>Language App | <a class="NavLink" href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+<footer class="dark-footer">
+  <div class="dark-footer-inner">
+    <p>&copy; 2026 Native Language &amp; History &bull; Montana Tribal Language Revitalization Project</p>
+    <p class="dark-footer-right">Montana State University &bull; Bozeman, Montana &bull; <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+  </div>
 </footer>
 </body>
 </html>
