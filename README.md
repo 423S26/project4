@@ -51,3 +51,14 @@ This makes the Learn page more interactive and engaging while keeping the focus 
 **Video used:** James Wooden Legs demonstrating ASL vs PISL
 
 You can extend this later by adding more gesture cards, each opening their own video in the same modal system.
+
+FOR NEW DEVS:
+Recommended IDE: IntelliJ IDE
+Run through Vercel
+
+Current link is https://project4original-zeta.vercel.app/
+Run through this link, for the form the link is https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=sharing&ouid=113169664340576761525
+The Google sheet is at https://docs.google.com/spreadsheets/d/1XYISn2U7g6dtF9BZwKfDqtcfgJwPCLijMIUDM-V-lnw/edit?usp=sharing
+The Google Script is at https://script.google.com/d/1UG62LHfICeawkx1wD5C51FediwM6BRLE3SAOHiFkrIpjgRPqPGRwRMaM/edit?usp=sharing
+
+You may have to send Luka a request to access these.
