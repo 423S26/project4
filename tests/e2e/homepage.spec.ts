@@ -25,7 +25,7 @@ test.describe('Homepage', () => {
   });
 
   test('hero image loads', async ({ page }) => {
-    const hero = page.locator('.titleimage');
+    const hero = page.locator('.hero-img');
     await expect(hero).toBeVisible();
   });
 

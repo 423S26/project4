@@ -291,10 +291,55 @@
                   box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                   border-color 0.3s;
     }
+    .tribe-card-featured {
+      position: relative;
+      justify-content: flex-end;
+      min-height: 320px;
+      padding: 0;
+      overflow: hidden;
+    }
+    .tribe-card-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 6px;
+      border: 1px solid rgba(251, 191, 36, 0.18);
+    }
+    .tribe-card-featured .tribe-card-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      margin-bottom: 0;
+      border: none;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tribe-card-featured::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,10,9,0.92) 10%, rgba(12,10,9,0.5) 45%, rgba(12,10,9,0.12) 100%);
+      z-index: 0;
+    }
+    .tribe-card-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 28px;
+      min-height: 100%;
+    }
     .tribe-card-link:hover .tribe-card-dark {
       transform: translateY(-8px) scale(1.03);
       box-shadow: 0 28px 56px -12px rgba(180, 83, 9, 0.38);
       border-color: rgba(251, 191, 36, 0.18);
+    }
+    .tribe-card-link:hover .tribe-card-featured .tribe-card-image {
+      transform: scale(1.04);
     }
     .tribe-emoji {
       font-size: 2.8rem;
@@ -534,7 +579,7 @@
   <img class="learn-hero-img" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" loading="lazy">
   <div class="learn-hero-overlay"></div>
   <div class="learn-hero-content">
-    <div class="learn-hero-badge">12 TRIBES &bull; 8 RESERVATIONS &bull; MONTANA</div>
+    <div class="learn-hero-badge">12 TRIBES &bull; 7 RESERVATIONS &bull; MONTANA</div>
     <h1 class="learn-hero-title">Montana Tribal<br>Nations. Learn.</h1>
     <p class="learn-hero-sub">Select a tribal nation below to explore its language, vocabulary, oral traditions, and cultural resources.</p>
   </div>
@@ -550,11 +595,13 @@
     <div class="tribe-grid">
 
       <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#129462;</div>
-          <div class="tribe-name">Crow Nation</div>
-          <div class="tribe-alt">Apsáalooke</div>
-          <div class="tribe-explore">Explore Language →</div>
+        <div class="tribe-card-dark tribe-card-featured">
+          <img class="tribe-card-image" src="../images/Crow_Nation_flag.jpg" alt="Crow Nation flag" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name">Crow Nation</div>
+            <div class="tribe-alt">Apsáalooke</div>
+            <div class="tribe-explore">Explore Language →</div>
+          </div>
         </div>
       </a>
 
