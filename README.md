@@ -1,5 +1,6 @@
 https://project4backup.vercel.app/index.html
 
+Dev Stories Page Guide: https://docs.google.com/document/d/1ofvJzBADpfnYIGs5SMTDRLsAKYgg7xocdE9ELzyQOuo/edit?usp=sharing
 User Guide: https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing
 
 Dev Log: 02/19/26
@@ -57,8 +58,11 @@ Recommended IDE: IntelliJ IDE
 Run through Vercel
 
 Current link is https://project4original-zeta.vercel.app/
+
 Run through this link, for the form the link is https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=sharing&ouid=113169664340576761525
+
 The Google sheet is at https://docs.google.com/spreadsheets/d/1XYISn2U7g6dtF9BZwKfDqtcfgJwPCLijMIUDM-V-lnw/edit?usp=sharing
+
 The Google Script is at https://script.google.com/d/1UG62LHfICeawkx1wD5C51FediwM6BRLE3SAOHiFkrIpjgRPqPGRwRMaM/edit?usp=sharing
 
 You may have to send Luka a request to access these.
