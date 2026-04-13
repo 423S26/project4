@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Community Stories</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/stories.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="../js/navigation.js" defer></script>
+</head>
+<body class="stories-dark-page">
+
+<header>
+    <a href="../index.html" class="logo-link">
+        <img src="../images/humminbird-3-2.png" id="headerLogo" alt="Hummingbird Logo">
+        <div class="logo-text">
+            <span class="logo-name">Native Language &amp; History</span>
+            <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
+        </div>
+    </a>
+    <nav aria-label="Primary">
+        <ul id="Nav-Links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="culture.html">History</a></li>
+            <li><a href="stories.html" class="nav-active" aria-current="page">Stories</a></li>
+        </ul>
+    </nav>
+    <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="Nav-Links" aria-expanded="false">&#9776;</button>
+</header>
+
+<main class="stories-main">
+    <section class="stories-hero" aria-labelledby="community-page-title">
+        <img class="stories-hero-image" src="../images/red-road.png" alt="The Red Road" fetchpriority="high">
+        <div class="stories-hero-overlay"></div>
+        <div class="stories-hero-content">
+            <div class="stories-hero-inner">
+                <div class="stories-badge">A path towards healing</div>
+                <h1 class="stories-title" id="community-page-title">Community Submissions</h1>
+                <p class="stories-subtitle">Browse stories submitted by members of Montana's tribal communities. Filter by nation, category, or sort alphabetically.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="stories-shell">
+        <p id="stories-status" class="stories-status" aria-live="polite">Loading stories…</p>
+        <section id="stories-container" class="stories-grid" aria-live="polite"></section>
+
+    </div>
+</main>
+
+  <!-- ABOUT & CONTACT -->
+  <section class="about-contact-section">
+    <div>
+      <div>
+        <h2>About Us</h2>
+        <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
+        Leon is a Computer Science major with a minor in Native Studies.
+        Luka is a Computer Science major with a minor in U.S. History.</p>
+      </div>
+      <div>
+        <h2>Our Mission</h2>
+        <p>This project was created to support Indigenous language preservation and cultural education across Montana's tribal nations. We hope this site serves as a respectful, community-driven space for learning, sharing stories, and honoring the histories and traditions that have shaped this land for generations.</p>
+      </div>
+      <div>
+        <h2>Contact Us</h2>
+        <p style="margin-bottom:12px;"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
+        <p style="margin-bottom:12px;"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
+        <p style="margin-top:25px;font-size:0.95rem;opacity:0.9;">Montana State University<br>Bozeman, Montana</p>
+      </div>
+    </div>
+  </section>
+
+<script>
+    const storiesContainer = document.getElementById('stories-container');
+    const storiesStatus = document.getElementById('stories-status');
+
+    let allStories = [];
+
+    function updateStatus(message) {
+        storiesStatus.textContent = message;
+    }
+
+    function loadStories(data) {
+        if (!Array.isArray(data)) {
+            updateStatus('Stories are unavailable right now. Please try again later.');
+            renderStories([]);
+            return;
+        }
+
+        allStories = data;
+        renderStories(allStories);
+        updateStatus(`${allStories.length} stor${allStories.length === 1 ? 'y' : 'ies'} found.`);
+    }
+
+    function createStoryCard(story) {
+        const card = document.createElement('article');
+        card.className = 'story-card';
+
+        const title = document.createElement('h2');
+        title.className = 'story-card-title';
+        title.textContent = story.Title || 'Untitled Story';
+
+        const description = document.createElement('p');
+        description.className = 'story-card-description';
+        description.textContent = story.Description || 'No description provided yet.';
+
+        const meta = document.createElement('div');
+        meta.className = 'story-meta';
+
+        const tribeChip = document.createElement('span');
+        tribeChip.className = 'story-chip';
+        tribeChip.textContent = `Tribe: ${story.Tribe || 'Unknown'}`;
+
+        const categoryChip = document.createElement('span');
+        categoryChip.className = 'story-chip';
+        categoryChip.textContent = `Category: ${story.Category || 'General'}`;
+
+        meta.append(tribeChip, categoryChip);
+        card.append(title, description, meta);
+
+        if (story.File) {
+            const link = document.createElement('a');
+            link.className = 'story-link';
+            link.href = story.File;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.textContent = 'Read full story →';
+            card.appendChild(link);
+        }
+
+        return card;
+    }
+
+    function renderStories(data) {
+        storiesContainer.innerHTML = '';
+
+        if (data.length === 0) {
+            const emptyState = document.createElement('div');
+            emptyState.className = 'stories-empty';
+            emptyState.textContent = 'No stories have been submitted yet. Check back soon.';
+            storiesContainer.appendChild(emptyState);
+            return;
+        }
+
+        data.forEach((story) => {
+            storiesContainer.appendChild(createStoryCard(story));
+        });
+    }
+
+    window.loadStories = loadStories;
+
+    const script = document.createElement('script');
+    script.src = 'https://script.google.com/macros/s/AKfycbxSZvaRJC171mO84k4aQ8k-V94iFj3YD6s5ryGePgEOjrNksIiadA5TtYrbK2fu9gVEdw/exec?callback=loadStories';
+    script.onerror = () => {
+        updateStatus('Unable to load stories right now. Please check back later.');
+        renderStories([]);
+    };
+    document.body.appendChild(script);
+</script>
+
+<footer class="dark-footer">
+    <div class="dark-footer-inner">
+        <p>&copy; 2026 Native Language &amp; History &bull; Montana Tribal Language Revitalization Project</p>
+        <p class="dark-footer-right">Montana State University &bull; Bozeman, Montana &bull; <a href="https://docs.google.com/document/d/1W3IAnAJs6MAr9GTLHDJ0LQC8vtLXxZkrCUHythL0LsI/edit?usp=sharing">Site Guide</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
