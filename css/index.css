@@ -120,8 +120,8 @@ body.dark-page #menu-toggle {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.65;
-  filter: none;
+    opacity: 0.75;
+    filter: brightness(1.15);
 }
 
 .hero-overlay {

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="js/navigation.js" defer></script>
 </head>
 <body class="dark-page">
 
@@ -20,20 +21,16 @@
         <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
       </div>
     </a>
-    <ul id="Nav-Links">
-      <li><a href="index.html" class="nav-active">Home</a></li>
-      <li><a href="html/learn.html">Learn</a></li>
-      <li><a href="html/culture.html">History</a></li>
-      <li><a href="html/stories.html">Stories</a></li>
-    </ul>
-    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+    <nav aria-label="Primary">
+      <ul id="Nav-Links">
+        <li><a href="index.html" class="nav-active" aria-current="page">Home</a></li>
+        <li><a href="html/learn.html">Learn</a></li>
+        <li><a href="html/culture.html">History</a></li>
+        <li><a href="html/stories.html">Stories</a></li>
+      </ul>
+    </nav>
+    <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="Nav-Links" aria-expanded="false">&#9776;</button>
   </header>
-
-  <script>
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-      document.getElementById('Nav-Links').classList.toggle('open');
-    });
-  </script>
 
   <!-- HERO -->
   <section class="hero-section">

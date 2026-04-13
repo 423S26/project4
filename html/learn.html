@@ -3,552 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learn • Montana Tribal Nations</title>
+  <title>Learn Montana Tribal Nations</title>
   <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/langtranslate.css">
+  <link rel="stylesheet" href="../css/learn.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    /* ── DARK PAGE ── */
-    body.learn-dark-page {
-      background: #0c0a09;
-      color: #f5f5f4;
-      padding-bottom: 0;
-    }
-    /* header */
-    body.learn-dark-page header {
-      background: rgba(28,25,23,0.97);
-      border-bottom: 1px solid #292524;
-      height: 70px;
-      padding: 0 32px;
-    }
-    .logo-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-    body.learn-dark-page #headerLogo {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-      margin-left: 0;
-    }
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-    .logo-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: #fbbf24;
-      letter-spacing: -0.5px;
-    }
-    .logo-sub {
-      font-size: 0.58rem;
-      color: #a8a29e;
-      letter-spacing: 2px;
-      font-weight: 500;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-    /* Always-on hamburger nav */
-    body.learn-dark-page #Nav-Links { display: none !important; }
-    body.learn-dark-page #Nav-Links.open {
-      display: flex !important;
-      flex-direction: column;
-      position: absolute;
-      top: 70px; right: 0;
-      background: #1c1917 !important;
-      border: 1px solid #292524 !important;
-      border-radius: 16px !important;
-      padding: 12px 0;
-      min-width: 220px;
-      z-index: 1001;
-      gap: 0;
-    }
-    body.learn-dark-page #Nav-Links.open li a { display: block; padding: 14px 28px; font-size: 0.9rem; color: #d6d3d1; border-bottom: none; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 500; transition: color 0.2s, background 0.2s; }
-    body.learn-dark-page #Nav-Links.open li a:hover,
-    body.learn-dark-page #Nav-Links.open li a.nav-active { color: #fbbf24; }
-    body.learn-dark-page #Nav-Links.open li:hover { background: #292524; }
-    body.learn-dark-page #menu-toggle { display: block !important; color: #f5f5f4; background: none; border: none; font-size: 32px; cursor: pointer; }
-    /* hero */
-    .learn-hero {
-      position: relative;
-      height: 80vh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      padding-bottom: 72px;
-    }
-    .learn-hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.82;
-    }
-    .learn-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(12,10,9,0.88) 25%, rgba(12,10,9,0.15) 100%);
-    }
-    .learn-hero-content {
-      position: relative;
-      z-index: 10;
-      padding: 0 48px;
-      width: 100%;
-      max-width: 900px;
-    }
-    .learn-hero-badge {
-      display: inline-flex;
-      align-items: center;
-      background: rgba(251,191,36,0.1);
-      border: 1px solid rgba(251,191,36,0.25);
-      color: #fbbf24;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 2px;
-      padding: 6px 20px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-    }
-    .learn-hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      color: #f5f5f4;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-    .learn-hero-sub {
-      font-size: 1rem;
-      color: #a8a29e;
-      font-weight: 300;
-      max-width: 520px;
-      line-height: 1.8;
-    }
-    /* learn-boxes dark */
-    body.learn-dark-page .learn-boxes-section {
-      background: transparent;
-    }
-    body.learn-dark-page .learn-box {
-      background: #1c1917 !important;
-      border-left-color: #fbbf24 !important;
-      color: #d6d3d1;
-    }
-    body.learn-dark-page .learn-box h3 {
-      color: #fbbf24;
-      font-family: 'Playfair Display', serif;
-    }
-    body.learn-dark-page .learn-box pre {
-      color: #a8a29e;
-      background: transparent;
-    }
-    body.learn-dark-page .song-lyrics {
-      background: #111110 !important;
-      border-color: #292524 !important;
-    }
-    /* phrase weaver */
-    body.learn-dark-page #phrase-search-input {
-      background: #111110 !important;
-      color: #f5f5f4 !important;
-      border: 2px solid #fbbf24 !important;
-    }
-    body.learn-dark-page #phrase-search-input::placeholder { color: #57534e !important; }
-    body.learn-dark-page #phrase-results-list {
-      background: #1c1917 !important;
-      border-color: #292524 !important;
-      color: #f5f5f4 !important;
-    }
-    body.learn-dark-page #phrase-bead-container {
-      background: #111110 !important;
-      border-color: #292524 !important;
-    }
-    body.learn-dark-page #phrase-result-box {
-      background: #1c1917 !important;
-      border-color: #292524 !important;
-    }
-    body.learn-dark-page #crow-phrase-display { color: #fbbf24 !important; }
-    body.learn-dark-page #english-phrase-display { color: #d6d3d1 !important; }
-    body.learn-dark-page #phrase-notes { color: #a8a29e !important; }
-    body.learn-dark-page .learn-box > h3[style] { color: #fbbf24 !important; }
-    /* further learning cards */
-    body.learn-dark-page .further-card {
-      background: #111110 !important;
-      border: 1px solid #292524 !important;
-      border-radius: 12px !important;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    body.learn-dark-page .further-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -10px rgba(180,83,9,0.3);
-      border-color: rgba(251,191,36,0.2) !important;
-    }
-    body.learn-dark-page .further-card strong { color: #fbbf24 !important; }
-    body.learn-dark-page .further-card span { color: #78716c !important; }
-    /* PISL dark */
-    body.learn-dark-page .pisl-eyebrow {
-      background: #1c1917;
-      color: #fbbf24;
-      border-color: rgba(251,191,36,0.3);
-    }
-    body.learn-dark-page .pisl-heading { color: #f5f5f4; }
-    body.learn-dark-page .pisl-heading::after { background: #fbbf24; }
-    body.learn-dark-page .pisl-intro { color: #a8a29e; font-weight: 300; }
-    /* about-contact dark overrides */
-    body.learn-dark-page .about-contact-section {
-      background: #111110;
-      border-top: 1px solid #292524;
-      color: #d6d3d1;
-      margin-top: 0;
-    }
-    body.learn-dark-page .about-contact-section > div > div {
-      border-right-color: rgba(255,255,255,0.07);
-    }
-    body.learn-dark-page .about-contact-section h2 {
-      color: #fbbf24;
-      border-bottom-color: rgba(255,255,255,0.07);
-    }
-    body.learn-dark-page .about-contact-section p { color: #78716c; }
-    body.learn-dark-page .about-contact-section strong { color: #d6d3d1; }
-    body.learn-dark-page .about-contact-section a { color: #fbbf24; }
-    body.learn-dark-page .about-contact-section a:hover { color: #fcd34d; text-decoration: underline; }
-    /* dark footer */
-    .dark-footer {
-      background: #0c0a09;
-      border-top: 1px solid #292524;
-      padding: 48px 0;
-    }
-    .dark-footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 0.75rem;
-      color: #57534e;
-      font-weight: 400;
-    }
-    .dark-footer-inner { letter-spacing: 0.3px; }
-    .dark-footer p { font-size: 0.75rem; font-weight: 400; }
-    .dark-footer-right { color: #44403c; }
-    .dark-footer a { color: #a8a29e; text-decoration: none; transition: color 0.2s; }
-    .dark-footer a:hover { color: #fbbf24; }
-    /* tribe selector */
-    .tribe-selector-section {
-      padding: 90px 32px 100px;
-    }
-    .tribe-selector-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .tribe-selector-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #f5f5f4;
-      letter-spacing: -1px;
-      text-align: left;
-      margin-bottom: 12px;
-    }
-    .tribe-selector-sub {
-      font-size: 1rem;
-      color: #78716c;
-      font-weight: 300;
-      margin-bottom: 52px;
-      text-align: left;
-    }
-    .tribe-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .tribe-card-link {
-      text-decoration: none;
-      color: inherit;
-    }
-    .tribe-card-dark {
-      background: #1c1917;
-      border: 1px solid #292524;
-      border-radius: 24px;
-      padding: 36px 28px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      height: 100%;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  border-color 0.3s;
-    }
-    .tribe-card-featured {
-      position: relative;
-      justify-content: flex-end;
-      min-height: 320px;
-      padding: 0;
-      overflow: hidden;
-    }
-    .tribe-card-image {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 18px;
-      margin-bottom: 6px;
-      border: 1px solid rgba(251, 191, 36, 0.18);
-    }
-    .tribe-card-featured .tribe-card-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
-      margin-bottom: 0;
-      border: none;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .tribe-card-featured::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(12,10,9,0.92) 10%, rgba(12,10,9,0.5) 45%, rgba(12,10,9,0.12) 100%);
-      z-index: 0;
-    }
-    .tribe-card-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 8px;
-      padding: 28px;
-      min-height: 100%;
-    }
-    .tribe-card-link:hover .tribe-card-dark {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 28px 56px -12px rgba(180, 83, 9, 0.38);
-      border-color: rgba(251, 191, 36, 0.18);
-    }
-    .tribe-card-link:hover .tribe-card-featured .tribe-card-image {
-      transform: scale(1.04);
-    }
-    .tribe-emoji {
-      font-size: 2.8rem;
-      margin-bottom: 4px;
-    }
-    .tribe-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #f5f5f4;
-      line-height: 1.2;
-    }
-    .tribe-alt {
-      font-size: 0.9rem;
-      color: #fbbf24;
-      font-weight: 400;
-    }
-    .tribe-explore {
-      margin-top: auto;
-      padding-top: 20px;
-      font-size: 0.68rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #57534e;
-      font-weight: 500;
-    }
-    /* responsive */
-    @media (max-width: 900px) {
-      .tribe-grid { grid-template-columns: repeat(2, 1fr); }
-      .learn-hero-content { padding: 0 24px; }
-      .learn-hero-title { letter-spacing: -1px; }
-      .dark-footer-inner { flex-direction: column; gap: 8px; }
-    }
-    @media (max-width: 600px) {
-      .tribe-grid { grid-template-columns: 1fr; }
-      .tribe-selector-heading { font-size: 2rem; }
-    }
-    /* ── PISL Section ── */
-    .pisl-section {
-      max-width: 900px;
-      margin: 64px auto;
-      padding: 0 24px;
-      text-align: center;
-    }
-    .pisl-eyebrow {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: #050403;
-      background: #f2ece4;
-      border: 1px solid #c8a882;
-      border-radius: 30px;
-      padding: 5px 16px;
-      margin-bottom: 18px;
-    }
-    .pisl-heading {
-      font-size: 2rem;
-      color: #000000;
-      font-weight: 700;
-      margin: 0 0 16px;
-      letter-spacing: -0.3px;
-      line-height: 1.2;
-    }
-    .pisl-heading::after {
-      content: '';
-      display: block;
-      width: 52px;
-      height: 3px;
-      background: #c8a882;
-      border-radius: 2px;
-      margin: 14px auto 0;
-    }
-    .pisl-intro {
-      color: #000000;
-      font-size: 1.04rem;
-      line-height: 1.85;
-      max-width: 640px;
-      margin: 0 auto 34px;
-      font-weight: 700;
-    }
-    .pisl-card {
-      position: relative;
-      max-width: 640px;
-      margin: 0 auto;
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 6px 28px rgba(59,36,22,0.28);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      outline: none;
-      background: #000;
-    }
-    .pisl-card:hover, .pisl-card:focus {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 40px rgba(59,36,22,0.40);
-    }
-    .pisl-card img {
-      width: 100%;
-      display: block;
-      opacity: 0.88;
-      transition: opacity 0.2s ease;
-    }
-    .pisl-card:hover img, .pisl-card:focus img { opacity: 0.72; }
-    .pisl-play-btn {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .pisl-play-circle {
-      width: 74px;
-      height: 74px;
-      background: rgba(200,168,130,0.92);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .pisl-card:hover .pisl-play-circle, .pisl-card:focus .pisl-play-circle {
-      transform: scale(1.1);
-      background: #c8a882;
-    }
-    .pisl-play-circle svg {
-      width: 30px;
-      height: 30px;
-      fill: #3B2416;
-      margin-left: 4px;
-    }
-    .pisl-play-label {
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
-      background: rgba(59,36,22,0.55);
-      padding: 5px 16px;
-      border-radius: 20px;
-    }
-    /* ── Modal ── */
-    .pisl-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.84);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-    }
-    .pisl-modal.open { display: flex; }
-    .pisl-modal-content {
-      position: relative;
-      width: 92%;
-      max-width: 820px;
-      background: #1a0f0a;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.65);
-    }
-    .pisl-close {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      font-size: 1.9rem;
-      color: #e8dfd6;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-      line-height: 1;
-      padding: 2px 8px;
-      border-radius: 5px;
-      transition: background 0.15s;
-    }
-    .pisl-close:hover { background: rgba(255,255,255,0.13); }
-    .pisl-video-wrapper {
-      position: relative;
-      padding-top: 56.25%;
-    }
-    .pisl-video-wrapper iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    @media (max-width: 768px) {
-      #teaching-container {
-        height: 45vw;
-        min-height: 200px;
-        max-height: 340px;
-      }
-    }
-    @media (max-width: 600px) {
-      .pisl-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-        gap: 14px;
-      }
-      .pisl-card-text { text-align: center; }
-    }
-  </style>
+  <script src="../js/navigation.js" defer></script>
 </head>
 <body class="learn-dark-page">
 
@@ -560,259 +21,131 @@
       <span class="logo-sub">MONTANA TRIBAL NATIONS</span>
     </div>
   </a>
-  <ul id="Nav-Links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="learn.html" class="nav-active">Learn</a></li>
-    <li><a href="culture.html">History</a></li>
-    <li><a href="stories.html">Stories</a></li>
-  </ul>
-  <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+  <nav aria-label="Primary">
+    <ul id="Nav-Links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="learn.html" class="nav-active" aria-current="page">Learn</a></li>
+      <li><a href="culture.html">History</a></li>
+      <li><a href="stories.html">Stories</a></li>
+    </ul>
+  </nav>
+  <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="Nav-Links" aria-expanded="false">&#9776;</button>
 </header>
 
-<script>
-  document.getElementById('menu-toggle').addEventListener('click', function() {
-    document.getElementById('Nav-Links').classList.toggle('open');
-  });
-</script>
+<main>
+  <section class="learn-hero" aria-labelledby="learn-page-title">
+    <img class="learn-hero-img" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" fetchpriority="high">
+    <div class="learn-hero-overlay"></div>
+    <div class="learn-hero-content">
+      <div class="learn-hero-badge">12 TRIBES &bull; 7 RESERVATIONS &bull; MONTANA</div>
+      <h1 class="learn-hero-title" id="learn-page-title">Montana Tribal<br>Nations. Learn.</h1>
+      <p class="learn-hero-sub">Select a tribal nation below to explore its language, vocabulary, oral traditions, and cultural resources.</p>
+    </div>
+  </section>
 
-<section class="learn-hero">
-  <img class="learn-hero-img" src="../images/Crow-Fair-Powwow.jpg" alt="Crow Fair Powwow" loading="lazy">
-  <div class="learn-hero-overlay"></div>
-  <div class="learn-hero-content">
-    <div class="learn-hero-badge">12 TRIBES &bull; 7 RESERVATIONS &bull; MONTANA</div>
-    <h1 class="learn-hero-title">Montana Tribal<br>Nations. Learn.</h1>
-    <p class="learn-hero-sub">Select a tribal nation below to explore its language, vocabulary, oral traditions, and cultural resources.</p>
-  </div>
-</section>
+  <section class="tribe-selector-section" aria-labelledby="tribe-selector-heading">
+    <div class="tribe-selector-inner">
+      <h2 class="tribe-selector-heading" id="tribe-selector-heading">Select a Tribal Nation</h2>
+      <p class="tribe-selector-sub">Each nation will have its own dedicated language hub. The cards below highlight which collections are currently being built.</p>
+      <div class="tribe-grid" role="list">
 
-
-
-<!-- TRIBE SELECTOR GRID -->
-<section class="tribe-selector-section">
-  <div class="tribe-selector-inner">
-    <h2 class="tribe-selector-heading">Select a Tribal Nation</h2>
-    <p class="tribe-selector-sub">Each nation has its own dedicated language hub. Choose one to begin.</p>
-    <div class="tribe-grid">
-
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark tribe-card-featured">
+        <article class="tribe-card-dark tribe-card-featured" role="listitem" aria-labelledby="tribe-crow-name">
           <img class="tribe-card-image" src="../images/Crow_Nation_flag.jpg" alt="Crow Nation flag" loading="lazy">
           <div class="tribe-card-content">
-            <div class="tribe-name">Crow Nation</div>
+            <div class="tribe-name" id="tribe-crow-name">Crow Nation</div>
             <div class="tribe-alt">Apsáalooke</div>
-            <div class="tribe-explore">Explore Language →</div>
+            <div class="tribe-status">Language hub in development</div>
           </div>
-        </div>
-      </a>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#129452;</div>
-          <div class="tribe-name">Blackfeet Nation</div>
-          <div class="tribe-alt">Niitsitapi</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured tribe-card-logo" role="listitem" aria-labelledby="tribe-blackfeet-name">
+          <img class="tribe-card-image" src="../images/Blackfeet-logo.jpg" alt="Blackfeet Nation logo" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-blackfeet-name">Blackfeet Nation</div>
+            <div class="tribe-alt">Niitsitapi</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#127956;&#65039;</div>
-          <div class="tribe-name">Confederated Salish &amp; Kootenai</div>
-          <div class="tribe-alt">Séliš &amp; Ksanka</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured" role="listitem" aria-labelledby="tribe-csk-name">
+          <img class="tribe-card-image" src="../images/Flathead_Nation.JPG" alt="Confederated Salish and Kootenai Tribes landscape" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-csk-name">Confederated Salish &amp; Kootenai</div>
+            <div class="tribe-alt">Séliš &amp; Ksanka</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#128293;</div>
-          <div class="tribe-name">Northern Cheyenne</div>
-          <div class="tribe-alt">Tsetsêhesêstâhase</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured tribe-card-logo" role="listitem" aria-labelledby="tribe-cheyenne-name">
+          <img class="tribe-card-image" src="../images/NorthernC-photo.png" alt="Northern Cheyenne card image" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-cheyenne-name">Northern Cheyenne</div>
+            <div class="tribe-alt">Tsetsêhesêstâhase</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#127806;</div>
-          <div class="tribe-name">Assiniboine &amp; Gros Ventre</div>
-          <div class="tribe-alt">Nakona &amp; A’aninin</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured tribe-card-logo" role="listitem" aria-labelledby="tribe-agv-name">
+          <img class="tribe-card-image" src="../images/FT-Belknap-logo 2.png" alt="Assiniboine and Gros Ventre Tribes logo" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-agv-name">Assiniboine &amp; Gros Ventre</div>
+            <div class="tribe-alt">Nakona &amp; A’aninin</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#127754;</div>
-          <div class="tribe-name">Fort Peck Tribes</div>
-          <div class="tribe-alt">Assiniboine &amp; Sioux</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured" role="listitem" aria-labelledby="tribe-fortpeck-name">
+          <img class="tribe-card-image" src="../images/Fort-Peck.jpg" alt="Fort Peck Tribes landscape" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-fortpeck-name">Fort Peck Tribes</div>
+            <div class="tribe-alt">Assiniboine &amp; Sioux</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#128059;</div>
-          <div class="tribe-name">Chippewa Cree</div>
-          <div class="tribe-alt">Anishinaabe &amp; Nehiyawak</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured" role="listitem" aria-labelledby="tribe-chippewa-cree-name">
+          <img class="tribe-card-image" src="../images/rocky.jpg" alt="Chippewa Cree landscape" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-chippewa-cree-name">Chippewa Cree</div>
+            <div class="tribe-alt">Anishinaabe &amp; Nehiyawak</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
-      <a href="#" class="tribe-card-link">
-        <div class="tribe-card-dark">
-          <div class="tribe-emoji">&#11088;</div>
-          <div class="tribe-name">Little Shell Chippewa</div>
-          <div class="tribe-alt">Métis &amp; Anishinaabe</div>
-          <div class="tribe-explore">Explore Language →</div>
-        </div>
-      </a>
+        <article class="tribe-card-dark tribe-card-featured" role="listitem" aria-labelledby="tribe-little-shell-name">
+          <img class="tribe-card-image" src="../images/chippewa.jpg" alt="Little Shell Chippewa community image" loading="lazy">
+          <div class="tribe-card-content">
+            <div class="tribe-name" id="tribe-little-shell-name">Little Shell Chippewa</div>
+            <div class="tribe-alt">Métis &amp; Anishinaabe</div>
+            <div class="tribe-status">Language hub in development</div>
+          </div>
+        </article>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<section class="about-contact-section">
-  <div>
+  <section class="about-contact-section" aria-labelledby="about-heading">
     <div>
-      <h2>About Us</h2>
-      <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
-      Leon is a Computer Science major with a minor in Native Studies.
-      Luka is a Computer Science major with a minor in U.S. History.</p>
-    </div>
-    <div>
-      <h2>Our Mission</h2>
+      <div>
+        <h2 id="about-heading">About Us</h2>
+        <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
+        Leon is a Computer Science major with a minor in Native Studies.
+        Luka is a Computer Science major with a minor in U.S. History.</p>
+      </div>
+      <div>
+        <h2>Our Mission</h2>
         <p>This project was created to support Indigenous language preservation and cultural education across Montana's tribal nations. We hope this site serves as a respectful, community-driven space for learning, sharing stories, and honoring the histories and traditions that have shaped this land for generations.</p>
       </div>
-    <div>
-      <h2>Contact Us</h2>
-      <p style="margin-bottom:12px;"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
-      <p style="margin-bottom:12px;"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
-      <p style="margin-top:25px;font-size:0.95rem;opacity:0.9;">Montana State University<br>Bozeman, Montana</p>
+      <div>
+        <h2>Contact Us</h2>
+        <p class="contact-person"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
+        <p class="contact-person"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
+        <p class="contact-location">Montana State University<br>Bozeman, Montana</p>
+      </div>
     </div>
-  </div>
-</section>
-
-<script>
-  // Phrase Weaver — reserved for individual tribe pages
-  (function() {
-    if (!document.getElementById('phrase-search-input')) return;
-    const vocab = [];
-    document.querySelectorAll('.vocab-list table tbody tr').forEach(row => {
-      const cells = row.querySelectorAll('td');
-      if (cells.length >= 2) {
-        vocab.push({ crow: cells[0].textContent.trim(), english: cells[1].textContent.trim(), note: '' });
-      }
-    });
-    vocab.push({crow: "Diiawachisshik",                 english: "I love you",         note: "Often used in serenading songs like the Doorway Song"});
-    vocab.push({crow: "Awa chisshe kaate moohik eele",  english: "My love I came",      note: "From the Doorway Song chorus"});
-
-    const searchInput   = document.getElementById('phrase-search-input');
-    const resultsList   = document.getElementById('phrase-results-list');
-    const beadContainer = document.getElementById('phrase-bead-container');
-    const resultBox     = document.getElementById('phrase-result-box');
-    const crowDisplay   = document.getElementById('crow-phrase-display');
-    const englishDisplay= document.getElementById('english-phrase-display');
-    const notesDisplay  = document.getElementById('phrase-notes');
-
-    let selected = [];
-
-    searchInput.addEventListener('input', () => {
-      const term = searchInput.value.trim().toLowerCase();
-      resultsList.innerHTML = '';
-      if (!term) { resultsList.classList.add('hidden'); return; }
-      const matches = vocab.filter(i =>
-        i.crow.toLowerCase().includes(term) || i.english.toLowerCase().includes(term)
-      ).slice(0, 8);
-      if (matches.length === 0) { resultsList.classList.add('hidden'); return; }
-      matches.forEach(item => {
-        const div = document.createElement('div');
-        div.style.padding = '12px 16px';
-        div.style.borderBottom = '1px solid #eee';
-        div.style.cursor = 'pointer';
-        div.innerHTML = `<strong>${item.crow}</strong> — ${item.english}`;
-        div.onclick = () => {
-          selected.push(item);
-          renderBeads();
-          searchInput.value = '';
-          resultsList.classList.add('hidden');
-          updateResult();
-        };
-        resultsList.appendChild(div);
-      });
-      resultsList.classList.remove('hidden');
-    });
-
-    function renderBeads() {
-      beadContainer.innerHTML = '';
-      selected.forEach((item, idx) => {
-        const bead = document.createElement('div');
-        bead.style.cssText = 'background:#5B3A29;color:#fff;padding:8px 16px;border-radius:9999px;display:flex;align-items:center;gap:8px;cursor:pointer;';
-        bead.innerHTML = `${item.crow} <span data-remove-idx="${idx}" style="font-weight:bold;font-size:1.2rem;cursor:pointer;margin-left:4px;">×</span>`;
-        beadContainer.appendChild(bead);
-      });
-      if (selected.length === 0) {
-        beadContainer.innerHTML = '<p style="color:#999;font-style:italic;margin:0 auto;">Add words to weave your phrase...</p>';
-      }
-    }
-
-    beadContainer.addEventListener('click', function(e) {
-      const btn = e.target.closest('[data-remove-idx]');
-      if (!btn) return;
-      e.stopPropagation();
-      selected.splice(Number(btn.dataset.removeIdx), 1);
-      renderBeads();
-      updateResult();
-    });
-
-    function updateResult() {
-      if (selected.length === 0) { resultBox.classList.add('hidden'); return; }
-      resultBox.classList.remove('hidden');
-      crowDisplay.textContent   = selected.map(i => i.crow).join(' ');
-      englishDisplay.textContent= selected.map(i => i.english).join(' ');
-      const notes = selected.map(i => i.note).filter(Boolean).join(' • ');
-      notesDisplay.textContent  = notes ? `Cultural note: ${notes}` : '';
-    }
-
-    window.playPlaceholderAudio = function() {
-      alert("Real elder audio recordings are coming soon!\n\nFor authentic Crow pronunciations today, please visit the Crow Mobile Dictionary app or contact the Crow Language Consortium at info@crowlanguage.org.");
-    };
-
-    window.addToPhraseWeaver = function(item) {
-      selected.push(item);
-      renderBeads();
-      updateResult();
-    };
-
-    const doorwaySongPool = [
-      {crow: "Hilaake hinne buum biilaawehkuuk",     english: "I have been asked to sing a song",                          note: "Doorway Song — opening line"},
-      {crow: "Ii ash bilian balaxuk",                english: "It is a doorway song",                                      note: "Doorway Song — naming the song"},
-      {crow: "Heetaa alakuukaa hualaawe",             english: "It came from long ago",                                    note: "Doorway Song — honoring ancestry"},
-      {crow: "Diiawachisshik",                       english: "I love you",                                                note: "Doorway Song — declaration of love"},
-      {crow: "Awa chisshe kaate moohik eele",        english: "My love I came",                                            note: "Doorway Song — chorus phrase"},
-      {crow: "Bii chicheessee lachi boohik",         english: "I am so lonesome I came",                                   note: "Doorway Song — longing verse"},
-      {crow: "Dii awaxpe wiawak ii waluu haawik",    english: "I want to marry you so",                                    note: "Doorway Song — marriage desire"},
-      {crow: "Heet aliatteedak daalah",              english: "It's alright, go",                                          note: "Doorway Song — letting go"},
-      {crow: "Bi aliateetak daalah",                 english: "I'm ok, go",                                                note: "Doorway Song — selfless farewell"},
-      {crow: "Bash baashe diawak dii wiioommaachik", english: "I will make a boat to reach you",                           note: "Doorway Song — promise of return"},
-      {crow: "Bassaannak kan diiwiioommaachik",      english: "I will catch up with you in the Fall",                      note: "Doorway Song — seasonal promise"},
-      {crow: "Heelak daak bashpilaxpaakua chiiwaah", english: "Go home and tell our family",                               note: "Doorway Song — message home"},
-      {crow: "Biilaptaa beessuulak xaawiimmah",      english: "It will not be good if both of us don't make it home",      note: "Doorway Song — sacrifice verse"},
-      {crow: "Baaleetaa kan biihpe kalaheettak",     english: "If the snow has started coming down",                       note: "Doorway Song — winter imagery"},
-      {crow: "Biihiileelak baakoon baaliichik",      english: "I am here and I'm doing ok",                                note: "Doorway Song — reassurance"},
-    ];
-
-    window.surpriseMePhrase = function() {
-      const shuffled = doorwaySongPool.slice().sort(() => Math.random() - 0.5);
-      selected = shuffled.slice(0, Math.random() < 0.5 ? 2 : 3);
-      renderBeads();
-      updateResult();
-    };
-
-    renderBeads();
-  })();
-</script>
+  </section>
+</main>
 
 <footer class="dark-footer">
   <div class="dark-footer-inner">
