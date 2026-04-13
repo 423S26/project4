@@ -5,62 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stories</title>
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/stories.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="../js/navigation.js" defer></script>
-    <style>
-        /* ── DARK PAGE ── */
-        body.stories-dark-page { background: #0c0a09; color: #f5f5f4; padding-bottom: 0; padding-top: 70px; }
-        /* header */
-        body.stories-dark-page header { background: rgba(28,25,23,0.97); border-bottom: 1px solid #292524; height: 70px; padding: 0 32px; }
-        .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-        body.stories-dark-page #headerLogo { height: 50px; width: auto; object-fit: contain; margin-left: 0; }
-        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-        .logo-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #fbbf24; letter-spacing: -0.5px; }
-        .logo-sub { font-size: 0.58rem; color: #a8a29e; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; margin-top: 2px; }
-        body.stories-dark-page #Nav-Links { display: none !important; }
-        body.stories-dark-page #Nav-Links.open { display: flex !important; flex-direction: column; position: absolute; top: 70px; right: 0; background: #1c1917 !important; border: 1px solid #292524 !important; border-radius: 16px !important; padding: 12px 0; min-width: 220px; z-index: 1001; gap: 0; }
-        body.stories-dark-page #Nav-Links.open li a { display: block; padding: 14px 28px; font-size: 0.9rem; color: #d6d3d1; border-bottom: none; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 500; transition: color 0.2s, background 0.2s; }
-        body.stories-dark-page #Nav-Links.open li a:hover,
-        body.stories-dark-page #Nav-Links.open li a.nav-active { color: #fbbf24; }
-        body.stories-dark-page #Nav-Links.open li:hover { background: #292524; }
-        body.stories-dark-page #menu-toggle { display: block !important; color: #f5f5f4; background: none; border: none; font-size: 32px; cursor: pointer; }
-        /* page title */
-        body.stories-dark-page h1 { font-family: 'Playfair Display', serif; color: #f5f5f4; margin: 40px 20px 0; font-size: clamp(1.8rem, 4vw, 2.8rem); text-align: left; }
-        /* filter controls */
-        body.stories-dark-page .controls { background: #1c1917; border-radius: 12px; border: 1px solid #292524; border-left: 4px solid #fbbf24; box-shadow: none; }
-        body.stories-dark-page .controls label { color: #a8a29e; }
-        body.stories-dark-page .controls select { background: #111110; border: 1.5px solid #292524; color: #f5f5f4; font-family: 'Inter', sans-serif; }
-        body.stories-dark-page .controls select:focus, body.stories-dark-page .controls select:hover { border-color: #fbbf24; }
-        /* story cards */
-        body.stories-dark-page .story { background: #1c1917; border: 1px solid #292524; border-left: 4px solid #fbbf24; border-radius: 12px; box-shadow: none; transition: border-color 0.2s; }
-        body.stories-dark-page .story:hover { border-color: #fbbf24; }
-        body.stories-dark-page .story h2 { color: #f5f5f4; margin: 0 0 10px 0; }
-        body.stories-dark-page .story p { color: #a8a29e; }
-        body.stories-dark-page .story a { color: #fbbf24; }
-        /* upload section */
-        body.stories-dark-page .firstInfo { background: #1c1917; border: 1px solid #292524; border-radius: 16px; padding: 40px; }
-        body.stories-dark-page .firstInfo h1 { color: #fbbf24; margin: 0 0 12px; font-size: 1.6rem; }
-        body.stories-dark-page .firstInfo p { color: #a8a29e; margin: 0; }
-        body.stories-dark-page .firstInfo a { color: inherit; }
-        /* about-contact */
-        body.stories-dark-page .about-contact-section { background: #111110 !important; border-top: 1px solid #292524; }
-        body.stories-dark-page .about-contact-section h2 { color: #fbbf24 !important; }
-        body.stories-dark-page .about-contact-section p,
-        body.stories-dark-page .about-contact-section a { color: #a8a29e !important; }
-        /* dark footer */
-        .dark-footer { background: #0c0a09; border-top: 1px solid #292524; padding: 48px 0; }
-        .dark-footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 0.75rem; color: #57534e; font-weight: 400; letter-spacing: 0.3px; }
-        .dark-footer p { font-size: 0.75rem; font-weight: 400; }
-        .dark-footer-right { color: #44403c; }
-        .dark-footer a { color: #a8a29e; text-decoration: none; transition: color 0.2s; }
-        .dark-footer a:hover { color: #fbbf24; }
-        /* responsive */
-        @media (max-width: 900px) {
-            .dark-footer-inner { flex-direction: column; gap: 8px; }
-        }
-    </style>
 </head>
 <body class="stories-dark-page">
 
@@ -82,138 +31,215 @@
     </nav>
     <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="Nav-Links" aria-expanded="false">&#9776;</button>
 </header>
+<main class="stories-main">
+    <section class="stories-hero" aria-labelledby="stories-page-title">
+        <img class="stories-hero-image" src="../images/1966-crow-fair.jpeg" alt="Community gathering at Crow Fair" fetchpriority="high">
+        <div class="stories-hero-overlay"></div>
+        <div class="stories-hero-content">
+            <div class="stories-hero-inner">
+                <div class="stories-badge">Shared by the community</div>
+                <h1 class="stories-title" id="stories-page-title">Community Stories</h1>
+                <p class="stories-subtitle">Real voices and living histories from Montana tribal communities. Explore stories by nation, topic, and title.</p>
+            </div>
+        </div>
+    </section>
 
-<h1>Community Stories</h1>
+    <div class="stories-shell">
+        <section class="stories-panel stories-controls" aria-label="Story filters">
+            <div class="stories-controls-grid">
+                <div class="story-filter-group">
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter" class="story-filter">
+                        <option value="All">All Categories</option>
+                    </select>
+                </div>
 
-<div class="controls">
-    <label>Category:</label>
-    <select id="categoryFilter">
-        <option value="All">All</option>
-    </select>
+                <div class="story-filter-group">
+                    <label for="tribeFilter">Tribe</label>
+                    <select id="tribeFilter" class="story-filter">
+                        <option value="All">All Tribes</option>
+                    </select>
+                </div>
 
-    <label>Tribe:</label>
-    <select id="tribeFilter">
-        <option value="All">All</option>
-    </select>
+                <div class="story-filter-group">
+                    <label for="sortOption">Sort</label>
+                    <select id="sortOption" class="story-filter">
+                        <option value="az">A–Z</option>
+                        <option value="za">Z–A</option>
+                    </select>
+                </div>
+            </div>
+        </section>
 
-    <label>Sort:</label>
-    <select id="sortOption">
-        <option value="az">A–Z</option>
-        <option value="za">Z–A</option>
-    </select>
-</div>
+        <p id="stories-status" class="stories-status" aria-live="polite">Loading stories…</p>
+        <section id="stories-container" class="stories-grid" aria-live="polite"></section>
 
-<div id="stories-container"></div>
+        <section class="stories-panel upload-cta" aria-labelledby="upload-story-heading">
+            <h2 id="upload-story-heading">Share Your Story</h2>
+            <p>Have a family story, oral history, or community memory you want preserved and shared respectfully? Send it to us for review and consideration.</p>
+            <a class="upload-cta-button" id="FTreaty" href="https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=dialog" target="_blank" rel="noopener">
+                Upload your story →
+            </a>
+        </section>
+
+        <section class="stories-panel stories-mission" aria-labelledby="stories-about-heading">
+            <div class="stories-mission-grid">
+                <div class="stories-mission-card">
+                    <h2 id="stories-about-heading">About Us</h2>
+                    <p>We are Leon Birdhat and Luka Derry, students at Montana State University. Leon is a Computer Science major with a minor in Native Studies. Luka is a Computer Science major with a minor in U.S. History.</p>
+                </div>
+                <div class="stories-mission-card">
+                    <h2>Our Mission</h2>
+                    <p>This project supports Indigenous language preservation and cultural education across Montana's tribal nations. We want this to be a respectful, community-driven place for sharing stories and honoring living traditions.</p>
+                </div>
+                <div class="stories-mission-card">
+                    <h2>Contact</h2>
+                    <p><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
+                    <p><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
+                    <p>Montana State University<br>Bozeman, Montana</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
 
 <script>
+    const categoryFilter = document.getElementById('categoryFilter');
+    const tribeFilter = document.getElementById('tribeFilter');
+    const sortOption = document.getElementById('sortOption');
+    const storiesContainer = document.getElementById('stories-container');
+    const storiesStatus = document.getElementById('stories-status');
+
     let allStories = [];
 
-    function loadStories(data) {
-        console.log("DATA:", data);
-        allStories = data;
-        populateFilters(data);
-        renderStories(data);
+    function createOption(value) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        return option;
     }
 
-    const script = document.createElement("script");
-    script.src = "https://script.google.com/macros/s/AKfycbxSZvaRJC171mO84k4aQ8k-V94iFj3YD6s5ryGePgEOjrNksIiadA5TtYrbK2fu9gVEdw/exec?callback=loadStories";
-    document.body.appendChild(script);
+    function updateStatus(message) {
+        storiesStatus.textContent = message;
+    }
+
+    function loadStories(data) {
+        if (!Array.isArray(data)) {
+            updateStatus('Stories are unavailable right now. Please try again later.');
+            renderStories([]);
+            return;
+        }
+
+        allStories = data;
+        populateFilters(data);
+        applyFilters();
+    }
 
     function populateFilters(data) {
-        const categories = new Set();
-        const tribes = new Set();
+        const categories = [...new Set(data.map((story) => story.Category).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+        const tribes = [...new Set(data.map((story) => story.Tribe).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 
-        data.forEach(story => {
-            if (story.Category) categories.add(story.Category);
-            if (story.Tribe) tribes.add(story.Tribe);
-        });
+        categoryFilter.innerHTML = '';
+        tribeFilter.innerHTML = '';
+        categoryFilter.appendChild(createOption('All'));
+        tribeFilter.appendChild(createOption('All'));
 
-        const categorySelect = document.getElementById("categoryFilter");
-        const tribeSelect = document.getElementById("tribeFilter");
+        categories.forEach((category) => categoryFilter.appendChild(createOption(category)));
+        tribes.forEach((tribe) => tribeFilter.appendChild(createOption(tribe)));
+    }
 
-        categories.forEach(cat => {
-            let option = document.createElement("option");
-            option.value = cat;
-            option.textContent = cat;
-            categorySelect.appendChild(option);
-        });
+    function createStoryCard(story) {
+        const card = document.createElement('article');
+        card.className = 'story-card';
 
-        tribes.forEach(tribe => {
-            let option = document.createElement("option");
-            option.value = tribe;
-            option.textContent = tribe;
-            tribeSelect.appendChild(option);
-        });
+        const title = document.createElement('h2');
+        title.className = 'story-card-title';
+        title.textContent = story.Title || 'Untitled Story';
+
+        const description = document.createElement('p');
+        description.className = 'story-card-description';
+        description.textContent = story.Description || 'No description provided yet.';
+
+        const meta = document.createElement('div');
+        meta.className = 'story-meta';
+
+        const tribeChip = document.createElement('span');
+        tribeChip.className = 'story-chip';
+        tribeChip.textContent = `Tribe: ${story.Tribe || 'Unknown'}`;
+
+        const categoryChip = document.createElement('span');
+        categoryChip.className = 'story-chip';
+        categoryChip.textContent = `Category: ${story.Category || 'General'}`;
+
+        meta.append(tribeChip, categoryChip);
+        card.append(title, description, meta);
+
+        if (story.File) {
+            const link = document.createElement('a');
+            link.className = 'story-link';
+            link.href = story.File;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.textContent = 'Read full story →';
+            card.appendChild(link);
+        }
+
+        return card;
     }
 
     function renderStories(data) {
-        const container = document.getElementById("stories-container");
-        container.innerHTML = "";
+        storiesContainer.innerHTML = '';
 
-        data.forEach(story => {
-            const div = document.createElement("div");
-            div.classList.add("story");
-            div.innerHTML = `
-                <h2>${story.Title || "Untitled"}</h2>
-                <p>${story.Description || ""}</p>
-                <p><strong>Tribe:</strong> ${story.Tribe || "Unknown"}</p>
-                <p><strong>Category:</strong> ${story.Category || "General"}</p>
-                ${story.File ? `<a href="${story.File}" target="_blank">View Story</a>` : ""}
-            `;
-            container.appendChild(div);
+        if (data.length === 0) {
+            const emptyState = document.createElement('div');
+            emptyState.className = 'stories-empty';
+            emptyState.textContent = 'No stories match your current filters. Try broadening your search.';
+            storiesContainer.appendChild(emptyState);
+            return;
+        }
+
+        data.forEach((story) => {
+            storiesContainer.appendChild(createStoryCard(story));
         });
     }
 
     function applyFilters() {
         let filtered = [...allStories];
-        const category = document.getElementById("categoryFilter").value;
-        const tribe = document.getElementById("tribeFilter").value;
-        const sort = document.getElementById("sortOption").value;
 
-        if (category !== "All") filtered = filtered.filter(s => s.Category === category);
-        if (tribe !== "All") filtered = filtered.filter(s => s.Tribe === tribe);
-
-        if (sort === "az") {
-            filtered.sort((a, b) => (a.Title || "").localeCompare(b.Title || ""));
-        } else {
-            filtered.sort((a, b) => (b.Title || "").localeCompare(a.Title || ""));
+        if (categoryFilter.value !== 'All') {
+            filtered = filtered.filter((story) => story.Category === categoryFilter.value);
         }
 
+        if (tribeFilter.value !== 'All') {
+            filtered = filtered.filter((story) => story.Tribe === tribeFilter.value);
+        }
+
+        filtered.sort((a, b) => {
+            const first = a.Title || '';
+            const second = b.Title || '';
+            return sortOption.value === 'za'
+                ? second.localeCompare(first)
+                : first.localeCompare(second);
+        });
+
+        updateStatus(`${filtered.length} stor${filtered.length === 1 ? 'y' : 'ies'} found.`);
         renderStories(filtered);
     }
 
-    document.getElementById("categoryFilter").addEventListener("change", applyFilters);
-    document.getElementById("tribeFilter").addEventListener("change", applyFilters);
-    document.getElementById("sortOption").addEventListener("change", applyFilters);
+    categoryFilter.addEventListener('change', applyFilters);
+    tribeFilter.addEventListener('change', applyFilters);
+    sortOption.addEventListener('change', applyFilters);
+
+    window.loadStories = loadStories;
+
+    const script = document.createElement('script');
+    script.src = 'https://script.google.com/macros/s/AKfycbxSZvaRJC171mO84k4aQ8k-V94iFj3YD6s5ryGePgEOjrNksIiadA5TtYrbK2fu9gVEdw/exec?callback=loadStories';
+    script.onerror = () => {
+        updateStatus('Unable to load stories right now. Please check back later.');
+        renderStories([]);
+    };
+    document.body.appendChild(script);
 </script>
-
-<div class="firstInfo outlined" style="max-width:600px;margin:60px auto;text-align:center;">
-    <a class="text" id="FTreaty" href="https://docs.google.com/forms/d/e/1FAIpQLScro1R0ziGceF-aVggERzbmGozZ6PKI5mweBRyy7cBqNT2xpA/viewform?usp=dialog">
-        <h1>Upload your story</h1>
-    </a>
-    <p>Have a piece of your tribes history you want to tell? Send it to us for review.</p>
-</div>
-
-<section class="about-contact-section">
-  <div>
-    <div>
-      <h2>About Us</h2>
-      <p>We are Leon Birdhat and Luka Derry, students at Montana State University.
-      Leon is a Computer Science major with a minor in Native Studies.
-      Luka is a Computer Science major with a minor in U.S. History.</p>
-    </div>
-    <div>
-      <h2>Our Mission</h2>
-        <p>This project was created to support Indigenous language preservation and cultural education across Montana's tribal nations. We hope this site serves as a respectful, community-driven space for learning, sharing stories, and honoring the histories and traditions that have shaped this land for generations.</p>
-      </div>
-    <div>
-      <h2>Contact Us</h2>
-      <p style="margin-bottom:12px;"><strong>Leon Birdhat</strong><br>Computer Science Major &bull; Native Studies Minor<br><a href="mailto:birdhatl43@gmail.com">birdhatl43@gmail.com</a></p>
-      <p style="margin-bottom:12px;"><strong>Luka Derry</strong><br>Computer Science Major &bull; U.S. History Minor<br><a href="mailto:luka.derry@example.com">luka.derry@example.com</a></p>
-      <p style="margin-top:25px;font-size:0.95rem;opacity:0.9;">Montana State University<br>Bozeman, Montana</p>
-    </div>
-  </div>
-</section>
 
 <footer class="dark-footer">
     <div class="dark-footer-inner">
