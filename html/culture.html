@@ -31,7 +31,7 @@
     body.culture-dark-page .titlecontainer { position: relative; width: 100%; height: calc(100vh - 71px); overflow: hidden; display: flex; align-items: flex-end; padding-bottom: 0; margin-top: 0; }
     body.culture-dark-page .titleimage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.9; filter: brightness(100%) !important; }
     body.culture-dark-page .titlecontainer::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,10,9,0.75) 0%, rgba(12,10,9,0.1) 50%, transparent 100%); z-index: 1; }
-    body.culture-dark-page .overlay-title { position: relative; z-index: 2; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: #f5f5f4; letter-spacing: -1px; line-height: 1.1; padding: 0 48px; text-shadow: none; text-align: left; margin: 0; }
+    body.culture-dark-page .overlay-title { position: relative; z-index: 2; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: #f5f5f4; letter-spacing: -1px; line-height: 1.1; padding: 0; text-shadow: none; text-align: center; margin: 0; }
     /* timeline */
     body.culture-dark-page .timeline { max-width: 1000px; margin: 60px auto; padding: 0 32px; }
     body.culture-dark-page .timeline-item { background: #1c1917; border: 1px solid #292524; border-radius: 16px; padding: 28px 32px; margin-bottom: 20px; transition: border-color 0.2s; }
@@ -74,7 +74,7 @@
     .treaty-box .expand-indicator { position: absolute; top: 18px; right: 24px; font-size: 1.2em; user-select: none; }
     /* hero overlay cards */
     .hero-overlay-content { position: relative; z-index: 2; width: 100%; padding: 0 32px 48px; }
-    .hero-timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .hero-timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px auto 0; max-width: 1000px; }
     .hero-timeline-card { background: rgba(12,10,9,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 24px 22px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
     .hero-timeline-card:hover { border-color: #fbbf24; background: rgba(28,25,23,0.88); transform: translateY(-4px); }
     .hero-timeline-card h3 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 1.1rem; margin-bottom: 10px; text-align: left; font-weight: 700; }
@@ -85,22 +85,77 @@
       body.culture-dark-page .overlay-title { padding: 0 24px; }
       .hero-overlay-content { padding: 0 20px 32px; }
     }
+    /* New styles for revamp */
+    .heading-font { font-family: 'Playfair Display', serif; }
+    .hero-bg {
+      background: linear-gradient(rgba(12,10,9,0.7), rgba(12,10,9,0.8)), url('../images/tribal-teepee.jpg') center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .earth-tone { background: linear-gradient(to bottom, #1c1917, #292524); }
+    .card-hover { transition: all 0.4s ease; }
+    .card-hover:hover { transform: translateY(-6px); }
+    .culture-hero-badge { display: inline-block; background: rgba(251,191,36,0.15); color: #fbbf24; font-size: 0.78rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 7px 20px; border-radius: 999px; border: 1px solid rgba(251,191,36,0.25); margin-bottom: 24px; }
+    .culture-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; color: #f5f5f4; letter-spacing: -1px; line-height: 1.1; margin-bottom: 24px; }
+    .culture-hero-sub { font-size: 1.25rem; color: #d6d3d1; line-height: 1.75; font-weight: 300; margin-bottom: 40px; text-align: center; }
+    .culture-hero-cta { display: inline-flex; align-items: center; gap: 10px; background: #fbbf24; color: #0c0a09; font-weight: 600; font-size: 1rem; letter-spacing: 1px; padding: 16px 32px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .culture-hero-cta:hover { background: #fcd34d; transform: translateY(-2px); }
+    .culture-chapter { padding: 88px 32px; }
+    .culture-chapter--dark { background: #111110; border-top: 1px solid #292524; border-bottom: 1px solid #292524; }
+    .culture-chapter-inner { max-width: 1000px; margin: 0 auto; }
+    .culture-chapter-header { text-align: center; margin-bottom: 52px; }
+    .culture-chapter-label { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: #fbbf24; font-weight: 600; }
+    .culture-chapter-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #f5f5f4; margin: 10px 0 14px; }
+    .culture-chapter-header p { color: #a8a29e; max-width: 600px; margin: 0 auto; line-height: 1.75; }
+    .culture-leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .culture-leader-card { background: #1c1917; border: 1px solid #292524; border-radius: 20px; padding: 32px 28px; transition: border-color 0.2s, transform 0.25s; }
+    .culture-leader-card:hover { border-color: #fbbf24; transform: translateY(-4px); }
+    .culture-leader-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .culture-leader-icon img { width: 60px; height: 60px; object-fit: contain; }
+    .spaced-icon { margin-bottom: 24px; }
+    .crow-spacing { margin-bottom: 32px; }
+    .larger-logo { width: 90px !important; height: 90px !important; }
+    .even-larger-logo { width: 90px !important; height: 90px !important; }
+    .crow-logo { width: 60px !important; height: 60px !important; }
+    .medium-logo { width: 65px !important; height: 65px !important; }
+    .culture-leader-card h3 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; text-align: left; }
+    .culture-leader-card p { color: #a8a29e; line-height: 1.75; font-size: 0.92rem; }
+    .culture-treaties { max-width: 1000px; margin: 0 auto; }
+    .culture-treaty-details { background: #1c1917; border: 1px solid #292524; border-radius: 20px; padding: 32px; margin-bottom: 20px; transition: border-color 0.2s; }
+    .culture-treaty-details:hover { border-color: #fbbf24; }
+    .culture-treaty-summary { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1.5rem; font-weight: 600; color: #f5f5f4; }
+    .culture-treaty-content { margin-top: 24px; color: #a8a29e; line-height: 1.7; }
+    .culture-treaty-content h4 { color: #fbbf24; font-size: 1.1rem; margin-bottom: 12px; }
+    .culture-treaty-content ul { padding-left: 20px; }
+    .culture-treaty-content li { margin-bottom: 8px; }
+    .culture-modern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .culture-modern-text p { color: #a8a29e; line-height: 1.85; margin-bottom: 18px; }
+    .culture-modern-quote { background: #1c1917; border: 1px solid #292524; border-left: 8px solid #fbbf24; border-radius: 18px; padding: 44px 36px; }
+    .culture-modern-quote p { font-family: 'Playfair Display', serif; font-size: 1.35rem; line-height: 1.7; color: #f5f5f4; font-style: italic; margin-bottom: 18px; }
+    .culture-modern-quote span { font-size: 0.8rem; color: #fbbf24; letter-spacing: 1px; font-weight: 600; }
+    .culture-map-box { background: #1c1917; border: 1px solid #292524; border-radius: 20px; padding: 56px 40px; text-align: center; }
+    .culture-map-box p { color: #a8a29e; font-size: 1.05rem; margin-bottom: 24px; }
+    .culture-map-btn { display: inline-flex; align-items: center; gap: 8px; background: #fbbf24; color: #0c0a09; font-weight: 700; font-size: 0.95rem; padding: 14px 36px; border-radius: 14px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .culture-map-btn:hover { background: #fcd34d; transform: translateY(-2px); }
+    .culture-map-tip { color: #57534e; font-size: 0.82rem; margin-top: 20px; margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .culture-leader-grid { grid-template-columns: 1fr; }
+      .culture-modern-grid { grid-template-columns: 1fr; gap: 28px; }
+      .culture-chapter { padding: 60px 20px; }
+      .culture-map-box { padding: 40px 24px; }
+    }
   </style>
 </head>
 <body class="culture-dark-page">
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.treaty-box').forEach(function(box) {
-        box.classList.add('collapsed');
-        const indicator = document.createElement('span');
-        indicator.className = 'expand-indicator';
-        indicator.textContent = '[+]';
-        box.insertBefore(indicator, box.firstChild);
-        box.addEventListener('click', function(e) {
-          if (e.target.tagName === 'A') return;
-          box.classList.toggle('collapsed');
-          indicator.textContent = box.classList.contains('collapsed') ? '[+]' : '[-]';
+      document.querySelectorAll('details').forEach(function(details) {
+        const summary = details.querySelector('summary');
+        const indicator = summary.querySelector('span');
+        details.addEventListener('toggle', function() {
+          indicator.textContent = details.open ? '[-]' : '[+]';
         });
       });
     });
@@ -125,51 +180,133 @@
     <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="Nav-Links" aria-expanded="false">&#9776;</button>
   </header>
 
-  <div class="titlecontainer" id="historycontainer">
-    <img class="titleimage" id="historyMountains" src="../images/tribal-teepee.jpg" alt="Tribal Teepee"/>
-    <div class="hero-overlay-content">
-      <p class="title overlay-title" id="historytitle">Overall Impact of Treaties</p>
-      <div class="hero-timeline-grid">
-        <div class="hero-timeline-card">
-          <h3>Important Leaders</h3>
-          <p>The strength of Montana's tribal nations is rooted in its leaders. Discover the men and women from the Blackfeet, Crow, Northern Cheyenne, Salish, Kootenai, Assiniboine, Gros Ventre, Chippewa Cree, and Sioux nations whose courage and wisdom shaped the course of history.</p>
+  <section class="hero-bg">
+    <div style="max-width: 896px; margin: 0 auto; padding: 0 24px; text-align: center;">
+      <div class="culture-hero-badge">Overall Impact</div>
+      <h1 class="culture-hero-title">Treaties That Shaped<br>Montana's Tribal Nations</h1>
+      <p class="culture-hero-sub">From the Fort Laramie Treaty of 1851 to the Hellgate and Blackfeet Treaties — explore the agreements, leaders, and lasting resilience of Montana's Indigenous peoples.</p>
+      <a href="#leaders" class="culture-hero-cta">Understand the History <span>↓</span></a>
+    </div>
+  </section>
+
+  <!-- CHAPTER 01: LEADERS -->
+  <section id="leaders" class="culture-chapter earth-tone">
+    <div class="culture-chapter-inner">
+      <div class="culture-chapter-header">
+        <span class="culture-chapter-label">CHAPTER 01</span>
+        <h2>Important Leaders</h2>
+        <p>The strength of Montana's tribal nations is rooted in the courage and wisdom of their leaders.</p>
+      </div>
+      <div class="culture-leader-grid">
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon"><img src="../images/blackfeet-logo.png" alt="Blackfeet Nation logo" class="even-larger-logo"></div>
+          <h3>Blackfeet Nation</h3>
+          <p>Leaders like Running Eagle and others who fought to preserve their lands and culture against encroaching settlers.</p>
         </div>
-        <div class="hero-timeline-card">
-          <h3>Treaty Agreements</h3>
-          <p>From the Fort Laramie Treaties to the Hellgate and Blackfeet Treaties, the nations of Montana negotiated agreements that were meant to protect their lands, resources, and ways of life. Learn about the treaties that shaped every reservation and tribal nation across the state.</p>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon crow-spacing"><img src="../images/crow-logo.png" alt="Crow Nation logo" class="medium-logo"></div>
+          <h3>Crow Nation</h3>
+          <p>Chief Plenty Coups and other leaders who navigated the challenges of treaty negotiations and reservation life.</p>
         </div>
-        <div class="hero-timeline-card">
-          <h3>Modern Era</h3>
-          <p>Today, Montana's tribal nations continue to preserve their languages, cultures, and traditions while navigating the challenges and opportunities of the modern world. From language revitalization programs to tribal colleges and cultural centers, Indigenous communities across the state are leading the way forward — on their own terms.</p>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon"><img src="../images/cheyenne-logo.png" alt="Northern Cheyenne logo" class="larger-logo"></div>
+          <h3>Northern Cheyenne</h3>
+          <p>Warriors and chiefs who resisted relocation and fought for their ancestral lands.</p>
+        </div>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon"><img src="../images/flathead-logo.png" alt="Salish & Kootenai logo" class="larger-logo"></div>
+          <h3>Salish & Kootenai</h3>
+          <p>Leaders who signed the Hellgate Treaty and worked to maintain their fishing rights and cultural practices.</p>
+        </div>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon"><img src="../images/fort-belknap-logo.png" alt="Assiniboine & Gros Ventre logo" class="larger-logo"></div>
+          <h3>Assiniboine & Gros Ventre</h3>
+          <p>Leaders who advocated for their rights and preserved their buffalo hunting traditions and cultural heritage.</p>
+        </div>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon"><img src="../images/fort-peck-logo.png" alt="Fort Peck Tribes logo" class="even-larger-logo"></div>
+          <h3>Fort Peck Tribes</h3>
+          <p>Assiniboine and Sioux leaders who maintained sovereignty and cultural continuity on their reservation lands.</p>
+        </div>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon spaced-icon"><img src="../images/chippewa-logo.png" alt="Chippewa Cree logo" class="medium-logo"></div>
+          <h3>Chippewa Cree</h3>
+          <p>Leaders who balanced traditional ways with modern governance, preserving languages and ceremonies.</p>
+        </div>
+        <div class="culture-leader-card card-hover">
+          <div class="culture-leader-icon"><img src="../images/little-shell-logo.png" alt="Little Shell Chippewa logo" class="even-larger-logo"></div>
+          <h3>Little Shell Chippewa</h3>
+          <p>Métis and Anishinaabe leaders who fostered community resilience and cultural revitalization efforts.</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <section class="map-section" style="max-width: 1000px; margin: 60px auto; padding: 0 20px;">
-    <h2 style="text-align: center; margin-bottom: 20px; color: #5B3A29;">Interactive Map: Indigenous Territories & Land/Pre-Contact</h2>
-    <p style="text-align: center; font-size: 1.05rem; max-width: 700px; margin: 0 auto 30px;">
-      Explore whose traditional lands you are on. This map from <strong>Native Land Digital</strong> shows Indigenous territories, treaties, and languages.
-      Search by address, city, or zoom to Montana to see Indigenous territories.
-    </p>
-    <div style="border: 2px solid #8C5E3C; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f5f0eb; padding: 60px 20px; text-align: center;">
-      <p style="font-size: 1.1rem; color: #5B3A29; margin-bottom: 24px;">Click below to open the interactive map in a new tab.</p>
-      <a href="https://native-land.ca/maps/native-land" target="_blank" rel="noopener"
-        style="display: inline-block; background: #5B3A29; color: #fff; padding: 14px 36px; border-radius: 6px; font-size: 1rem; font-weight: 500; text-decoration: none; letter-spacing: 0.5px;">
-        Open Native Land Map &#8599;
-      </a>
-      <p style="margin-top: 20px; font-size: 0.9rem; color: #777;">Search "Crow" or "Other tribes within Montana" once the map opens to highlight territories.</p>
+  <!-- CHAPTER 02: TREATIES -->
+  <section id="treaties" class="culture-chapter culture-chapter--dark">
+    <div class="culture-chapter-inner">
+      <div class="culture-chapter-header">
+        <span class="culture-chapter-label">CHAPTER 02</span>
+        <h2>Treaty Agreements</h2>
+        <p>These historic agreements defined reservation boundaries and profoundly impacted Native nations as a whole — often through land loss, relocation, and broken promises, yet also through continued sovereignty and resistance.</p>
+      </div>
+      <div class="culture-treaties">
+        <details class="culture-treaty-details">
+          <summary class="culture-treaty-summary">Fort Laramie Treaty of 1851 <span>[+]</span></summary>
+          <div class="culture-treaty-content">
+            <p>This landmark treaty defined territories for the Sioux, Assiniboine, Blackfeet, Crow, Cheyenne, and Arapaho nations.</p>
+            <h4>Key Territories (Article 5 excerpts):</h4>
+            <ul>
+              <li><strong>Sioux/Dakota:</strong> From the White Earth River ... to the Black Hills and Heart River.</li>
+              <li><strong>Assiniboine:</strong> From the Yellowstone River to the Muscle Shell River and Big Dry Creek.</li>
+              <li><strong>Blackfeet:</strong> From the Muscle Shell River up the Missouri to the Rocky Mountains and Yellowstone headwaters.</li>
+              <li><strong>Crow:</strong> From the Powder River to the Black Hills, Wind River Mountains, and Yellowstone.</li>
+            </ul>
+            <p>These boundaries shaped modern reservations but were frequently violated, leading to further displacement and conflict.</p>
+          </div>
+        </details>
+      </div>
     </div>
-    <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #555;">
-      Map by <a href="https://native-land.ca/" target="_blank" rel="noopener">Native Land Digital</a> •
-      Data is for educational purposes and does not represent legal boundaries.
-    </p>
+  </section>
+
+  <!-- CHAPTER 03: MODERN RESILIENCE -->
+  <section id="modern" class="culture-chapter">
+    <div class="culture-chapter-inner">
+      <div class="culture-modern-grid">
+        <div class="culture-modern-text">
+          <span class="culture-chapter-label">CHAPTER 03</span>
+          <h2>Modern Resilience</h2>
+          <p>Today, Montana's tribal nations continue to preserve their languages, cultures, and traditions on their own terms.</p>
+          <p>Language revitalization programs, tribal colleges, and cultural centers are leading the way forward.</p>
+        </div>
+        <div class="culture-modern-quote">
+          <p>"We are still here. Our languages, songs, and stories endure."</p>
+          <span>— Voices of Montana Tribal Nations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 04: INTERACTIVE MAP -->
+  <section id="map" class="culture-chapter culture-chapter--dark">
+    <div class="culture-chapter-inner">
+      <div class="culture-chapter-header">
+        <span class="culture-chapter-label">CHAPTER 04</span>
+        <h2>Indigenous Territories & Treaties</h2>
+        <p>Explore whose traditional lands you are on. Educational map by Native Land Digital (does not represent legal boundaries).</p>
+      </div>
+      <div class="culture-map-box">
+        <iframe src="https://native-land.ca/" width="100%" height="600" style="border-radius: 14px;" title="Native Land Digital Map"></iframe>
+        <p class="culture-map-tip">Tip: Search "Montana", "Crow", "Blackfeet", or "Salish" once the map loads.</p>
+      </div>
+    </div>
   </section>
 
   <section class="treaties-section">
     <h2>Treaties</h2>
-      <div class="treaty-box">
-        <h4>Fort Laramie Treaty of 1851</h4>
+    <details class="culture-treaty-details">
+      <summary class="culture-treaty-summary">Fort Laramie Treaty of 1851 <span>[+]</span></summary>
+      <div class="culture-treaty-content">
         <p>Articles of a treaty made and concluded at Fort Laramie, in the Indian territory, between D.D Mitchell, superintendent of Indian Affairs, and Thomas Fitzpatrick, Indian Agent, commissioners specially appointed and authorized by The President of the United States, of the first part and the chiefs, headmen, and braves of the following Indian nations, residing south of the Missouri River, east of the Rocky Mountains, and north of the lines of Texas and New Mexico: the Sioux and Dahcotahs, Cheyennes, Arrapahos, Crows, Assinaboines, Gros-Ventre, Mandans, and Arrickaras, parties of the second part, on the seventeenth day of September, A.D. 1851.</p>
         <p><strong>Article 1.</strong> The aforesaid nations, parties to this treaty, having assembled for the purpose of establishing and confirming peaceful relations amongst themselves, do hereby covenant and agree to abstain in future from all hostilities whatever against each other, to maintain good faith and friendship in all their mutual intercourse, and to make an effective and lasting peace.</p>
         <p><strong>Article 2.</strong> The aforesaid nations do hereby recognize the right of the United States government to establish roads, military, and other posts within their respective territories.</p>
@@ -189,7 +326,8 @@
         <p><strong>Article 8.</strong> It is understood and agreed that should any of the Indian nations, parties to this treaty, violate any of the provisions thereof, the United States may withhold the whole or a portion of the annuities mentioned in the preceding article from the nation so offending, until, in the opinion of the President of the United States, proper satisfaction shall have been made.</p>
         <p><em>In testimony whereof the said D. D. Mitchell and Thomas Fitzpatrick commissioners as aforesaid, and the chiefs, headmen, and braves, parties hereto, have set their hands and affixed their marks, on the day and at the place first above written.</em></p>
       </div>
-    </section>
+    </details>
+  </section>
 
   <section class="about-contact-section">
     <div>
