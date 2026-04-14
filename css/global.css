@@ -1,5 +1,6 @@
 /* reset */
 *{margin:0;padding:0;box-sizing:border-box}
+img{max-width:100%;height:auto;display:block}
 body{font-family:'Inter',sans-serif;background:#D8CFC5;color:#222;line-height:1.6;min-height:100vh;padding-bottom:60px}
 h1,h2,h3{font-weight:500;text-align:center}
 p{font-weight:300}
@@ -114,6 +115,7 @@ footer{background:#5B3A29;color:#fff;height:60px;display:flex;
 @media(max-width:600px){
   .titlecontainer{height:50vh}
   .title{font-size:1.5rem;letter-spacing:1px}
+  #headerLogo{height:46px}
 }
 
 /* About & Contact Section */

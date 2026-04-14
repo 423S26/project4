@@ -299,6 +299,12 @@ body.dark-page #menu-toggle {
   }
 }
 
+@media (max-width: 600px) {
+  body.dark-page #headerLogo {
+    height: 38px;
+  }
+}
+
 /* ---- QUOTE SECTION ---- */
 .quote-section {
   display: flex;
