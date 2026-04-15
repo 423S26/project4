@@ -12,7 +12,7 @@
   <script src="../js/navigation.js" defer></script>
   <style>
     /* ── DARK PAGE ── */
-    body.culture-dark-page { background: #0c0a09; color: #f5f5f4; padding-bottom: 0; padding-top: 71px; }
+    body.culture-dark-page { background: linear-gradient(135deg, #0c0a09 0%, #1a1614 50%, #0c0a09 100%); color: #f5f5f4; padding-bottom: 0; padding-top: 71px; }
     /* header */
     body.culture-dark-page header { background: rgba(28,25,23,0.97); border-bottom: 1px solid #292524; height: 70px; padding: 0 32px; }
     .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
@@ -27,6 +27,17 @@
     body.culture-dark-page #Nav-Links.open li a.nav-active { color: #fbbf24; }
     body.culture-dark-page #Nav-Links.open li:hover { background: #292524; }
     body.culture-dark-page #menu-toggle { display: block !important; color: #f5f5f4; background: none; border: none; font-size: 32px; cursor: pointer; }
+    /* Grok-inspired submenu styles */
+    .menu-item { position: relative; }
+    .hidden-link { opacity: 0; position: absolute; left: 0; top: 100%; background-color: #1c1917; padding: 10px; min-width: 250px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); white-space: nowrap; border: 1px solid #292524; border-radius: 8px; transition: opacity 0.3s ease; z-index: 1000; }
+    .menu-item:hover .hidden-link { opacity: 1; }
+    .hidden-link a { display: flex; align-items: center; gap: 8px; color: #d6d3d1; padding: 10px 16px; text-decoration: none; font-size: 0.9rem; text-transform: none; letter-spacing: normal; }
+    .hidden-link a img { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
+    .hidden-link a:hover { background-color: #292524; color: #fbbf24; }
+    /* Mobile dropdown submenu - hide by default */
+    body.culture-dark-page #Nav-Links.open .hidden-link { display: none; position: static; background: none; border: none; padding: 0; margin-left: 20px; box-shadow: none; transition: none; }
+    body.culture-dark-page #Nav-Links.open .menu-item:hover .hidden-link { display: block; }
+    body.culture-dark-page #Nav-Links.open .hidden-link a { padding: 10px 28px 10px 48px; font-size: 0.8rem; }
     /* hero / title area */
     body.culture-dark-page .titlecontainer { position: relative; width: 100%; height: calc(100vh - 71px); overflow: hidden; display: flex; align-items: flex-end; padding-bottom: 0; margin-top: 0; }
     body.culture-dark-page .titleimage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.9; filter: brightness(100%) !important; }
@@ -47,8 +58,8 @@
     /* treaties */
     body.culture-dark-page .treaties-section { max-width: 1000px; margin: 60px auto; padding: 0 32px 60px; }
     body.culture-dark-page .treaties-section h2 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 2rem; margin-bottom: 24px; text-align: left; }
-    body.culture-dark-page .treaty-box { background: #1c1917; border: 1px solid #292524; border-radius: 16px; padding: 24px 48px 24px 32px; margin-bottom: 16px; transition: border-color 0.2s; }
-    body.culture-dark-page .treaty-box:hover { border-color: #fbbf24; }
+    body.culture-dark-page .treaty-box { background: rgba(30, 30, 30, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 10px; padding: 20px 22px; margin-bottom: 16px; transition: border-color 0.2s, background 0.2s; }
+    body.culture-dark-page .treaty-box:hover { border-color: rgba(251, 191, 36, 0.4); background: rgba(30, 30, 30, 0.9); }
     body.culture-dark-page .treaty-box h4 { color: #f5f5f4; font-size: 1.05rem; font-weight: 600; }
     body.culture-dark-page .treaty-box p, body.culture-dark-page .treaty-box ul { color: #a8a29e; line-height: 1.8; margin-top: 12px; }
     body.culture-dark-page .treaty-box ul { padding-left: 20px; }
@@ -109,8 +120,8 @@
     .culture-chapter-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #f5f5f4; margin: 10px 0 14px; }
     .culture-chapter-header p { color: #a8a29e; max-width: 600px; margin: 0 auto; line-height: 1.75; }
     .culture-leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .culture-leader-card { background: #1c1917; border: 1px solid #292524; border-radius: 20px; padding: 32px 28px; transition: border-color 0.2s, transform 0.25s; }
-    .culture-leader-card:hover { border-color: #fbbf24; transform: translateY(-4px); }
+    .culture-leader-card { background: rgba(30, 30, 30, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 10px; padding: 20px 22px; transition: border-color 0.2s, background 0.2s, transform 0.25s; }
+    .culture-leader-card:hover { border-color: rgba(251, 191, 36, 0.4); background: rgba(30, 30, 30, 0.9); transform: translateY(-4px); }
     .culture-leader-icon { font-size: 2.2rem; margin-bottom: 16px; }
     .culture-leader-icon img { width: 60px; height: 60px; object-fit: contain; }
     .spaced-icon { margin-bottom: 24px; }
@@ -129,6 +140,19 @@
     .culture-treaty-content h4 { color: #fbbf24; font-size: 1.1rem; margin-bottom: 12px; }
     .culture-treaty-content ul { padding-left: 20px; }
     .culture-treaty-content li { margin-bottom: 8px; }
+    .culture-treaty-overview { max-width: 1000px; margin: 0 auto 48px; color: #a8a29e; line-height: 1.7; }
+    .culture-treaty-overview p { margin-bottom: 20px; }
+    .culture-treaty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 48px; }
+    .culture-treaty-card { background: #1c1917; border: 1px solid #292524; border-radius: 20px; padding: 24px; transition: border-color 0.2s, transform 0.25s; }
+    .culture-treaty-card:hover { border-color: #fbbf24; transform: translateY(-4px); }
+    .culture-treaty-card h3 { font-family: 'Playfair Display', serif; color: #fbbf24; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .culture-treaty-card p { color: #a8a29e; line-height: 1.6; margin-bottom: 16px; }
+    .culture-treaty-card details { margin-top: 16px; }
+    .culture-treaty-card summary { cursor: pointer; color: #fbbf24; font-weight: 600; margin-bottom: 12px; }
+    .culture-treaty-card .culture-treaty-content { color: #a8a29e; line-height: 1.6; }
+    .culture-vigilance-note { max-width: 1000px; margin: 0 auto; padding: 32px; background: #1c1917; border: 1px solid #292524; border-radius: 20px; }
+    .culture-vigilance-note h3 { color: #fbbf24; font-size: 1.25rem; margin-bottom: 16px; }
+    .culture-vigilance-note p { color: #a8a29e; line-height: 1.7; margin-bottom: 12px; }
     .culture-modern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
     .culture-modern-text p { color: #a8a29e; line-height: 1.85; margin-bottom: 18px; }
     .culture-modern-quote { background: #1c1917; border: 1px solid #292524; border-left: 8px solid #fbbf24; border-radius: 18px; padding: 44px 36px; }
@@ -172,9 +196,26 @@
     <nav aria-label="Primary">
       <ul id="Nav-Links">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="learn.html">Learn</a></li>
+        <li class="menu-item">
+          <a href="learn.html">Learn</a>
+          <div class="hidden-link">
+            <a href="#"><img src="../images/crow-logo.png" alt="Crow Nation logo"> Crow Nation</a>
+            <a href="#"><img src="../images/blackfeet-logo.png" alt="Blackfeet Nation logo"> Blackfeet Nation</a>
+            <a href="#"><img src="../images/flathead-logo.png" alt="Confederated Salish and Kootenai logo"> Confederated Salish & Kootenai</a>
+            <a href="#"><img src="../images/cheyenne-logo.png" alt="Northern Cheyenne logo"> Northern Cheyenne</a>
+            <a href="#"><img src="../images/fort-belknap-logo.png" alt="Assiniboine and Gros Ventre logo"> Assiniboine & Gros Ventre</a>
+            <a href="#"><img src="../images/fort-peck-logo.png" alt="Fort Peck Tribes logo"> Fort Peck Tribes</a>
+            <a href="#"><img src="../images/chippewa-logo.png" alt="Rocky Boy logo"> Rocky Boy</a>
+            <a href="#"><img src="../images/little-shell-logo.png" alt="Little Shell Chippewa logo"> Little Shell Chippewa</a>
+          </div>
+        </li>
         <li><a href="culture.html" class="nav-active" aria-current="page">History</a></li>
-        <li><a href="stories.html">Stories</a></li>
+        <li class="menu-item">
+          <a href="stories.html">Stories</a>
+          <div class="hidden-link">
+            <a href="community.html">Community Submissions</a>
+          </div>
+        </li>
       </ul>
     </nav>
     <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="Nav-Links" aria-expanded="false">&#9776;</button>
@@ -194,77 +235,119 @@
     <div class="culture-chapter-inner">
       <div class="culture-chapter-header">
         <span class="culture-chapter-label">CHAPTER 01</span>
-        <h2>Important Leaders</h2>
-        <p>The strength of Montana's tribal nations is rooted in the courage and wisdom of their leaders.</p>
+        <h2>Tribal Leaders & Treaty Foundations</h2>
+        <p>Montana's Tribes and Their Foundational Treaties: Context for Modern Impacts, Sovereignty, and Vigilance</p>
+      </div>
+
+      <div class="culture-treaty-overview">
+        <p>Treaties between the United States and Montana's tribal nations—formal agreements under the U.S. Constitution's Article VI (making them the "supreme Law of the Land")—form the bedrock of tribal sovereignty today. These documents reserved specific rights (hunting, fishing, water, self-governance) while ceding vast territories for settlement, roads, and forts. They established reservations as homelands with "absolute and undisturbed use and occupation" in many cases.</p>
+        <p>However, post-1871 federal policies like the Dawes Allotment Act (1887) drastically reduced effective tribal lands through "surplus" sales to non-Indians, creating checkerboard ownership patterns. This led to the "regression" of boundaries from expansive treaty-era territories to today's fragmented holdings.</p>
+        <p>Tribal sovereignty carries the highest legal precedent. Treaties cannot be unilaterally infringed; any diminishment requires clear congressional intent. Yet historical language barriers complicate this: treaties were written in English, often with inadequate interpreters, reflecting clashing worldviews.</p>
+        <p>The strength of Montana's tribal nations is rooted in the courage and wisdom of their leaders, who navigated these complex agreements and preserved their cultures against encroaching settlers.</p>
       </div>
       <div class="culture-leader-grid">
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon"><img src="../images/blackfeet-logo.png" alt="Blackfeet Nation logo" class="even-larger-logo"></div>
           <h3>Blackfeet Nation</h3>
           <p>Leaders like Running Eagle and others who fought to preserve their lands and culture against encroaching settlers.</p>
+          <p><strong>Key Treaty:</strong> Lame Bull Treaty (1855) - Established perpetual peace and hunting rights.</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Modern reservation (~1.5 million acres) diminished by cessions and allotment. Sovereign rights include hunting/fishing/gathering and water rights via compact.</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon crow-spacing"><img src="../images/crow-logo.png" alt="Crow Nation logo" class="medium-logo"></div>
           <h3>Crow Nation</h3>
           <p>Chief Plenty Coups and other leaders who navigated the challenges of treaty negotiations and reservation life.</p>
+          <p><strong>Key Treaties:</strong> Fort Laramie (1851 & 1868) - Set aside reservation for "absolute and undisturbed use."</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Original reservation much larger; reduced to ~2.2 million acres with checkerboard pattern. Hunting rights upheld by Supreme Court (Herrera v. Wyoming, 2019).</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon"><img src="../images/cheyenne-logo.png" alt="Northern Cheyenne logo" class="larger-logo"></div>
           <h3>Northern Cheyenne</h3>
           <p>Warriors and chiefs who resisted relocation and fought for their ancestral lands.</p>
+          <p><strong>Key Involvement:</strong> Fort Laramie Treaties (1851/1868).</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Established by Executive Order (1884); ~445,000 acres. Treaty-based hunting/water rights; compact protects reserved water.</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon"><img src="../images/flathead-logo.png" alt="Salish & Kootenai logo" class="larger-logo"></div>
           <h3>Salish & Kootenai</h3>
           <p>Leaders who signed the Hellgate Treaty and worked to maintain their fishing rights and cultural practices.</p>
+          <p><strong>Key Treaty:</strong> Hellgate Treaty (1855) - Reserved Flathead Reservation for exclusive use.</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Reservation originally ~1.3 million acres; allotment caused loss of over 500,000 acres. Reserved fishing/hunting rights and water via compact.</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon"><img src="../images/fort-belknap-logo.png" alt="Assiniboine & Gros Ventre logo" class="larger-logo"></div>
           <h3>Assiniboine & Gros Ventre</h3>
           <p>Leaders who advocated for their rights and preserved their buffalo hunting traditions and cultural heritage.</p>
+          <p><strong>Key Involvement:</strong> Fort Laramie (1851) and Lame Bull (1855) Treaties.</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Established by Congressional Act (1888); ~698,000 acres today. Retained hunting/water rights; recent water settlement affirms Winters rights.</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon"><img src="../images/fort-peck-logo.png" alt="Fort Peck Tribes logo" class="even-larger-logo"></div>
           <h3>Fort Peck Tribes</h3>
           <p>Assiniboine and Sioux leaders who maintained sovereignty and cultural continuity on their reservation lands.</p>
+          <p><strong>Key Involvement:</strong> Fort Laramie Treaties (1851 & 1868).</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Modern boundaries from 1888 Act; ~2.1 million acres reduced by allotment. Reserved rights under treaty frameworks; water compact in place.</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon spaced-icon"><img src="../images/chippewa-logo.png" alt="Chippewa Cree logo" class="medium-logo"></div>
           <h3>Chippewa Cree</h3>
           <p>Leaders who balanced traditional ways with modern governance, preserving languages and ceremonies.</p>
+          <p><strong>No Foundational Treaty:</strong> Established by Congressional Act (1916).</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Smallest reservation (~122,000 acres). Full tribal sovereignty via recognition and compact; water rights settled.</p>
+            </div>
+          </details>
         </div>
         <div class="culture-leader-card card-hover">
           <div class="culture-leader-icon"><img src="../images/little-shell-logo.png" alt="Little Shell Chippewa logo" class="even-larger-logo"></div>
           <h3>Little Shell Chippewa</h3>
           <p>Métis and Anishinaabe leaders who fostered community resilience and cultural revitalization efforts.</p>
+          <p><strong>Key Historical Ties:</strong> Treaty of Old Crossing (1863).</p>
+          <details class="culture-treaty-details">
+            <summary>Read More</summary>
+            <div class="culture-treaty-content">
+              <p>Landless tribe; federal recognition (2019/2020). Inherent sovereignty affirmed; ongoing efforts for land base.</p>
+            </div>
+          </details>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CHAPTER 02: TREATIES -->
-  <section id="treaties" class="culture-chapter culture-chapter--dark">
-    <div class="culture-chapter-inner">
-      <div class="culture-chapter-header">
-        <span class="culture-chapter-label">CHAPTER 02</span>
-        <h2>Treaty Agreements</h2>
-        <p>These historic agreements defined reservation boundaries and profoundly impacted Native nations as a whole — often through land loss, relocation, and broken promises, yet also through continued sovereignty and resistance.</p>
-      </div>
-      <div class="culture-treaties">
-        <details class="culture-treaty-details">
-          <summary class="culture-treaty-summary">Fort Laramie Treaty of 1851 <span>[+]</span></summary>
-          <div class="culture-treaty-content">
-            <p>This landmark treaty defined territories for the Sioux, Assiniboine, Blackfeet, Crow, Cheyenne, and Arapaho nations.</p>
-            <h4>Key Territories (Article 5 excerpts):</h4>
-            <ul>
-              <li><strong>Sioux/Dakota:</strong> From the White Earth River ... to the Black Hills and Heart River.</li>
-              <li><strong>Assiniboine:</strong> From the Yellowstone River to the Muscle Shell River and Big Dry Creek.</li>
-              <li><strong>Blackfeet:</strong> From the Muscle Shell River up the Missouri to the Rocky Mountains and Yellowstone headwaters.</li>
-              <li><strong>Crow:</strong> From the Powder River to the Black Hills, Wind River Mountains, and Yellowstone.</li>
-            </ul>
-            <p>These boundaries shaped modern reservations but were frequently violated, leading to further displacement and conflict.</p>
-          </div>
-        </details>
+      <div class="culture-vigilance-note">
+        <h3>Staying Vigilant on Treaty Rights</h3>
+        <p>Treaty rights are not relics—they provide the strongest legal shield. Courts have upheld them repeatedly. However, proposals to alter compacts or jurisdiction can erode them. Tribes must interpret intent through oral histories and push for government-to-government consultation.</p>
+        <p>Your website can highlight these as living documents: monitor legislation, support litigation, and educate on boundary regression and sovereignty.</p>
       </div>
     </div>
   </section>
@@ -301,33 +384,7 @@
       </div>
     </div>
   </section>
-
-  <section class="treaties-section">
-    <h2>Treaties</h2>
-    <details class="culture-treaty-details">
-      <summary class="culture-treaty-summary">Fort Laramie Treaty of 1851 <span>[+]</span></summary>
-      <div class="culture-treaty-content">
-        <p>Articles of a treaty made and concluded at Fort Laramie, in the Indian territory, between D.D Mitchell, superintendent of Indian Affairs, and Thomas Fitzpatrick, Indian Agent, commissioners specially appointed and authorized by The President of the United States, of the first part and the chiefs, headmen, and braves of the following Indian nations, residing south of the Missouri River, east of the Rocky Mountains, and north of the lines of Texas and New Mexico: the Sioux and Dahcotahs, Cheyennes, Arrapahos, Crows, Assinaboines, Gros-Ventre, Mandans, and Arrickaras, parties of the second part, on the seventeenth day of September, A.D. 1851.</p>
-        <p><strong>Article 1.</strong> The aforesaid nations, parties to this treaty, having assembled for the purpose of establishing and confirming peaceful relations amongst themselves, do hereby covenant and agree to abstain in future from all hostilities whatever against each other, to maintain good faith and friendship in all their mutual intercourse, and to make an effective and lasting peace.</p>
-        <p><strong>Article 2.</strong> The aforesaid nations do hereby recognize the right of the United States government to establish roads, military, and other posts within their respective territories.</p>
-        <p><strong>Article 3.</strong> In consideration of the rights and privileges acknowledged in the preceding article, the United States bind themselves to protect the aforesaid Indian nations against the commission of all the depredations by the people of the said United States, after the ratification of the treaty.</p>
-        <p><strong>Article 4.</strong> The aforesaid Indian nations do hereby agree and bind themselves to make restitution or satisfaction for any wrongs committed, after the ratification of this treaty, by any band or individual of their people, on the people of the United States, whilst lawfully residing in or passing through their respective territories.</p>
-        <p><strong>Article 5.</strong> The aforesaid Indian nations do hereby recognize and acknowledge the following tracts of country, included within the metes and boundaries hereinafter designated, as their respective territories:</p>
-        <ul>
-          <li><strong>Sioux or Dakota nation:</strong> Commencing at the mouth of the White Earth River, on the Missouri River; thence in a southwesterly direction to the forks of the Platte River; thence up the North Fork of the Platte River to a point known as Red Butte, or where the road leaves the river; thence along the river range of the mountains known as the Black Hills, to the headwaters of Heart River; thence down Heart River to its mouth; and then down to the Missouri River to the place of beginning.</li>
-          <li><strong>Assiniboine nation:</strong> Commencing at the mouth of the Yellowstone River; thence up the Missouri River to the mouth of the Muscle Shell River; thence from the mouth of the Muscle Shell River in a southeasterly direction until it strikes the headwaters of Big Dry Creek; thence down that creek to where it empties into the Yellowstone River, nearly opposite the mouth of Powder River, and thence down the Yellowstone River to the place of beginning.</li>
-          <li><strong>Blackfeet nation:</strong> Commencing at the mouth of Muscle Shell River; thence up the Missouri River to its source; thence along the main range of the Rocky Mountains, in a southerly direction, to the headwaters of the northern source of the Yellowstone River; thence down Yellowstone River to the mouth of Twenty Five Yard Creek; thence across to the headwaters of the Muscle Shell, and thence down the Muscle Shell River to the place of beginning.</li>
-          <li><strong>Crow Nation:</strong> Commencing at the mouth of Powder River on the Yellowstone; thence up Powder River to its source; thence along the main range of the Black Hills and Wind River Mountains to the headwaters of the Yellowstone River; thence down the Yellowstone River to the mouth of Twenty-five Yard Creek; thence to the headwaters of the Muscle-shell River; thence down the Muscle-shell River to its mouth; thence to the headwaters of Big Dry Creek, and thence to its mouth.</li>
-          <li><strong>Cheyennes and Arrapahoes:</strong> Commencing at the Red Bute, or the place where the road leaves the North Fork of the Platte River; thence up the North Fork of the Platte River to its source; thence along the main range of the Rocky Mountains to the headwaters of the Arkansas River; thence down the Arkansas River to the crossing of the Santa Fe road; thence in a northwesterly direction to the forks of the Platte River, and thence up the Platte River to the place of beginning.</li>
-        </ul>
-        <p>It is, however, understood that, in making this recognition and acknowledgement, the aforesaid Indian nations do not hereby abandon or prejudice any rights or claims they may have to other lands; and further, that they do not surrender the privilege of hunting, fishing, or passing over any of the tracts of country heretofore described.</p>
-        <p><strong>Article 6.</strong> The parties to the second part of this treaty having selected principals or head-chiefs for their respective nations, through whom all national business will hereafter be conducted, do hereby bind themselves to sustain said chiefs and their successors during good behavior.</p>
-        <p><strong>Article 7.</strong> In consideration of the treaty stipulations, and for the damages which have or may occur by reason thereof to the Indian nations, parties hereto, and for their maintenance and the improvement of their moral and social customs, the United States bind themselves to deliver to the said Indian nations the sum of fifty thousand dollars per annum for the term of ten years, with the right to continue the same at the discretion of the President of the United States for a period not exceeding five years thereafter, in provisions, merchandise, domestic animals, and agricultural implements in such proportions as may be deemed best adapted to their condition by the President of the United States, to be distributed in proportion to the population of the aforesaid Indian nations.</p>
-        <p><strong>Article 8.</strong> It is understood and agreed that should any of the Indian nations, parties to this treaty, violate any of the provisions thereof, the United States may withhold the whole or a portion of the annuities mentioned in the preceding article from the nation so offending, until, in the opinion of the President of the United States, proper satisfaction shall have been made.</p>
-        <p><em>In testimony whereof the said D. D. Mitchell and Thomas Fitzpatrick commissioners as aforesaid, and the chiefs, headmen, and braves, parties hereto, have set their hands and affixed their marks, on the day and at the place first above written.</em></p>
-      </div>
-    </details>
-  </section>
+  
 
   <section class="about-contact-section">
     <div>
