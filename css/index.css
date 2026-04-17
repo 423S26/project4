@@ -496,7 +496,9 @@ body.dark-page #Nav-Links.open .hidden-link a:hover {
   pointer-events: none;
 }
 
-.feature-card:hover {
+.feature-card:hover,
+.feature-card:active,
+.feature-card:focus {
   transform: translateY(-0.25em) scale(1.018);
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.07) 42%, rgba(191, 219, 254, 0.1) 100%);
   box-shadow: 0 32px 72px -18px rgba(0, 0, 0, 0.45),

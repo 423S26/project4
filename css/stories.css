@@ -311,7 +311,9 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
   pointer-events: none;
 }
 
-.stories-feature-grid .feature-card:hover {
+.stories-feature-grid .feature-card:hover,
+.stories-feature-grid .feature-card:active,
+.stories-feature-grid .feature-card:focus {
   transform: translateY(-0.25em);
   background: rgba(30, 30, 30, 0.9);
   box-shadow: 0 32px 72px -18px rgba(0,0,0,0.45), 0 10px 28px rgba(15,23,42,0.18),
@@ -476,7 +478,9 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
   --hover: #fbbf24;
 }
 
-.story-card:hover {
+.story-card:hover,
+.story-card:active,
+.story-card:focus {
   transform: translateY(-0.25em);
   border-color: rgba(251, 191, 36, 0.4);
   box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.55),

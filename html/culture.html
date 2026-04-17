@@ -122,7 +122,9 @@
     .culture-chapter-header p { color: #a8a29e; max-width: 600px; margin: 0 auto; line-height: 1.75; }
     .culture-leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .culture-leader-card { background: rgba(30, 30, 30, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 10px; padding: 20px 22px; transition: border-color 0.2s, background 0.2s, transform 0.25s; --color: #fbbf24; --hover: #fcd34d; }
-    .culture-leader-card:hover { border-color: rgba(251, 191, 36, 0.4); background: rgba(30, 30, 30, 0.9); transform: translateY(-4px); animation: pulse 1s; box-shadow: 0 0 0 2em transparent; }
+    .culture-leader-card:hover,
+    .culture-leader-card:active,
+    .culture-leader-card:focus { border-color: rgba(251, 191, 36, 0.4); background: rgba(30, 30, 30, 0.9); transform: translateY(-4px); animation: pulse 1s; box-shadow: 0 0 0 2em transparent; }
     .culture-leader-icon { font-size: 2.2rem; margin-bottom: 16px; }
     .culture-leader-icon img { width: 60px; height: 60px; object-fit: contain; }
     .spaced-icon { margin-bottom: 24px; }
