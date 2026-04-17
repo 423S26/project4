@@ -63,6 +63,40 @@
     </section>
 
     <div class="stories-shell">
+        <div class="stories-filters">
+            <div class="filter-item">
+                <label for="tribe-filter">Filter by Tribe:</label>
+                <select id="tribe-filter" class="story-filter">
+                    <option value="">All Tribes</option>
+                    <option value="Assiniboine & Gros Ventre">Assiniboine & Gros Ventre</option>
+                    <option value="Blackfeet Nation">Blackfeet Nation</option>
+                    <option value="Confederated Salish and Kootenai">Confederated Salish & Kootenai</option>
+                    <option value="Crow Nation">Crow Nation</option>
+                    <option value="Fort Peck Tribes">Fort Peck Tribes</option>
+                    <option value="Little Shell Chippewa">Little Shell Chippewa</option>
+                    <option value="Northern Cheyenne">Northern Cheyenne</option>
+                    <option value="Rocky Boy">Rocky Boy</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter" class="story-filter">
+                    <option value="">All Categories</option>
+                    <option value="Landscapes">Landscapes</option>
+                    <option value="Lineage(Family)">Lineage (Family)</option>
+                    <option value="Creation Story">Creation Story</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Community">Community</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="sort-filter">Sort by:</label>
+                <select id="sort-filter" class="story-filter">
+                    <option value="title">Title (A-Z)</option>
+                    <option value="tribe">Tribe (A-Z)</option>
+                </select>
+            </div>
+        </div>
         <p id="stories-status" class="stories-status" aria-live="polite">Loading stories…</p>
         <section id="stories-container" class="stories-grid" aria-live="polite"></section>
 
@@ -109,8 +143,56 @@
         }
 
         allStories = data;
+        populateFilters(allStories);
         renderStories(allStories);
         updateStatus(`${allStories.length} stor${allStories.length === 1 ? 'y' : 'ies'} found.`);
+    }
+
+    function populateFilters(stories) {
+        const tribeFilter = document.getElementById('tribe-filter');
+        const categoryFilter = document.getElementById('category-filter');
+
+        const tribes = [...new Set(stories.map(story => story.Tribe).filter(Boolean))].sort();
+        const categories = [...new Set(stories.map(story => story.Category).filter(Boolean))].sort();
+
+        tribes.forEach(tribe => {
+            if (!Array.from(tribeFilter.options).some(option => option.value === tribe)) {
+                const option = document.createElement('option');
+                option.value = tribe;
+                option.textContent = tribe;
+                tribeFilter.appendChild(option);
+            }
+        });
+
+        categories.forEach(category => {
+            if (!Array.from(categoryFilter.options).some(option => option.value === category)) {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            }
+        });
+    }
+
+    function filterAndSortStories() {
+        const tribeFilter = document.getElementById('tribe-filter').value;
+        const categoryFilter = document.getElementById('category-filter').value;
+        const sortFilter = document.getElementById('sort-filter').value;
+
+        let filtered = allStories.filter(story => {
+            const tribeMatch = !tribeFilter || story.Tribe === tribeFilter;
+            const categoryMatch = !categoryFilter || story.Category === categoryFilter;
+            return tribeMatch && categoryMatch;
+        });
+
+        if (sortFilter === 'title') {
+            filtered.sort((a, b) => (a.Title || '').localeCompare(b.Title || ''));
+        } else if (sortFilter === 'tribe') {
+            filtered.sort((a, b) => (a.Tribe || '').localeCompare(b.Tribe || ''));
+        }
+
+        renderStories(filtered);
+        updateStatus(`${filtered.length} stor${filtered.length === 1 ? 'y' : 'ies'} found.`);
     }
 
     function createStoryCard(story) {
@@ -169,6 +251,11 @@
     }
 
     window.loadStories = loadStories;
+
+    // Add event listeners for filters
+    document.getElementById('tribe-filter').addEventListener('change', filterAndSortStories);
+    document.getElementById('category-filter').addEventListener('change', filterAndSortStories);
+    document.getElementById('sort-filter').addEventListener('change', filterAndSortStories);
 
     const script = document.createElement('script');
     script.src = 'https://script.google.com/macros/s/AKfycbxSZvaRJC171mO84k4aQ8k-V94iFj3YD6s5ryGePgEOjrNksIiadA5TtYrbK2fu9gVEdw/exec?callback=loadStories';

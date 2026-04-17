@@ -299,6 +299,8 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
               border-color 0.4s cubic-bezier(0.4,0,0.2,1), background 0.4s cubic-bezier(0.4,0,0.2,1);
   cursor: pointer;
+  --color: rgba(251, 191, 36, 0.9);
+  --hover: #fbbf24;
 }
 
 .stories-feature-grid .feature-card::before {
@@ -310,10 +312,11 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
 }
 
 .stories-feature-grid .feature-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-0.25em);
   background: rgba(30, 30, 30, 0.9);
   box-shadow: 0 32px 72px -18px rgba(0,0,0,0.45), 0 10px 28px rgba(15,23,42,0.18),
-              inset 0 1px 0 rgba(255,255,255,0.34);
+              inset 0 1px 0 rgba(255,255,255,0.34),
+              0 0.5em 0.5em -0.4em var(--hover);
   border-color: rgba(251, 191, 36, 0.4);
 }
 
@@ -369,6 +372,20 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
     flex-direction: column;
     align-items: flex-start;
   }
+  .stories-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .filter-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .story-filter {
+    width: 100%;
+    min-width: unset;
+  }
 }
 
 .stories-panel {
@@ -400,7 +417,7 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
 }
 
 .story-filter {
-  width: 100%;
+  min-width: 150px;
   background: #111110;
   border: 1px solid #44403c;
   color: #f5f5f4;
@@ -414,6 +431,29 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
 .story-filter:focus {
   border-color: #fbbf24;
   box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.12);
+}
+
+.stories-filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-item label {
+  color: #a8a29e;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .stories-grid {
@@ -432,12 +472,15 @@ body.stories-dark-page #Nav-Links.open .hidden-link a:hover {
   border-radius: 24px;
   padding: 28px;
   transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  --color: rgba(251, 191, 36, 0.9);
+  --hover: #fbbf24;
 }
 
 .story-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-0.25em);
   border-color: rgba(251, 191, 36, 0.4);
-  box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.55),
+              0 0.5em 0.5em -0.4em var(--hover);
 }
 
 .story-card-title {
