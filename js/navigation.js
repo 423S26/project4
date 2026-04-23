@@ -43,3 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(details) {
+    const summary = details.querySelector('summary');
+    const indicator = summary ? summary.querySelector('span') : null;
+    if (!indicator) return;
+    details.addEventListener('toggle', function() {
+      indicator.textContent = details.open ? '[-]' : '[+]';
+    });
+  });
+});
