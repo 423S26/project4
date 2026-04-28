@@ -129,3 +129,5 @@ Complete individual language hubs for each tribe.
 Add more community stories and oral histories.
 Expand interactive elements (e.g., more sign language gestures, simple translation tools).
 
+Link to Recorded Presentation demo:
+https://youtu.be/6dE3syBP048
